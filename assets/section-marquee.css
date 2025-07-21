@@ -1,0 +1,84 @@
+.marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.marquee__container {
+  display: flex;
+  width: 100%;
+}
+
+.marquee__content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 0;
+  white-space: nowrap;
+  animation: marquee-scroll var(--marquee-speed, 30s) linear infinite;
+  animation-direction: var(--marquee-direction, left);
+}
+
+.marquee__content[data-pause-on-hover='true']:hover {
+  animation-play-state: paused;
+}
+
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.marquee__item--icon {
+  font-size: 1.6rem;
+}
+
+.marquee__item--image {
+  display: inline-flex;
+  align-items: center;
+}
+
+.marquee__item--image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Right direction animation */
+.marquee__content[style*='--marquee-direction: right'] {
+  animation-direction: reverse;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 749px) {
+  .marquee__content {
+    gap: 1.5rem;
+  }
+
+  .marquee__item {
+    font-size: 1.2rem;
+  }
+
+  .marquee__item--icon {
+    font-size: 1.4rem;
+  }
+}
+
+/* Ensure smooth animation on all devices */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__content {
+    animation-duration: calc(var(--marquee-speed, 30s) * 2);
+  }
+}

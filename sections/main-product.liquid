@@ -485,6 +485,15 @@
                   section_id: section.id,
                   show_pickup_availability: true
                 -%}
+              {%- when 'buy_buttons_enhanced' -%}
+                {%- render 'buy-buttons-enhanced',
+                  block: block,
+                  product: product,
+                  product_form_id: product_form_id,
+                  section_id: section.id,
+                  show_pickup_availability: true,
+                  show_quantity_selector: block.settings.show_quantity_selector
+                -%}
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">
@@ -925,6 +934,130 @@
           "default": true,
           "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
+        },
+        {
+          "type": "select",
+          "id": "button_animation",
+          "options": [
+            {
+              "value": "none",
+              "label": "No Animation"
+            },
+            {
+              "value": "pulse",
+              "label": "Pulse Effect"
+            },
+            {
+              "value": "bounce",
+              "label": "Bounce Effect"
+            },
+            {
+              "value": "scale",
+              "label": "Scale Effect"
+            },
+            {
+              "value": "magnetic",
+              "label": "Magnetic Effect"
+            },
+            {
+              "value": "slide",
+              "label": "Slide Effect"
+            },
+            {
+              "value": "ripple",
+              "label": "Ripple Effect"
+            },
+            {
+              "value": "shadow",
+              "label": "Shadow Effect"
+            },
+            {
+              "value": "glow",
+              "label": "Glow Effect"
+            },
+            {
+              "value": "float",
+              "label": "Float Effect"
+            }
+          ],
+          "default": "none",
+          "label": "Button Animation"
+        }
+      ]
+    },
+    {
+      "type": "buy_buttons_enhanced",
+      "name": "Buy Buttons Enhanced",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_dynamic_checkout",
+          "default": true,
+          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.label",
+          "info": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_gift_card_recipient",
+          "default": true,
+          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
+          "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_quantity_selector",
+          "default": true,
+          "label": "Show quantity selector",
+          "info": "Display quantity input field before add to cart button"
+        },
+        {
+          "type": "select",
+          "id": "button_animation",
+          "options": [
+            {
+              "value": "none",
+              "label": "No Animation"
+            },
+            {
+              "value": "pulse",
+              "label": "Pulse Effect"
+            },
+            {
+              "value": "bounce",
+              "label": "Bounce Effect"
+            },
+            {
+              "value": "scale",
+              "label": "Scale Effect"
+            },
+            {
+              "value": "magnetic",
+              "label": "Magnetic Effect"
+            },
+            {
+              "value": "slide",
+              "label": "Slide Effect"
+            },
+            {
+              "value": "ripple",
+              "label": "Ripple Effect"
+            },
+            {
+              "value": "shadow",
+              "label": "Shadow Effect"
+            },
+            {
+              "value": "glow",
+              "label": "Glow Effect"
+            },
+            {
+              "value": "float",
+              "label": "Float Effect"
+            }
+          ],
+          "default": "none",
+          "label": "Button Animation"
         }
       ]
     },

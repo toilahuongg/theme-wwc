@@ -449,3 +449,45 @@
 .language-selector .disclosure__list {
   min-width: 200px;
 }
+
+/* Country flag styling */
+.disclosure__link .country {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.4rem;
+}
+
+/* Make flags larger in the dropdown */
+.disclosure__link .country {
+  font-size: 1.4rem;
+}
+
+/* Make flag larger in the main button */
+.localization-selector span {
+  display: flex;
+  align-items: center;
+}
+
+.localization-selector .country-flag {
+  font-size: 2.2rem;
+  margin-right: 0.5rem;
+  line-height: 1;
+}
+
+/* Make flags in dropdown larger */
+.disclosure__link .country {
+  font-size: 1.4rem;
+}
+
+/* Ensure flags are properly sized in dropdown */
+.disclosure__link .country {
+  display: flex;
+  align-items: center;
+}
+
+.country-flag-dropdown {
+  font-size: 2.2rem;
+  line-height: 1;
+  margin-right: 0.8rem;
+}

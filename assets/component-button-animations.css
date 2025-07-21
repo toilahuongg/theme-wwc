@@ -1,0 +1,516 @@
+/* ===== BUTTON ANIMATIONS COMPONENT ===== */
+
+/* Base animation settings */
+.button--animated {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* 1. PULSE ANIMATION - For attention-grabbing buttons */
+.button--pulse {
+  position: relative;
+  overflow: hidden;
+}
+
+.button--pulse::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.button--pulse:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* 2. SHAKE ANIMATION - For error/alert buttons */
+@keyframes buttonShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-2px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(2px);
+  }
+}
+
+.button--shake:hover {
+  animation: buttonShake 0.5s ease-in-out;
+}
+
+/* 3. BOUNCE ANIMATION - For success/CTA buttons */
+@keyframes buttonBounce {
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40%,
+  43% {
+    transform: translateY(-8px);
+  }
+  70% {
+    transform: translateY(-4px);
+  }
+  90% {
+    transform: translateY(-2px);
+  }
+}
+
+.button--bounce:hover {
+  animation: buttonBounce 0.8s ease;
+}
+
+/* 4. GLOW ANIMATION - For premium/featured buttons */
+.button--glow {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.button--glow::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  background-size: 400%;
+  border-radius: calc(var(--buttons-radius-outset) + 2px);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: buttonGlow 3s linear infinite;
+}
+
+.button--glow:hover::after {
+  opacity: 1;
+}
+
+@keyframes buttonGlow {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* 5. SCALE ANIMATION - For interactive buttons */
+.button--scale {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button--scale:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.button--scale:active {
+  transform: scale(0.95);
+}
+
+/* 6. SLIDE ANIMATION - For navigation buttons */
+.button--slide {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.button--slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.button--slide:hover::before {
+  left: 100%;
+}
+
+/* 7. ROTATE ANIMATION - For refresh/reload buttons */
+@keyframes buttonRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.button--rotate:hover {
+  animation: buttonRotate 0.6s ease-in-out;
+}
+
+/* 8. TYPEWRITER EFFECT - For text buttons */
+.button--typewriter {
+  position: relative;
+  overflow: hidden;
+}
+
+.button--typewriter::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(var(--color-button));
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.button--typewriter:hover::after {
+  transform: translateX(0);
+}
+
+/* 9. MAGNETIC EFFECT - For interactive buttons */
+.button--magnetic {
+  transition: transform 0.2s ease;
+}
+
+.button--magnetic:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 10. NEON EFFECT - For dark theme buttons */
+.button--neon {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.button--neon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--buttons-radius-outset);
+  padding: 2px;
+  background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+  background-size: 400% 400%;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: buttonNeon 2s ease infinite;
+}
+
+.button--neon:hover::before {
+  opacity: 1;
+}
+
+@keyframes buttonNeon {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* 11. RIPPLE EFFECT - Material Design style */
+.button--ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.button--ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+.button--ripple:hover::before {
+  width: 200px;
+  height: 200px;
+}
+
+/* 12. FLOATING ANIMATION - For call-to-action buttons */
+@keyframes buttonFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.button--float {
+  animation: buttonFloat 3s ease-in-out infinite;
+}
+
+.button--float:hover {
+  animation: none;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 13. WAVE ANIMATION - For modern buttons */
+.button--wave {
+  position: relative;
+  overflow: hidden;
+}
+
+.button--wave::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+}
+
+.button--wave:hover::before {
+  width: 400px;
+  height: 400px;
+  opacity: 0;
+}
+
+/* 14. FLIP ANIMATION - For card-like buttons */
+.button--flip {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.button--flip:hover {
+  transform: rotateY(180deg);
+  transition: transform 0.6s ease;
+}
+
+/* 15. ZOOM ANIMATION - For image buttons */
+.button--zoom {
+  transition: transform 0.3s ease;
+}
+
+.button--zoom:hover {
+  transform: scale(1.1);
+}
+
+/* 16. SHADOW ANIMATION - For depth effect */
+.button--shadow {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.button--shadow:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+/* 17. BORDER ANIMATION - For outline buttons */
+.button--border-animate {
+  position: relative;
+  overflow: hidden;
+}
+
+.button--border-animate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transition: left 0.3s ease;
+}
+
+.button--border-animate::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transition: right 0.3s ease;
+}
+
+.button--border-animate:hover::before {
+  left: 0;
+}
+
+.button--border-animate:hover::after {
+  right: 0;
+}
+
+/* 18. TEXT REVEAL ANIMATION - For text buttons */
+.button--text-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.button--text-reveal span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.button--text-reveal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: left 0.3s ease;
+}
+
+.button--text-reveal:hover::before {
+  left: 0;
+}
+
+/* 19. PARTICLE EFFECT - For special buttons */
+.button--particle {
+  position: relative;
+  overflow: hidden;
+}
+
+.button--particle::before {
+  content: '✦';
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.button--particle::after {
+  content: '✦';
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.button--particle:hover::before {
+  opacity: 1;
+  transform: translate(-5px, -5px);
+}
+
+.button--particle:hover::after {
+  opacity: 1;
+  transform: translate(5px, 5px);
+}
+
+/* 20. GRADIENT SHIFT - For modern gradient buttons */
+.button--gradient-shift {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  background-size: 300% 300%;
+  transition: background-position 0.5s ease;
+}
+
+.button--gradient-shift:hover {
+  background-position: 100% 100%;
+}
+
+/* Responsive animations - disable heavy animations on mobile for better performance */
+/* @media screen and (max-width: 749px) {
+  .button--glow::after,
+  .button--neon::before {
+    display: none;
+  }
+
+  .button--float {
+    animation: none;
+  }
+
+  .button--scale:hover,
+  .button--zoom:hover {
+    transform: none;
+  }
+
+  .button--particle::before,
+  .button--particle::after {
+    display: none;
+  }
+} */
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .button--animated,
+  .button--pulse,
+  .button--shake,
+  .button--bounce,
+  .button--glow,
+  .button--scale,
+  .button--slide,
+  .button--rotate,
+  .button--typewriter,
+  .button--magnetic,
+  .button--neon,
+  .button--ripple,
+  .button--float,
+  .button--wave,
+  .button--flip,
+  .button--zoom,
+  .button--shadow,
+  .button--border-animate,
+  .button--text-reveal,
+  .button--particle,
+  .button--gradient-shift {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .button--animated::before,
+  .button--animated::after,
+  .button--pulse::before,
+  .button--glow::after,
+  .button--slide::before,
+  .button--typewriter::after,
+  .button--neon::before,
+  .button--ripple::before,
+  .button--wave::before,
+  .button--border-animate::before,
+  .button--border-animate::after,
+  .button--text-reveal::before {
+    display: none !important;
+  }
+}

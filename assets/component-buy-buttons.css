@@ -1,0 +1,92 @@
+/* Buy Buttons with Cart Icon */
+.product-form__submit {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.product-form__submit .button__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.product-form__submit .button__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+.product-form__submit .button__icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}
+
+.product-form__submit .button__text {
+  font-weight: 500;
+}
+
+/* Loading state - hide icon and text */
+.product-form__submit.is-loading .button__content {
+  opacity: 0;
+}
+
+.product-form__submit.is-loading .loading__spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Disabled state */
+.product-form__submit:disabled .button__icon {
+  opacity: 0.6;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 749px) {
+  .product-form__submit .button__icon {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .product-form__submit .button__icon svg {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .product-form__submit {
+    gap: 0.375rem;
+  }
+
+  .product-form__submit .button__content {
+    gap: 0.375rem;
+  }
+}
+
+/* Animation for button interactions */
+.product-form__submit:not(:disabled):hover .button__icon {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+.product-form__submit:not(:disabled):active .button__icon {
+  transform: scale(0.95);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .product-form__submit:not(:disabled):hover .button__icon,
+  .product-form__submit:not(:disabled):active .button__icon {
+    transform: none;
+    transition: none;
+  }
+}

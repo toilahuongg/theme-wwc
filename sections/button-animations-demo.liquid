@@ -1,0 +1,183 @@
+{{ 'component-button-animations.css' | asset_url | stylesheet_tag }}
+
+<div class="page-width">
+  <div class="section-{{ section.id }}-padding">
+    {% if section.settings.title != blank %}
+      <h2 class="title {{ section.settings.heading_size }}">
+        {{ section.settings.title | escape }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.text != blank %}
+      <div class="rte">{{ section.settings.text }}</div>
+    {% endif %}
+
+    <div class="button-animations-demo">
+      <div class="demo-section">
+        <h3>Primary Button Animations</h3>
+        <div class="demo-buttons">
+          <button class="button button--pulse">Pulse Effect</button>
+          <button class="button button--bounce">Bounce Effect</button>
+          <button class="button button--scale">Scale Effect</button>
+          <button class="button button--magnetic">Magnetic Effect</button>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>Secondary Button Animations</h3>
+        <div class="demo-buttons">
+          <button class="button button--secondary button--slide">Slide Effect</button>
+          <button class="button button--secondary button--ripple">Ripple Effect</button>
+          <button class="button button--secondary button--shadow">Shadow Effect</button>
+          <button class="button button--secondary button--border-animate">Border Animate</button>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>Special Effects</h3>
+        <div class="demo-buttons">
+          <button class="button button--glow">Glow Effect</button>
+          <button class="button button--neon">Neon Effect</button>
+          <button class="button button--float">Float Effect</button>
+          <button class="button button--particle">Particle Effect</button>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>Interactive Effects</h3>
+        <div class="demo-buttons">
+          <button class="button button--rotate">Rotate Effect</button>
+          <button class="button button--wave">Wave Effect</button>
+          <button class="button button--zoom">Zoom Effect</button>
+          <button class="button button--text-reveal"><span>Text Reveal</span></button>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>Alert & Error Buttons</h3>
+        <div class="demo-buttons">
+          <button class="button button--shake" style="background-color: #dc3545; color: white;">Shake Alert</button>
+          <button class="button button--typewriter" style="background-color: #fd7e14; color: white;">Typewriter</button>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>Gradient Buttons</h3>
+        <div class="demo-buttons">
+          <button class="button button--gradient-shift" style="color: white;">Gradient Shift</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .button-animations-demo {
+    margin-top: 3rem;
+  }
+
+  .demo-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border: 1px solid rgba(var(--color-foreground), 0.1);
+    border-radius: 8px;
+    background: rgba(var(--color-background), 0.5);
+  }
+
+  .demo-section h3 {
+    margin-bottom: 1.5rem;
+    color: rgb(var(--color-foreground));
+    font-size: 1.8rem;
+  }
+
+  .demo-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .demo-buttons .button {
+    min-width: 150px;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .demo-buttons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .demo-buttons .button {
+      width: 100%;
+      min-width: auto;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Button Animations Demo",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Button Animations Demo",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Small"
+        },
+        {
+          "value": "h1",
+          "label": "Large"
+        }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>Explore different button animation effects. Hover over each button to see the animation in action.</p>",
+      "label": "Text"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Button Animations Demo"
+    }
+  ]
+}
+{% endschema %}

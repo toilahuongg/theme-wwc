@@ -1,0 +1,196 @@
+/* Quick Add Icon Styles */
+
+.quick-add__submit--icon {
+  position: absolute !important;
+  bottom: 1rem;
+  right: 1rem;
+  width: 3.5rem !important;
+  height: 3.5rem !important;
+  min-width: 3.5rem !important;
+  min-height: 3.5rem !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--color-foreground), 0.9) !important;
+  border: 2px solid rgba(var(--color-foreground), 0.1) !important;
+  color: rgb(var(--color-background)) !important;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(var(--color-foreground), 0.15);
+  cursor: pointer;
+}
+
+.quick-add__submit--icon:hover {
+  background: rgb(var(--color-foreground)) !important;
+  border-color: rgb(var(--color-foreground)) !important;
+  transform: translateY(0) scale(1.05);
+  box-shadow: 0 6px 20px rgba(var(--color-foreground), 0.25);
+}
+
+.quick-add__submit--icon:focus {
+  outline: 2px solid rgb(var(--color-foreground));
+  outline-offset: 2px;
+}
+
+.quick-add__submit--icon .icon-wrap {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quick-add__submit--icon .icon-wrap svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}
+
+.quick-add__submit--icon .quick-add__label::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  right: 1rem;
+  border: 4px solid transparent;
+  border-top-color: rgba(var(--color-foreground), 0.9);
+}
+
+.quick-add__submit--icon:hover .quick-add__label {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* Card hover states */
+.card-wrapper:hover .quick-add__submit--icon {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ensure icon is visible on card hover */
+.card:hover .quick-add__submit--icon {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Loading state */
+.quick-add__submit--icon .loading__spinner {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Tooltip label styling */
+.quick-add__submit--icon .quick-add__label {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  background: rgba(var(--color-foreground), 0.9);
+  color: rgb(var(--color-background));
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.2s ease;
+  pointer-events: none;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 8px rgba(var(--color-foreground), 0.15);
+  z-index: 15;
+  visibility: hidden;
+}
+
+/* Sold out state */
+.quick-add__submit--icon:disabled {
+  background: rgba(var(--color-foreground), 0.5) !important;
+  cursor: not-allowed;
+}
+
+.quick-add__submit--icon:disabled:hover {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(var(--color-foreground), 0.15);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 749px) {
+  .card .quick-add__submit--icon {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .quick-add__submit--icon {
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+    min-height: 3rem !important;
+    bottom: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .quick-add__submit--icon .icon-wrap {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .quick-add__submit--icon .icon-wrap svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .quick-add__submit--icon .quick-add__label {
+    font-size: 0.6875rem;
+    padding: 0.375rem 0.625rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .quick-add__submit--icon {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: rgb(var(--color-foreground)) !important;
+  }
+
+  .quick-add__submit--icon:hover {
+    background: rgb(255, 255, 255) !important;
+  }
+
+  .quick-add__submit--icon .quick-add__label {
+    background: rgba(255, 255, 255, 0.9);
+    color: rgb(var(--color-foreground));
+  }
+
+  .quick-add__submit--icon .quick-add__label::after {
+    border-top-color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* Ensure proper positioning relative to card */
+.card-wrapper {
+  position: relative;
+}
+
+/* Fix potential overflow issues */
+.card {
+  overflow: visible;
+}
+
+/* Ensure icon doesn't interfere with card content */
+.card__content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .quick-add__submit--icon,
+  .quick-add__submit--icon:hover,
+  .quick-add__submit--icon .quick-add__label,
+  .quick-add__submit--icon:hover .quick-add__label {
+    transition: none;
+  }
+}

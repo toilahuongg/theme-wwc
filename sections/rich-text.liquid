@@ -69,7 +69,7 @@
                     {% else %}
                       href="{{ block.settings.button_link }}"
                     {% endif %}
-                    class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+                    class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}{% if block.settings.button_animation != 'none' %} button--{{ block.settings.button_animation }}{% endif %}"
                   >
                     {{- block.settings.button_label | escape -}}
                   </a>
@@ -81,7 +81,7 @@
                     {% else %}
                       href="{{ block.settings.button_link_2 }}"
                     {% endif %}
-                    class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"
+                    class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}{% if block.settings.button_animation_2 != 'none' %} button--{{ block.settings.button_animation_2 }}{% endif %}"
                   >
                     {{- block.settings.button_label_2 | escape -}}
                   </a>
@@ -290,9 +290,9 @@
       "limit": 2,
       "settings": [
         {
-         "type": "header",
-         "content": "t:sections.rich-text.blocks.buttons.settings.header_button1.content"
-        },        
+          "type": "header",
+          "content": "t:sections.rich-text.blocks.buttons.settings.header_button1.content"
+        },
         {
           "type": "text",
           "id": "button_label",
@@ -312,9 +312,57 @@
           "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_1.label"
         },
         {
-         "type": "header",
-         "content": "t:sections.rich-text.blocks.buttons.settings.header_button2.content"
-        },          
+          "type": "select",
+          "id": "button_animation",
+          "options": [
+            {
+              "value": "none",
+              "label": "No Animation"
+            },
+            {
+              "value": "pulse",
+              "label": "Pulse Effect"
+            },
+            {
+              "value": "bounce",
+              "label": "Bounce Effect"
+            },
+            {
+              "value": "scale",
+              "label": "Scale Effect"
+            },
+            {
+              "value": "magnetic",
+              "label": "Magnetic Effect"
+            },
+            {
+              "value": "slide",
+              "label": "Slide Effect"
+            },
+            {
+              "value": "ripple",
+              "label": "Ripple Effect"
+            },
+            {
+              "value": "shadow",
+              "label": "Shadow Effect"
+            },
+            {
+              "value": "glow",
+              "label": "Glow Effect"
+            },
+            {
+              "value": "float",
+              "label": "Float Effect"
+            }
+          ],
+          "default": "none",
+          "label": "Button Animation"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.rich-text.blocks.buttons.settings.header_button2.content"
+        },
         {
           "type": "text",
           "id": "button_label_2",
@@ -331,6 +379,54 @@
           "id": "button_style_secondary_2",
           "default": false,
           "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_2.label"
+        },
+        {
+          "type": "select",
+          "id": "button_animation_2",
+          "options": [
+            {
+              "value": "none",
+              "label": "No Animation"
+            },
+            {
+              "value": "pulse",
+              "label": "Pulse Effect"
+            },
+            {
+              "value": "bounce",
+              "label": "Bounce Effect"
+            },
+            {
+              "value": "scale",
+              "label": "Scale Effect"
+            },
+            {
+              "value": "magnetic",
+              "label": "Magnetic Effect"
+            },
+            {
+              "value": "slide",
+              "label": "Slide Effect"
+            },
+            {
+              "value": "ripple",
+              "label": "Ripple Effect"
+            },
+            {
+              "value": "shadow",
+              "label": "Shadow Effect"
+            },
+            {
+              "value": "glow",
+              "label": "Glow Effect"
+            },
+            {
+              "value": "float",
+              "label": "Float Effect"
+            }
+          ],
+          "default": "none",
+          "label": "Button 2 Animation"
         }
       ]
     }

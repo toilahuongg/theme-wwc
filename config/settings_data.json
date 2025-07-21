@@ -1,68 +1,101 @@
 {
-  "current": "Default",
+  "current": "Pet Water Filter",
   "presets": {
-    "Default": {
+    "Pet Water Filter": {
       "logo_width": 90,
       "color_schemes": {
         "scheme-1": {
           "settings": {
             "background": "#FFFFFF",
             "background_gradient": "",
-            "text": "#121212",
-            "button": "#121212",
+            "text": "#1E3A8A",
+            "button": "#2563EB",
             "button_label": "#FFFFFF",
-            "secondary_button_label": "#121212",
-            "shadow": "#121212"
+            "secondary_button_label": "#2563EB",
+            "shadow": "#1E3A8A"
           }
         },
         "scheme-2": {
           "settings": {
-            "background": "#F3F3F3",
+            "background": "#EFF6FF",
             "background_gradient": "",
-            "text": "#121212",
-            "button": "#121212",
-            "button_label": "#F3F3F3",
-            "secondary_button_label": "#121212",
-            "shadow": "#121212"
+            "text": "#1E3A8A",
+            "button": "#2563EB",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#2563EB",
+            "shadow": "#1E3A8A"
           }
         },
         "scheme-3": {
           "settings": {
-            "background": "#242833",
+            "background": "#1E3A8A",
             "background_gradient": "",
             "text": "#FFFFFF",
-            "button": "#FFFFFF",
-            "button_label": "#000000",
+            "button": "#60A5FA",
+            "button_label": "#1E3A8A",
             "secondary_button_label": "#FFFFFF",
-            "shadow": "#121212"
+            "shadow": "#1E3A8A"
           }
         },
         "scheme-4": {
           "settings": {
-            "background": "#121212",
+            "background": "#0F172A",
             "background_gradient": "",
             "text": "#FFFFFF",
-            "button": "#FFFFFF",
-            "button_label": "#121212",
-            "secondary_button_label": "#FFFFFF",
-            "shadow": "#121212"
+            "button": "#2563EB",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#2563EB",
+            "shadow": "#1E3A8A"
           }
         },
         "scheme-5": {
           "settings": {
-            "background": "#334FB4",
+            "background": "#2563EB",
             "background_gradient": "",
             "text": "#FFFFFF",
             "button": "#FFFFFF",
-            "button_label": "#334FB4",
+            "button_label": "#2563EB",
             "secondary_button_label": "#FFFFFF",
-            "shadow": "#121212"
+            "shadow": "#1E3A8A"
+          }
+        },
+        "scheme-6": {
+          "settings": {
+            "background": "#F0F9FF",
+            "background_gradient": "",
+            "text": "#0C4A6E",
+            "button": "#0284C7",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#0284C7",
+            "shadow": "#0C4A6E"
+          }
+        },
+        "scheme-7": {
+          "settings": {
+            "background": "#FEF3C7",
+            "background_gradient": "",
+            "text": "#92400E",
+            "button": "#F59E0B",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#F59E0B",
+            "shadow": "#92400E"
+          }
+        },
+        "scheme-8": {
+          "settings": {
+            "background": "#F3E8FF",
+            "background_gradient": "",
+            "text": "#581C87",
+            "button": "#9333EA",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#9333EA",
+            "shadow": "#581C87"
           }
         }
       },
-      "type_header_font": "assistant_n4",
+      "type_header_font": "inter_n4",
       "heading_scale": 100,
-      "type_body_font": "assistant_n4",
+      "type_body_font": "inter_n4",
       "body_scale": 100,
       "page_width": 1200,
       "spacing_sections": 0,
