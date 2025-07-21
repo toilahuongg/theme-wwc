@@ -25,20 +25,9 @@
     animation-direction: reverse;
   }
   {% endif %}
-
-  {% if section.settings.text_color != blank or section.settings.background_color != blank %}
-  .marquee-{{ section.id }} .marquee__content {
-    {% if section.settings.text_color != blank %}
-      color: {{ section.settings.text_color }};
-    {% endif %}
-    {% if section.settings.background_color != blank %}
-      background-color: {{ section.settings.background_color }};
-    {% endif %}
-  }
-  {% endif %}
 {%- endstyle -%}
 
-<div class="marquee-{{ section.id }} marquee section-{{ section.id }}-padding">
+<div class="marquee-{{ section.id }} marquee section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
   <div
     class="marquee__content"
     {% if section.settings.pause_on_hover %}
@@ -167,14 +156,10 @@
       "info": "t:sections.marquee.settings.duplicate_content.info"
     },
     {
-      "type": "color",
-      "id": "text_color",
-      "label": "t:sections.marquee.settings.text_color.label"
-    },
-    {
-      "type": "color",
-      "id": "background_color",
-      "label": "t:sections.marquee.settings.background_color.label"
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
     },
     {
       "type": "header",

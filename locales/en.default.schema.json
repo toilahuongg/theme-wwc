@@ -2862,12 +2862,7 @@
           "label": "Duplicate content for seamless loop",
           "info": "Creates a seamless infinite scroll effect by duplicating the content"
         },
-        "text_color": {
-          "label": "Text color"
-        },
-        "background_color": {
-          "label": "Background color"
-        }
+
       },
       "blocks": {
         "text": {

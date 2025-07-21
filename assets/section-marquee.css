@@ -16,6 +16,7 @@
   white-space: nowrap;
   animation: marquee-scroll var(--marquee-speed, 30s) linear infinite;
   will-change: transform;
+  color: rgb(var(--color-foreground));
 }
 
 .marquee__content[data-pause-on-hover='true']:hover {
