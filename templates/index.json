@@ -49,12 +49,14 @@
       "settings": {
         "image": "shopify://shop_images/pexels-cdomingues10-731022.jpg",
         "image_overlay_opacity": 0,
+        "content_background_opacity": 100,
         "image_height": "medium",
         "image_behavior": "none",
         "desktop_content_position": "bottom-left",
         "desktop_content_alignment": "left",
         "show_text_box": true,
         "color_scheme": "",
+        "hide_content": true,
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
         "show_text_below": true
