@@ -19,9 +19,7 @@
   color: rgb(var(--color-foreground));
 }
 
-.marquee__content[data-pause-on-hover='true']:hover {
-  animation-play-state: paused;
-}
+/* Pause on hover disabled */
 
 .marquee__item {
   display: inline-flex;

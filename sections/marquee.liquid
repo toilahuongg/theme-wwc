@@ -28,12 +28,7 @@
 {%- endstyle -%}
 
 <div class="marquee-{{ section.id }} marquee section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
-  <div
-    class="marquee__content"
-    {% if section.settings.pause_on_hover %}
-      data-pause-on-hover="true"
-    {% endif %}
-  >
+  <div class="marquee__content">
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when 'text' -%}
@@ -66,13 +61,7 @@
   </div>
 
   {%- if section.settings.duplicate_content -%}
-    <div
-      class="marquee__content"
-      aria-hidden="true"
-      {% if section.settings.pause_on_hover %}
-        data-pause-on-hover="true"
-      {% endif %}
-    >
+    <div class="marquee__content" aria-hidden="true">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'text' -%}

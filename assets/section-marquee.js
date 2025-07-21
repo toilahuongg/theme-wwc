@@ -1,20 +1,10 @@
 class MarqueeSection {
   constructor() {
-    this.init();
+    // Pause on hover disabled
   }
 
   init() {
-    const marqueeContents = document.querySelectorAll('.marquee__content[data-pause-on-hover="true"]');
-
-    marqueeContents.forEach((content) => {
-      content.addEventListener('mouseenter', () => {
-        content.style.animationPlayState = 'paused';
-      });
-
-      content.addEventListener('mouseleave', () => {
-        content.style.animationPlayState = 'running';
-      });
-    });
+    // Pause on hover disabled
   }
 }
 
