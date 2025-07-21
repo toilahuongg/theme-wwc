@@ -45,7 +45,7 @@
       ],
       "name": "t:sections.marquee.presets.name",
       "settings": {
-        "speed": 10,
+        "speed": 15,
         "direction": "left",
         "pause_on_hover": true,
         "duplicate_content": true,
@@ -60,14 +60,14 @@
         "heading_ExBMqE": {
           "type": "heading",
           "settings": {
-            "heading": "Enhanced Image with Text",
+            "heading": "Keep Your Pooch Cool!  💦",
             "heading_size": "h1"
           }
         },
         "text_DxxBH8": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "<p>Our Dog Cooling Mat is the perfect solution for hot summer days! With pressure-activated cooling relief and lightweight, waterproof design, your furry friend will feel refreshed instantly.</p>",
             "text_style": "body"
           }
         },
@@ -85,10 +85,10 @@
         "button_z4e9Ng": {
           "type": "button",
           "settings": {
-            "button_label": "Button label",
-            "button_link": "",
+            "button_label": "Let Your Dog Chill Out",
+            "button_link": "shopify://products/cooling-pet-mat-soft-washable-summer-pad",
             "button_style_secondary": false,
-            "button_animation": "none"
+            "button_animation": "glow"
           }
         }
       },
