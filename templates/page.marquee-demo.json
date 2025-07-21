@@ -1,0 +1,111 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "marquee_demo_1": {
+      "type": "marquee",
+      "settings": {
+        "speed": 25,
+        "direction": "left",
+        "pause_on_hover": true,
+        "duplicate_content": true,
+        "text_color": "#ffffff",
+        "background_color": "#000000",
+        "padding_top": 20,
+        "padding_bottom": 20
+      },
+      "blocks": {
+        "text_1": {
+          "type": "text",
+          "settings": {
+            "text": "🌟 Special Offer: 50% Off All Items! 🌟"
+          }
+        },
+        "icon_1": {
+          "type": "icon",
+          "settings": {
+            "icon": "🔥"
+          }
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {
+            "text": "Free Shipping on Orders Over $50"
+          }
+        },
+        "icon_2": {
+          "type": "icon",
+          "settings": {
+            "icon": "🚚"
+          }
+        },
+        "text_3": {
+          "type": "text",
+          "settings": {
+            "text": "Limited Time Only - Don't Miss Out!"
+          }
+        }
+      },
+      "block_order": [
+        "text_1",
+        "icon_1",
+        "text_2",
+        "icon_2",
+        "text_3"
+      ]
+    },
+    "marquee_demo_2": {
+      "type": "marquee",
+      "settings": {
+        "speed": 40,
+        "direction": "right",
+        "pause_on_hover": false,
+        "duplicate_content": true,
+        "text_color": "#000000",
+        "background_color": "#f0f0f0",
+        "padding_top": 15,
+        "padding_bottom": 15
+      },
+      "blocks": {
+        "text_1": {
+          "type": "text",
+          "settings": {
+            "text": "Customer Reviews: ⭐⭐⭐⭐⭐ Amazing products!"
+          }
+        },
+        "icon_1": {
+          "type": "icon",
+          "settings": {
+            "icon": "💎"
+          }
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {
+            "text": "Premium Quality Guaranteed"
+          }
+        },
+        "icon_2": {
+          "type": "icon",
+          "settings": {
+            "icon": "✨"
+          }
+        }
+      },
+      "block_order": [
+        "text_1",
+        "icon_1",
+        "text_2",
+        "icon_2"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "marquee_demo_1",
+    "marquee_demo_2"
+  ]
+} 

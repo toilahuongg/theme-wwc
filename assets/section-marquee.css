@@ -16,7 +16,6 @@
   padding: 1rem 0;
   white-space: nowrap;
   animation: marquee-scroll var(--marquee-speed, 30s) linear infinite;
-  animation-direction: var(--marquee-direction, left);
 }
 
 .marquee__content[data-pause-on-hover='true']:hover {
@@ -56,9 +55,9 @@
   }
 }
 
-/* Right direction animation */
-.marquee__content[style*='--marquee-direction: right'] {
-  animation-direction: reverse;
+/* Direction animations */
+.marquee__content {
+  animation-direction: var(--marquee-direction, left);
 }
 
 /* Responsive adjustments */
