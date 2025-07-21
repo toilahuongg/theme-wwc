@@ -88,7 +88,7 @@
             "button_label": "Let Your Dog Chill Out",
             "button_link": "shopify://products/cooling-pet-mat-soft-washable-summer-pad",
             "button_style_secondary": true,
-            "button_animation": "ripple"
+            "button_animation": "pulse"
           }
         }
       },
