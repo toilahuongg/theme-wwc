@@ -15,19 +15,33 @@
         "text_YTEkQt": {
           "type": "text",
           "settings": {
-            "text": "Marquee text"
+            "text": "🚚 FREE Tracked Shipping on All Orders"
           }
         },
         "text_kU4WFL": {
           "type": "text",
           "settings": {
-            "text": "Marquee text"
+            "text": "✅ Money-Back Guarantee"
+          }
+        },
+        "text_q9GpY9": {
+          "type": "text",
+          "settings": {
+            "text": "🚚 FREE Tracked Shipping on All Orders"
+          }
+        },
+        "text_BPzKnP": {
+          "type": "text",
+          "settings": {
+            "text": "✅ Money-Back Guarantee"
           }
         }
       },
       "block_order": [
         "text_YTEkQt",
-        "text_kU4WFL"
+        "text_kU4WFL",
+        "text_q9GpY9",
+        "text_BPzKnP"
       ],
       "name": "t:sections.marquee.presets.name",
       "settings": {
@@ -36,7 +50,7 @@
         "pause_on_hover": true,
         "duplicate_content": true,
         "text_color": "",
-        "background_color": "",
+        "background_color": "#2563eb",
         "padding_top": 20,
         "padding_bottom": 20
       }
