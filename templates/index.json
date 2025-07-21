@@ -283,6 +283,71 @@
         "show_box_shadow": true,
         "block_color_scheme": ""
       }
+    },
+    "image_with_text_enhanced_KHxLtw": {
+      "type": "image-with-text-enhanced",
+      "blocks": {
+        "heading_kVzfQp": {
+          "type": "heading",
+          "settings": {
+            "heading": "Keep Your Pooch Cool!  💦",
+            "heading_size": "h1"
+          }
+        },
+        "text_R8Ht6T": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our Dog Cooling Mat is the perfect solution for hot summer days! With pressure-activated cooling relief and lightweight, waterproof design, your furry friend will feel refreshed instantly.</p>",
+            "text_style": "body"
+          }
+        },
+        "stats_L6JN34": {
+          "type": "stats",
+          "settings": {
+            "stat_1_number": "94%",
+            "stat_1_label": "Instantly cools any resting spot",
+            "stat_2_number": "90%",
+            "stat_2_label": "Stops heat stress before it starts",
+            "stat_3_number": "85%",
+            "stat_3_label": "Relieves joint pain fast"
+          }
+        },
+        "button_xd9ADG": {
+          "type": "button",
+          "settings": {
+            "button_label": "Let Your Dog Chill Out",
+            "button_link": "shopify://products/cooling-pet-mat-soft-washable-summer-pad",
+            "button_style_secondary": false,
+            "button_animation": "glow"
+          }
+        }
+      },
+      "block_order": [
+        "heading_kVzfQp",
+        "text_R8Ht6T",
+        "stats_L6JN34",
+        "button_xd9ADG"
+      ],
+      "name": "Enhanced Image with Text",
+      "settings": {
+        "image": "shopify://shop_images/ezgif-21f8379e5ebb0b.webp",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_shape": "hexagon",
+        "image_effect": "none",
+        "image_badge": "",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "show_floating_elements": true,
+        "section_color_scheme": "",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -290,6 +355,7 @@
     "icon_with_text_kXhifw",
     "marquee_JqcUAt",
     "image_with_text_enhanced_cpgaq8",
-    "testimonial_kkH6Kb"
+    "testimonial_kkH6Kb",
+    "image_with_text_enhanced_KHxLtw"
   ]
 }
