@@ -25,34 +25,20 @@
             "text": "Give customers details about the banner image(s) or content on the template.",
             "text_style": "body"
           }
-        },
-        "buttons_3UMrkA": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Button label",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_animation_1": "none",
-            "button_label_2": "Button label",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "button_animation_2": "none"
-          }
         }
       },
       "block_order": [
         "heading_wawL8Q",
-        "text_QUQPq3",
-        "buttons_3UMrkA"
+        "text_QUQPq3"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/sol-1058453.jpg",
-        "image_overlay_opacity": 0,
-        "content_background_opacity": 50,
+        "image": "shopify://shop_images/close-up-portrait-yorkshire-dog.jpg",
+        "image_overlay_opacity": 30,
+        "content_background_opacity": 0,
         "image_height": "medium",
         "image_behavior": "none",
-        "desktop_content_position": "bottom-right",
+        "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": true,
         "color_scheme": "scheme-4",
@@ -60,6 +46,75 @@
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
         "show_text_below": true
+      }
+    },
+    "icon_with_text_kXhifw": {
+      "type": "icon-with-text",
+      "blocks": {
+        "icon_block_FNGBJQ": {
+          "type": "icon_block",
+          "settings": {
+            "icon": "water-drop",
+            "icon_size": "medium",
+            "icon_style": "filled",
+            "heading": "Pure Water",
+            "text": "<p>Advanced filtration technology removes 99% of impurities.</p>",
+            "link_text": "Learn more",
+            "link_url": "",
+            "alignment": "center",
+            "animation": "none"
+          }
+        },
+        "icon_block_hEMxx9": {
+          "type": "icon_block",
+          "settings": {
+            "icon": "paw-print",
+            "icon_size": "medium",
+            "icon_style": "filled",
+            "heading": "Pet-Friendly",
+            "text": "<p>Specially designed for dogs and cats with their health in mind.</p>",
+            "link_text": "Learn more",
+            "link_url": "",
+            "alignment": "center",
+            "animation": "none"
+          }
+        },
+        "icon_block_bmAEQm": {
+          "type": "icon_block",
+          "settings": {
+            "icon": "lightning",
+            "icon_size": "medium",
+            "icon_style": "filled",
+            "heading": "Easy Installation",
+            "text": "<p>Simple setup that takes just minutes to get clean water flowing.</p>",
+            "link_text": "Learn more",
+            "link_url": "",
+            "alignment": "center",
+            "animation": "none"
+          }
+        }
+      },
+      "block_order": [
+        "icon_block_FNGBJQ",
+        "icon_block_hEMxx9",
+        "icon_block_bmAEQm"
+      ],
+      "name": "Icon with Text",
+      "settings": {
+        "heading": "Why Choose Our Pet Water Filter?",
+        "section_heading_size": "h1",
+        "subheading": "Discover the benefits that make our water filters the perfect choice for your pets",
+        "heading_alignment": "center",
+        "columns_desktop": 3,
+        "grid_gap": 2,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "background_style": "primary",
+        "color_scheme": "",
+        "heading_size": "medium",
+        "text_size": "medium",
+        "show_box_shadow": true,
+        "block_color_scheme": ""
       }
     },
     "marquee_JqcUAt": {
@@ -171,11 +226,70 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "testimonial_kkH6Kb": {
+      "type": "testimonial",
+      "blocks": {
+        "testimonial_pcVtLi": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>Amazing product quality and excellent customer service. Highly recommended!</p>",
+            "author_name": "Sarah Johnson",
+            "author_title": "Marketing Director",
+            "rating": "5",
+            "style": "default"
+          }
+        },
+        "testimonial_pPgQJH": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>The best purchase I've made this year. Exceeded all my expectations!</p>",
+            "author_name": "Mike Chen",
+            "author_title": "Product Manager",
+            "rating": "5",
+            "style": "default"
+          }
+        },
+        "testimonial_KCNkLe": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>Outstanding quality and fast delivery. Will definitely buy again!</p>",
+            "author_name": "Emily Davis",
+            "author_title": "Business Owner",
+            "rating": "5",
+            "style": "default"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_pcVtLi",
+        "testimonial_pPgQJH",
+        "testimonial_KCNkLe"
+      ],
+      "name": "Testimonial",
+      "settings": {
+        "heading": "What Our Customers Say",
+        "section_heading_size": "h1",
+        "subheading": "Real feedback from satisfied customers about our products and services",
+        "heading_alignment": "center",
+        "columns_desktop": 3,
+        "grid_gap": 2,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "background_style": "primary",
+        "color_scheme": "scheme-5",
+        "heading_size": "medium",
+        "text_size": "medium",
+        "show_box_shadow": true,
+        "block_color_scheme": ""
+      }
     }
   },
   "order": [
     "image_banner_XrnTxA",
+    "icon_with_text_kXhifw",
     "marquee_JqcUAt",
-    "image_with_text_enhanced_cpgaq8"
+    "image_with_text_enhanced_cpgaq8",
+    "testimonial_kkH6Kb"
   ]
 }
