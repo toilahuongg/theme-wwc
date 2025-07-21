@@ -9,6 +9,57 @@
  */
 {
   "sections": {
+    "image_banner_XrnTxA": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_wawL8Q": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h1"
+          }
+        },
+        "text_QUQPq3": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_3UMrkA": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_animation_1": "none",
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_animation_2": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_wawL8Q",
+        "text_QUQPq3",
+        "buttons_3UMrkA"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/pexels-cdomingues10-731022.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "bottom-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
     "marquee_JqcUAt": {
       "type": "marquee",
       "blocks": {
@@ -121,6 +172,7 @@
     }
   },
   "order": [
+    "image_banner_XrnTxA",
     "marquee_JqcUAt",
     "image_with_text_enhanced_cpgaq8"
   ]
