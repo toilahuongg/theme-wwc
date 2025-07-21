@@ -53,9 +53,75 @@
         "padding_top": 10,
         "padding_bottom": 10
       }
+    },
+    "image_with_text_enhanced_cpgaq8": {
+      "type": "image-with-text-enhanced",
+      "blocks": {
+        "heading_ExBMqE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Enhanced Image with Text",
+            "heading_size": "h1"
+          }
+        },
+        "text_DxxBH8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_style": "body"
+          }
+        },
+        "stats_wiTtiA": {
+          "type": "stats",
+          "settings": {
+            "stat_1_number": "99%",
+            "stat_1_label": "Water Purity",
+            "stat_2_number": "24/7",
+            "stat_2_label": "Protection",
+            "stat_3_number": "5+",
+            "stat_3_label": "Years Life"
+          }
+        },
+        "button_z4e9Ng": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_animation": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_ExBMqE",
+        "text_DxxBH8",
+        "stats_wiTtiA",
+        "button_z4e9Ng"
+      ],
+      "name": "Enhanced Image with Text",
+      "settings": {
+        "image": "shopify://shop_images/ezgif-2eccad06559bc5.webp",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "image_shape": "wave",
+        "image_effect": "none",
+        "image_badge": "",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "show_floating_elements": true,
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "marquee_JqcUAt"
+    "marquee_JqcUAt",
+    "image_with_text_enhanced_cpgaq8"
   ]
 }
