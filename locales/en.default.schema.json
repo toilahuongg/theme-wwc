@@ -133,6 +133,10 @@
         "text": {
           "label": "Text"
         },
+        "icon_svg": {
+          "label": "Icon SVG",
+          "info": "Paste SVG code here. The icon will appear before the text."
+        },
         "button_background": {
           "label": "Solid button background"
         },

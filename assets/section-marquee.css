@@ -46,6 +46,18 @@
   height: auto;
 }
 
+.marquee__item-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+.marquee__item-icon svg {
+  width: 1.2em;
+  height: 1.2em;
+  fill: currentColor;
+}
+
 .marquee__item--duplicate {
   /* Duplicate items have the same styling as original items */
 }

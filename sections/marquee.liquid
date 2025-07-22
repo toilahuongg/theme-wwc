@@ -33,6 +33,11 @@
       {%- case block.type -%}
         {%- when 'text' -%}
           <span class="marquee__item" {{ block.shopify_attributes }}>
+            {%- if block.settings.icon_svg != blank -%}
+              <span class="marquee__item-icon">
+                {{ block.settings.icon_svg }}
+              </span>
+            {%- endif -%}
             {{ block.settings.text | escape }}
           </span>
         {%- when 'icon' -%}
@@ -66,6 +71,11 @@
         {%- case block.type -%}
           {%- when 'text' -%}
             <span class="marquee__item">
+              {%- if block.settings.icon_svg != blank -%}
+                <span class="marquee__item-icon">
+                  {{ block.settings.icon_svg }}
+                </span>
+              {%- endif -%}
               {{ block.settings.text | escape }}
             </span>
           {%- when 'icon' -%}
@@ -185,6 +195,11 @@
           "id": "text",
           "default": "Marquee text",
           "label": "t:sections.marquee.blocks.text.settings.text.label"
+        },
+        {
+          "type": "textarea",
+          "id": "icon_svg",
+          "label": "Icon"
         }
       ]
     },
