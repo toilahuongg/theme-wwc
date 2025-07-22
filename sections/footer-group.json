@@ -18,7 +18,7 @@
           "type": "link_list",
           "settings": {
             "heading": "Quick links",
-            "menu": "footer"
+            "menu": "main-menu"
           }
         },
         "footer-1": {
@@ -31,8 +31,8 @@
         "footer-2": {
           "type": "text",
           "settings": {
-            "heading": "Our mission",
-            "subtext": "<p>Share contact information, store details, and brand content with your customers.</p>"
+            "heading": "🐾 Our mission",
+            "subtext": "<p>We create safe, cooling comfort for every dog — because pets deserve more than just love, they deserve care that lasts. With thoughtful design, easy cleaning, and fast service, we help dogs stay cool, and pet parents feel at ease.</p>"
           }
         }
       },
