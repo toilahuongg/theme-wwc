@@ -42,7 +42,7 @@
         "desktop_content_alignment": "center",
         "show_text_box": true,
         "color_scheme": "scheme-4",
-        "hide_content": false,
+        "hide_content": true,
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
         "show_text_below": true
@@ -54,11 +54,11 @@
         "icon_block_FNGBJQ": {
           "type": "icon_block",
           "settings": {
-            "icon": "water-drop",
+            "icon": "star",
             "icon_size": "medium",
             "icon_style": "filled",
-            "heading": "Pure Water",
-            "text": "<p>Advanced filtration technology removes 99% of impurities.</p>",
+            "heading": "Premium Quality – Safe for All Pets",
+            "text": "<p>Made from non-toxic cooling gel and soft, skin-friendly materials. No electricity or refrigeration needed.</p>",
             "link_text": "Learn more",
             "link_url": "",
             "alignment": "center",
@@ -71,8 +71,8 @@
             "icon": "paw-print",
             "icon_size": "medium",
             "icon_style": "filled",
-            "heading": "Pet-Friendly",
-            "text": "<p>Specially designed for dogs and cats with their health in mind.</p>",
+            "heading": "We Love Pets Like You Do",
+            "text": "<p>We're not just a shop — we're pet lovers who care deeply about your dog’s comfort and happiness.</p>",
             "link_text": "Learn more",
             "link_url": "",
             "alignment": "center",
@@ -85,8 +85,8 @@
             "icon": "lightning",
             "icon_size": "medium",
             "icon_style": "filled",
-            "heading": "Easy Installation",
-            "text": "<p>Simple setup that takes just minutes to get clean water flowing.</p>",
+            "heading": "Easy to Clean",
+            "text": "<p>Just toss it in the washing machine — no scrubbing, no hassle. Your pet’s mat stays fresh and clean with minimal effort.</p>",
             "link_text": "Learn more",
             "link_url": "",
             "alignment": "center",
@@ -101,9 +101,9 @@
       ],
       "name": "Icon with Text",
       "settings": {
-        "heading": "Why Choose Our Pet Water Filter?",
+        "heading": "🐶 Why Pet Lovers Choose Us?",
         "section_heading_size": "h1",
-        "subheading": "Discover the benefits that make our water filters the perfect choice for your pets",
+        "subheading": "Because your dog deserves the coolest comfort — and the best care.",
         "heading_alignment": "center",
         "columns_desktop": 3,
         "grid_gap": 2,
@@ -311,9 +311,9 @@
         "testimonial_pcVtLi": {
           "type": "testimonial",
           "settings": {
-            "quote": "<p>Amazing product quality and excellent customer service. Highly recommended!</p>",
+            "quote": "<p>This cooling mat is a lifesaver in the summer! I got one for my 4kg Poodle — she lays on it and falls asleep instantly. Plus, it’s machine washable, which is super convenient!</p>",
             "author_name": "Sarah Johnson",
-            "author_title": "Marketing Director",
+            "author_title": "WWC Cooling Mat",
             "rating": "5",
             "style": "default"
           }
@@ -321,9 +321,9 @@
         "testimonial_pPgQJH": {
           "type": "testimonial",
           "settings": {
-            "quote": "<p>The best purchase I've made this year. Exceeded all my expectations!</p>",
+            "quote": "<p>My Golden Retriever gets really hot in the summer. I bought the large size and he laid on it right away. Doesn’t want to leave it now!</p>",
             "author_name": "Mike Chen",
-            "author_title": "Product Manager",
+            "author_title": "WWC Cooling Mat",
             "rating": "5",
             "style": "default"
           }
@@ -331,9 +331,9 @@
         "testimonial_KCNkLe": {
           "type": "testimonial",
           "settings": {
-            "quote": "<p>Outstanding quality and fast delivery. Will definitely buy again!</p>",
+            "quote": "<p>The fact that it’s machine washable is a huge plus. No more wiping down mats every day. Fast delivery and great packaging too. 10/10 service!</p>",
             "author_name": "Emily Davis",
-            "author_title": "Business Owner",
+            "author_title": "WWC Cooling Mat",
             "rating": "5",
             "style": "default"
           }
