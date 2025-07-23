@@ -1,0 +1,142 @@
+{% comment %}
+  Renders a product popup modal with enhanced customization options
+
+  Accepts:
+  - block: {Object} Block object containing popup settings
+  - section_id: {String} Section ID for unique identifiers
+  - button_text: {String} Custom button text (optional)
+  - button_style: {String} Button style class (optional)
+  - button_icon: {String} Icon name to display (optional)
+  - show_icon: {Boolean} Whether to show icon (default: false)
+  - icon_position: {String} Icon position 'left' or 'right' (default: 'left')
+
+  Usage:
+  {% render 'product-popup', block: block, section_id: section.id %}
+  {% render 'product-popup', block: block, section_id: section.id, button_text: 'Custom Text' %}
+  {% render 'product-popup', block: block, section_id: section.id, button_style: 'button button--primary', show_icon: true, icon_position: 'right' %}
+{% endcomment %}
+
+{%- liquid
+  assign button_text = button_text | default: block.settings.text | default: block.settings.page.title | escape
+  assign button_style = button_style | default: block.settings.button_style | default: 'product-popup-modal__button default'
+  assign button_size = block.settings.button_size | default: ''
+  assign show_icon = show_icon | default: block.settings.show_icon | default: false
+  assign icon_position = icon_position | default: block.settings.icon_position | default: 'left'
+  assign icon_name = button_icon | default: block.settings.button_icon | default: 'arrow'
+  assign icon_only = block.settings.icon_only | default: false
+
+  if button_size != ''
+    assign button_style = button_style | append: ' ' | append: button_size
+  endif
+
+  if icon_only
+    assign button_style = button_style | append: ' button--icon-only'
+  endif
+-%}
+
+<modal-opener
+  class="product-popup-modal__opener quick-add-hidden"
+  data-modal="#PopupModal-{{ block.id }}"
+  {{ block.shopify_attributes }}
+>
+  <button
+    id="ProductPopup-{{ block.id }}"
+    class="{{ button_style }}"
+    type="button"
+    aria-haspopup="dialog"
+    {% if show_icon %}
+      data-icon-position="{{ icon_position }}"
+    {% endif %}
+  >
+    {%- if show_icon and icon_position == 'left' -%}
+      <span class="button__icon button__icon--left">
+        {%- case icon_name -%}
+          {%- when 'arrow' -%}
+            {{- 'icon-arrow.svg' | inline_asset_content -}}
+          {%- when 'plus' -%}
+            {{- 'icon-plus.svg' | inline_asset_content -}}
+          {%- when 'info' -%}
+            {{- 'icon-info.svg' | inline_asset_content -}}
+          {%- when 'question' -%}
+            {{- 'icon-question-mark.svg' | inline_asset_content -}}
+          {%- when 'chat' -%}
+            {{- 'icon-chat-bubble.svg' | inline_asset_content -}}
+          {%- when 'star' -%}
+            {{- 'icon-star.svg' | inline_asset_content -}}
+          {%- when 'heart' -%}
+            {{- 'icon-heart.svg' | inline_asset_content -}}
+          {%- when 'truck' -%}
+            {{- 'icon-truck.svg' | inline_asset_content -}}
+          {%- when 'return' -%}
+            {{- 'icon-return.svg' | inline_asset_content -}}
+          {%- when 'lock' -%}
+            {{- 'icon-lock.svg' | inline_asset_content -}}
+          {%- when 'size_rule' -%}
+            {{- 'icon-ruler.svg' | inline_asset_content -}}
+          {%- else -%}
+            {{- 'icon-arrow.svg' | inline_asset_content -}}
+        {%- endcase -%}
+      </span>
+    {%- endif -%}
+
+    {%- unless icon_only -%}
+      <span class="button__text">{{ button_text }}</span>
+    {%- endunless -%}
+
+    {%- if show_icon and icon_position == 'right' -%}
+      <span class="button__icon button__icon--right">
+        {%- case icon_name -%}
+          {%- when 'arrow' -%}
+            {{- 'icon-arrow.svg' | inline_asset_content -}}
+          {%- when 'plus' -%}
+            {{- 'icon-plus.svg' | inline_asset_content -}}
+          {%- when 'info' -%}
+            {{- 'icon-info.svg' | inline_asset_content -}}
+          {%- when 'question' -%}
+            {{- 'icon-question-mark.svg' | inline_asset_content -}}
+          {%- when 'chat' -%}
+            {{- 'icon-chat-bubble.svg' | inline_asset_content -}}
+          {%- when 'star' -%}
+            {{- 'icon-star.svg' | inline_asset_content -}}
+          {%- when 'heart' -%}
+            {{- 'icon-heart.svg' | inline_asset_content -}}
+          {%- when 'truck' -%}
+            {{- 'icon-truck.svg' | inline_asset_content -}}
+          {%- when 'return' -%}
+            {{- 'icon-return.svg' | inline_asset_content -}}
+          {%- when 'lock' -%}
+            {{- 'icon-lock.svg' | inline_asset_content -}}
+          {%- when 'size_rule' -%}
+            {{- 'icon-ruler.svg' | inline_asset_content -}}
+          {%- else -%}
+            {{- 'icon-arrow.svg' | inline_asset_content -}}
+        {%- endcase -%}
+      </span>
+    {%- endif -%}
+  </button>
+</modal-opener>
+
+<modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
+  <div
+    role="dialog"
+    aria-label="{{ button_text }}"
+    aria-modal="true"
+    class="product-popup-modal__content"
+    tabindex="-1"
+  >
+    <button
+      id="ModalClose-{{ block.id }}"
+      type="button"
+      class="product-popup-modal__toggle"
+      aria-label="{{ 'accessibility.close' | t }}"
+    >
+      {{- 'icon-close.svg' | inline_asset_content -}}
+    </button>
+    <div class="product-popup-modal__content-info">
+      <h1 class="h2">{{ block.settings.page.title | escape }}</h1>
+      {{ block.settings.page.content }}
+    </div>
+  </div>
+</modal-dialog>
+
+{{ 'component-product-popup.css' | asset_url | stylesheet_tag }}

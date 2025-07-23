@@ -1,0 +1,413 @@
+/* Product Popup Modal Styles */
+
+.product-popup-modal__opener {
+  display: inline-block;
+}
+
+.product-popup-modal__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.6rem;
+  padding-right: 1.3rem;
+  padding-left: 0;
+  min-height: 4.4rem;
+  text-underline-offset: 0.3rem;
+  text-decoration-thickness: 0.1rem;
+  transition: text-decoration-thickness var(--duration-short) ease;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+
+.product-popup-modal__button.default {
+  padding: 0;
+  color: rgb(var(--color-foreground));
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity var(--duration-short) ease;
+}
+
+.product-popup-modal__button.default:hover {
+  opacity: 0.8;
+}
+
+.product-popup-modal__button.default .button__icon {
+  color: inherit;
+}
+
+.product-popup-modal__button:hover {
+  text-decoration-thickness: 0.2rem;
+}
+
+.product-popup-modal__button .button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  transition: transform var(--duration-short) ease;
+  color: inherit;
+}
+
+.product-popup-modal__button .button__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.product-popup-modal__button .button__text {
+  flex: 1;
+}
+
+/* Icon position animations */
+.product-popup-modal__button[data-icon-position='right']:hover .button__icon--right {
+  transform: translateX(0.2rem);
+}
+
+.product-popup-modal__button[data-icon-position='left']:hover .button__icon--left {
+  transform: translateX(-0.2rem);
+}
+
+/* Button style variations */
+.product-popup-modal__button.button--primary {
+  background-color: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  border: 0.1rem solid transparent;
+  border-radius: var(--buttons-radius);
+  padding: 1.2rem 2.4rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color var(--duration-short) ease, transform var(--duration-short) ease;
+}
+
+.product-popup-modal__button.button--primary:hover {
+  background-color: rgb(var(--color-button-hover));
+  text-decoration: none;
+  transform: translateY(-0.1rem);
+}
+
+.product-popup-modal__button.button--secondary {
+  background-color: transparent;
+  color: rgb(var(--color-foreground));
+  border: 0.1rem solid rgb(var(--color-button));
+  border-radius: var(--buttons-radius);
+  padding: 1.2rem 2.4rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color var(--duration-short) ease, color var(--duration-short) ease,
+    transform var(--duration-short) ease;
+}
+
+.product-popup-modal__button.button--secondary:hover {
+  background-color: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  text-decoration: none;
+  transform: translateY(-0.1rem);
+}
+
+.product-popup-modal__button.button--tertiary {
+  background-color: transparent;
+  color: rgb(var(--color-foreground));
+  border: none;
+  padding: 1.2rem 2.4rem;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: text-decoration-thickness var(--duration-short) ease;
+}
+
+.product-popup-modal__button.button--tertiary:hover {
+  text-decoration-thickness: 0.2rem;
+}
+
+.product-popup-modal__button.button--outline {
+  background-color: transparent;
+  color: rgb(var(--color-foreground));
+  border: 0.1rem solid rgba(var(--color-foreground), 0.2);
+  border-radius: var(--buttons-radius);
+  padding: 1.2rem 2.4rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: border-color var(--duration-short) ease, background-color var(--duration-short) ease;
+}
+
+.product-popup-modal__button.button--outline:hover {
+  border-color: rgba(var(--color-foreground), 0.4);
+  background-color: rgba(var(--color-foreground), 0.05);
+}
+
+/* Size variations */
+.product-popup-modal__button.button--small {
+  font-size: 1.4rem;
+  padding: 0.8rem 1.6rem;
+  min-height: 3.6rem;
+}
+
+.product-popup-modal__button.button--small .button__icon {
+  width: 1em;
+  height: 1em;
+}
+
+.product-popup-modal__button.button--large {
+  font-size: 1.8rem;
+  padding: 1.6rem 3.2rem;
+  min-height: 5.2rem;
+}
+
+.product-popup-modal__button.button--large .button__icon {
+  width: 1em;
+  height: 1em;
+}
+
+/* Icon-only button */
+.product-popup-modal__button.button--icon-only {
+  padding: 1.2rem;
+  min-width: 4.4rem;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.product-popup-modal__button.button--icon-only .button__text {
+  display: none;
+}
+
+.product-popup-modal__button.button--icon-only .button__icon {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.product-popup-modal__button.button--icon-only.button--small {
+  padding: 0.8rem;
+  min-width: 3.6rem;
+}
+
+.product-popup-modal__button.button--icon-only.button--small .button__icon {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.product-popup-modal__button.button--icon-only.button--large {
+  padding: 1.6rem;
+  min-width: 5.2rem;
+}
+
+.product-popup-modal__button.button--icon-only.button--large .button__icon {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+/* Loading state */
+.product-popup-modal__button.button--loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.product-popup-modal__button.button--loading .button__text,
+.product-popup-modal__button.button--loading .button__icon {
+  opacity: 0.5;
+}
+
+.product-popup-modal__button.button--loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: -0.8rem 0 0 -0.8rem;
+  border: 0.2rem solid transparent;
+  border-top: 0.2rem solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 749px) {
+  .product-popup-modal__button.default {
+    font-size: 1.4rem;
+    min-height: 4rem;
+    font-weight: 600;
+  }
+
+  .product-popup-modal__button {
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+    min-height: 4rem;
+  }
+
+  .product-popup-modal__button.button--large {
+    font-size: 1.6rem;
+    padding: 1.4rem 2.8rem;
+    min-height: 4.8rem;
+  }
+
+  .product-popup-modal__button.button--icon-only {
+    padding: 1rem;
+    min-width: 4rem;
+  }
+
+  .product-popup-modal__button.button--icon-only.button--small {
+    padding: 0.8rem;
+    min-width: 3.6rem;
+  }
+
+  .product-popup-modal__button.button--icon-only.button--large {
+    padding: 1.4rem;
+    min-width: 4.8rem;
+  }
+
+  /* Icon-only button styles on mobile */
+  .product-popup-modal__button.button--primary.button--icon-only,
+  .product-popup-modal__button.button--secondary.button--icon-only,
+  .product-popup-modal__button.button--tertiary.button--icon-only,
+  .product-popup-modal__button.button--outline.button--icon-only,
+  .product-popup-modal__button.default.button--icon-only {
+    padding: 1rem;
+    min-width: 4rem;
+  }
+
+  .product-popup-modal__button.button--primary.button--icon-only.button--small,
+  .product-popup-modal__button.button--secondary.button--icon-only.button--small,
+  .product-popup-modal__button.button--tertiary.button--icon-only.button--small,
+  .product-popup-modal__button.button--outline.button--icon-only.button--small,
+  .product-popup-modal__button.default.button--icon-only.button--small {
+    padding: 0.8rem;
+    min-width: 3.6rem;
+  }
+
+  .product-popup-modal__button.button--primary.button--icon-only.button--large,
+  .product-popup-modal__button.button--secondary.button--icon-only.button--large,
+  .product-popup-modal__button.button--tertiary.button--icon-only.button--large,
+  .product-popup-modal__button.button--outline.button--icon-only.button--large,
+  .product-popup-modal__button.default.button--icon-only.button--large {
+    padding: 1.4rem;
+    min-width: 4.8rem;
+  }
+}
+
+/* Focus states for accessibility */
+.product-popup-modal__button:focus-visible {
+  outline: 0.2rem solid rgb(var(--color-foreground));
+  outline-offset: 0.2rem;
+}
+
+.product-popup-modal__button.button--primary:focus-visible,
+.product-popup-modal__button.button--secondary:focus-visible {
+  outline-color: rgb(var(--color-button));
+}
+
+.product-popup-modal__button.default:focus-visible {
+  outline-color: rgb(var(--color-foreground));
+}
+
+/* Button size variations for different styles */
+.product-popup-modal__button.button--primary.button--small {
+  padding: 0.8rem 1.6rem;
+}
+
+.product-popup-modal__button.button--primary.button--large {
+  padding: 1.6rem 3.2rem;
+}
+
+.product-popup-modal__button.button--secondary.button--small {
+  padding: 0.8rem 1.6rem;
+}
+
+.product-popup-modal__button.button--secondary.button--large {
+  padding: 1.6rem 3.2rem;
+}
+
+.product-popup-modal__button.button--tertiary.button--small {
+  padding: 0.8rem 1.6rem;
+}
+
+.product-popup-modal__button.button--tertiary.button--large {
+  padding: 1.6rem 3.2rem;
+}
+
+.product-popup-modal__button.button--outline.button--small {
+  padding: 0.8rem 1.6rem;
+}
+
+.product-popup-modal__button.button--outline.button--large {
+  padding: 1.6rem 3.2rem;
+}
+
+.product-popup-modal__button.default.button--small {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.product-popup-modal__button.default.button--large {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Icon-only button with different styles */
+.product-popup-modal__button.button--primary.button--icon-only {
+  background-color: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  border: 0.1rem solid transparent;
+}
+
+.product-popup-modal__button.button--primary.button--icon-only:hover {
+  background-color: rgb(var(--color-button-hover));
+}
+
+.product-popup-modal__button.button--secondary.button--icon-only {
+  background-color: transparent;
+  color: rgb(var(--color-foreground));
+  border: 0.1rem solid rgb(var(--color-button));
+}
+
+.product-popup-modal__button.button--secondary.button--icon-only:hover {
+  background-color: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+}
+
+.product-popup-modal__button.button--tertiary.button--icon-only {
+  background-color: transparent;
+  color: rgb(var(--color-foreground));
+  border: none;
+  text-decoration: none;
+}
+
+.product-popup-modal__button.button--tertiary.button--icon-only:hover {
+  text-decoration: none;
+}
+
+.product-popup-modal__button.button--outline.button--icon-only {
+  background-color: transparent;
+  color: rgb(var(--color-foreground));
+  border: 0.1rem solid rgba(var(--color-foreground), 0.2);
+}
+
+.product-popup-modal__button.button--outline.button--icon-only:hover {
+  border-color: rgba(var(--color-foreground), 0.4);
+  background-color: rgba(var(--color-foreground), 0.05);
+}
+
+.product-popup-modal__button.default.button--icon-only {
+  background-color: transparent;
+  color: rgb(var(--color-foreground));
+  border: none;
+  text-decoration: none;
+  border-radius: 50%;
+  font-weight: 600;
+}
+
+.product-popup-modal__button.default.button--icon-only:hover {
+  text-decoration: none;
+  background-color: rgba(var(--color-button), 0.1);
+  opacity: 0.8;
+}
