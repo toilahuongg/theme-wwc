@@ -1,29 +1,18 @@
 {% comment %}
-  Enhanced Buy Buttons Snippet
-  Renders advanced product buy-buttons with modern features.
-
+  Renders product buy-buttons.
   Accepts:
   - product: {Object} product object.
   - block: {Object} passing the block information.
   - product_form_id: {String} product form id.
   - section_id: {String} id of section to which this snippet belongs.
-  - show_pickup_availability: {Boolean} for the pickup availability.
-  - show_quantity_selector: {Boolean} show quantity selector (optional).
+  - show_pickup_availability: {Boolean} for the pickup availability. If true the pickup availability is rendered, false - not rendered (optional).
 
   Usage:
-  {% render 'buy-buttons-enhanced',
-    block: block,
-    product: product,
-    product_form_id: product_form_id,
-    section_id: section.id,
-    show_pickup_availability: true,
-    show_quantity_selector: true
-  %}
+  {% render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true %}
 {% endcomment %}
-
+{{ 'component-buy-buttons.css' | asset_url | stylesheet_tag }}
 {{ 'component-buy-buttons-enhanced.css' | asset_url | stylesheet_tag }}
-
-<div {{ block.shopify_attributes }} class="buy-buttons-enhanced">
+<div {{ block.shopify_attributes }}>
   {%- if product != blank -%}
     {%- liquid
       assign gift_card_recipient_feature_active = false
@@ -35,12 +24,10 @@
       if block.settings.show_dynamic_checkout and gift_card_recipient_feature_active == false
         assign show_dynamic_checkout = true
       endif
-
-      assign show_quantity_selector = show_quantity_selector | default: false
     -%}
 
     <product-form
-      class="product-form product-form--enhanced"
+      class="product-form"
       data-hide-errors="{{ gift_card_recipient_feature_active }}"
       data-section-id="{{ section.id }}"
     >
@@ -54,7 +41,7 @@
       {%- form 'product',
         product,
         id: product_form_id,
-        class: 'form form--enhanced',
+        class: 'form',
         novalidate: 'novalidate',
         data-type: 'add-to-cart-form'
       -%}
@@ -75,7 +62,7 @@
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
 
-        <div class="product-form__buttons product-form__buttons--enhanced">
+        <div class="product-form__buttons">
           {%- liquid
             assign check_against_inventory = true
             if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
@@ -85,83 +72,226 @@
               assign quantity_rule_soldout = true
             endif
           -%}
-
-          <!-- Quantity and Add to Cart Row -->
-          <div class="product-form__main-row">
-            <!-- Quantity Selector -->
-            {%- if show_quantity_selector and product.selected_or_first_available_variant.available -%}
+          <div class="product-form__quantity-wrapper">
+            <div
+              id="Quantity-Form-{{ section.id }}"
+              class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
+              {{ block.shopify_attributes }}
+            >
               {% comment %} TODO: enable theme-check once `item_count_for_variant` is accepted as valid filter {% endcomment %}
               {% # theme-check-disable %}
               {%- assign cart_qty = cart | item_count_for_variant: product.selected_or_first_available_variant.id -%}
               {% # theme-check-enable %}
-
-              <div
-                id="Quantity-Form-{{ section_id }}"
-                class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
+              <span class="visually-hidden" id="quantity-label-{{ section.id }}">
+                {%- if cart_qty > 0 -%}
+                  {{- 'products.product.quantity.in_cart_aria_label' | t: quantity: cart_qty -}}
+                {%- else -%}
+                  {{- 'products.product.quantity.label' | t -}}
+                {%- endif -%}
+              </span>
+              <label
+                class="quantity__label form__label"
+                for="Quantity-{{ section.id }}"
+                aria-labelledby="quantity-label-{{ section.id }}"
               >
-                <span class="visually-hidden" id="quantity-label-{{ section_id }}">
-                  {%- if cart_qty > 0 -%}
-                    {{- 'products.product.quantity.in_cart_aria_label' | t: quantity: cart_qty -}}
-                  {%- else -%}
-                    {{- 'products.product.quantity.label' | t -}}
-                  {%- endif -%}
+                <span aria-hidden="true">{{ 'products.product.quantity.label' | t }}</span>
+                <span class="quantity__rules-cart{% if cart_qty == 0 %} hidden{% endif %}" aria-hidden="true">
+                  {%- render 'loading-spinner' -%}
+                  <span
+                    >(
+                    {{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}}
+                    )</span
+                  >
                 </span>
-                <label
-                  class="quantity__label form__label"
-                  for="Quantity-Enhanced-{{ section_id }}"
-                  aria-labelledby="quantity-label-{{ section_id }}"
-                >
-                  <span aria-hidden="true">{{ 'products.product.quantity.label' | t }}</span>
-                  <span class="quantity__rules-cart{% if cart_qty == 0 %} hidden{% endif %}" aria-hidden="true">
-                    {%- render 'loading-spinner' -%}
-                    <span
-                      >(
-                      {{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}}
-                      )</span
-                    >
-                  </span>
-                </label>
-
-                <div class="quantity-selector--enhanced">
-                  <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section_id }}">
-                    <button class="quantity__button" name="minus" type="button">
-                      <span class="visually-hidden">
-                        {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
-                      </span>
-                      <span class="svg-wrapper">
-                        {{- 'icon-minus.svg' | inline_asset_content -}}
-                      </span>
-                    </button>
-                    <input
-                      class="quantity__input"
-                      type="number"
-                      name="quantity"
-                      id="Quantity-Enhanced-{{ section_id }}"
-                      data-cart-quantity="{{ cart_qty }}"
-                      data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                      min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                      {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
-                        data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                        max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                      {% endif %}
-                      step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
-                      value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                      form="{{ product_form_id }}"
-                    >
-                    <button class="quantity__button" name="plus" type="button">
-                      <span class="visually-hidden">
-                        {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
-                      </span>
-                      <span class="svg-wrapper">
-                        {{- 'icon-plus.svg' | inline_asset_content -}}
-                      </span>
-                    </button>
-                  </quantity-input>
-                </div>
+              </label>
+              <div class="price-per-item__container">
+                <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
+                  <button class="quantity__button" name="minus" type="button">
+                    <span class="visually-hidden">
+                      {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                    </span>
+                    <span class="svg-wrapper">
+                      {{- 'icon-minus.svg' | inline_asset_content -}}
+                    </span>
+                  </button>
+                  <input
+                    class="quantity__input"
+                    type="number"
+                    name="quantity"
+                    id="Quantity-{{ section.id }}"
+                    data-cart-quantity="{{ cart_qty }}"
+                    data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                    min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                    {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
+                      data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                      max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                    {% endif %}
+                    step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
+                    value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                    form="{{ product_form_id }}"
+                  >
+                  <button class="quantity__button" name="plus" type="button">
+                    <span class="visually-hidden">
+                      {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                    </span>
+                    <span class="svg-wrapper">
+                      {{- 'icon-plus.svg' | inline_asset_content -}}
+                    </span>
+                  </button>
+                </quantity-input>
+                {%- liquid
+                  assign volume_pricing_array = product.selected_or_first_available_variant.quantity_price_breaks | sort: 'quantity' | reverse
+                  assign current_qty_for_volume_pricing = cart_qty | plus: product.selected_or_first_available_variant.quantity_rule.min
+                  if cart_qty > 0
+                    assign current_qty_for_volume_pricing = cart_qty | plus: product.selected_or_first_available_variant.quantity_rule.increment
+                  endif
+                -%}
+                {%- if product.quantity_price_breaks_configured? -%}
+                  <price-per-item
+                    id="Price-Per-Item-{{ section.id }}"
+                    data-section-id="{{ section.id }}"
+                    data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                  >
+                    {%- if product.selected_or_first_available_variant.quantity_price_breaks.size > 0 -%}
+                      {%- assign variant_price_compare = product.selected_or_first_available_variant.compare_at_price -%}
+                      <div class="price-per-item">
+                        {%- if variant_price_compare -%}
+                          <dl class="price-per-item--current">
+                            <dt class="visually-hidden">
+                              {{ 'products.product.price.regular_price' | t }}
+                            </dt>
+                            <dd>
+                              <s class="variant-item__old-price">
+                                {{ variant_price_compare | money_with_currency }}
+                              </s>
+                            </dd>
+                          </dl>
+                        {%- endif -%}
+                        {%- if current_qty_for_volume_pricing < volume_pricing_array.last.minimum_quantity -%}
+                          {%- assign variant_price = product.selected_or_first_available_variant.price
+                            | money_with_currency
+                          -%}
+                          <span class="price-per-item--current">
+                            {{- 'products.product.volume_pricing.price_at_each_html' | t: price: variant_price -}}
+                          </span>
+                        {%- else -%}
+                          {%- for price_break in volume_pricing_array -%}
+                            {%- if current_qty_for_volume_pricing >= price_break.minimum_quantity -%}
+                              {%- assign price_break_price = price_break.price | money_with_currency -%}
+                              <span class="price-per-item--current">
+                                {{-
+                                  'products.product.volume_pricing.price_at_each_html'
+                                  | t: price: price_break_price
+                                -}}
+                              </span>
+                              {%- break -%}
+                            {%- endif -%}
+                          {%- endfor -%}
+                        {%- endif -%}
+                      </div>
+                    {%- else -%}
+                      {%- assign variant_price = product.selected_or_first_available_variant.price
+                        | money_with_currency
+                      -%}
+                      {%- assign variant_price_compare = product.selected_or_first_available_variant.compare_at_price -%}
+                      <div class="price-per-item">
+                        {%- if variant_price_compare -%}
+                          <dl class="price-per-item--current">
+                            <dt class="visually-hidden">
+                              {{ 'products.product.price.regular_price' | t }}
+                            </dt>
+                            <dd>
+                              <s class="variant-item__old-price">
+                                {{ variant_price_compare | money_with_currency }}
+                              </s>
+                            </dd>
+                            <dt class="visually-hidden">
+                              {{ 'products.product.price.sale_price' | t }}
+                            </dt>
+                            <dd>
+                              <span class="price-per-item--current">
+                                {{- 'products.product.volume_pricing.price_at_each_html' | t: price: variant_price -}}
+                              </span>
+                            </dd>
+                          </dl>
+                        {%- else -%}
+                          <span class="price-per-item--current">
+                            {{- 'products.product.volume_pricing.price_at_each_html' | t: price: variant_price -}}
+                          </span>
+                        {%- endif -%}
+                      </div>
+                    {%- endif -%}
+                  </price-per-item>
+                {%- endif -%}
               </div>
-            {%- endif -%}
-
-            <!-- Add to Cart Button -->
+              <div class="quantity__rules caption" id="Quantity-Rules-{{ section.id }}">
+                {%- if product.selected_or_first_available_variant.quantity_rule.increment > 1 -%}
+                  <span class="divider">
+                    {{-
+                      'products.product.quantity.multiples_of'
+                      | t: quantity: product.selected_or_first_available_variant.quantity_rule.increment
+                    -}}
+                  </span>
+                {%- endif -%}
+                {%- if product.selected_or_first_available_variant.quantity_rule.min > 1 -%}
+                  <span class="divider">
+                    {{-
+                      'products.product.quantity.minimum_of'
+                      | t: quantity: product.selected_or_first_available_variant.quantity_rule.min
+                    -}}
+                  </span>
+                {%- endif -%}
+                {%- if product.selected_or_first_available_variant.quantity_rule.max != null -%}
+                  <span class="divider">
+                    {{-
+                      'products.product.quantity.maximum_of'
+                      | t: quantity: product.selected_or_first_available_variant.quantity_rule.max
+                    -}}
+                  </span>
+                {%- endif -%}
+              </div>
+              {%- if product.quantity_price_breaks_configured? -%}
+                <volume-pricing class="parent-display" id="Volume-{{ section.id }}">
+                  {%- if product.selected_or_first_available_variant.quantity_price_breaks.size > 0 -%}
+                    <span class="caption-large">{{ 'products.product.volume_pricing.title' | t }}</span>
+                    <ul class="list-unstyled">
+                      <li>
+                        <span>{{ product.selected_or_first_available_variant.quantity_rule.min }}+</span>
+                        {%- assign price = product.selected_or_first_available_variant.price | money_with_currency -%}
+                        <span data-text="{{ 'products.product.volume_pricing.price_at_each_html' | t: price: variant_price }}">
+                          {{- 'sections.quick_order_list.each' | t: money: price -}}
+                        </span>
+                      </li>
+                      {%- for price_break in product.selected_or_first_available_variant.quantity_price_breaks -%}
+                        {%- assign price_break_price = price_break.price | money_with_currency -%}
+                        <li class="{%- if forloop.index >= 3 -%}show-more-item hidden{%- endif -%}">
+                          <span>
+                            {{- price_break.minimum_quantity -}}
+                            <span aria-hidden="true">+</span></span
+                          >
+                          <span data-text="{{ 'products.product.volume_pricing.price_at_each_html' | t: price: price_break_price }}">
+                            {{- 'sections.quick_order_list.each' | t: money: price_break_price -}}
+                          </span>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                    {%- if product.selected_or_first_available_variant.quantity_price_breaks.size >= 3 -%}
+                      <show-more-button>
+                        <button
+                          class="button-show-more link underlined-link"
+                          id="Show-More-{{ section.id }}"
+                          type="button"
+                        >
+                          <span class="label-show-more label-text"
+                            ><span aria-hidden="true">+ </span>{{ 'products.facets.show_more' | t }}
+                          </span>
+                        </button>
+                      </show-more-button>
+                    {%- endif -%}
+                  {%- endif -%}
+                </volume-pricing>
+              {%- endif -%}
+            </div>
             <button
               id="ProductSubmitButton-{{ section_id }}"
               type="submit"
@@ -189,44 +319,22 @@
               {%- render 'loading-spinner' -%}
             </button>
           </div>
-
-          <!-- Dynamic Checkout Button -->
           {%- if show_dynamic_checkout -%}
-            <div class="dynamic-checkout-wrapper">
-              {{ form | payment_button }}
-            </div>
+            {{ form | payment_button }}
           {%- endif -%}
         </div>
       {%- endform -%}
     </product-form>
-
-    <!-- Success Message -->
-    <div class="product-form__success-message" hidden>
-      <div class="success-message__content">
-        <span class="success-message__icon">
-          {{- 'icon-checkmark.svg' | inline_asset_content -}}
-        </span>
-        <span class="success-message__text">
-          {{ 'general.cart.item_added' | t }}
-        </span>
-        <a href="{{ routes.cart_url }}" class="success-message__link">
-          {{ 'general.cart.view' | t: count: cart.item_count }}
-        </a>
-      </div>
-    </div>
-
   {%- else -%}
-    <div class="product-form product-form--enhanced">
-      <div class="product-form__buttons product-form__buttons--enhanced form">
+    <div class="product-form">
+      <div class="product-form__buttons form">
         <button
           type="submit"
           name="add"
           class="product-form__submit button button--full-width button--primary"
           disabled
         >
-          <span class="button__content">
-            <span class="button__text">{{ 'products.product.sold_out' | t }}</span>
-          </span>
+          {{ 'products.product.sold_out' | t }}
         </button>
       </div>
     </div>
@@ -267,44 +375,3 @@
     <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 </div>
-
-<script>
-  // Enhanced Buy Buttons JavaScript
-  class EnhancedBuyButtons {
-    constructor() {
-      this.init();
-    }
-
-    init() {
-      this.initQuantitySelector();
-      this.initSuccessMessage();
-    }
-
-    initQuantitySelector() {
-      // Quantity selector will use the native quantity-input component
-      // No additional JavaScript needed as it's handled by the theme's quantity-input.js
-    }
-
-    initSuccessMessage() {
-      const forms = document.querySelectorAll('.product-form--enhanced');
-
-      forms.forEach((form) => {
-        form.addEventListener('submit', (e) => {
-          const submitButton = form.querySelector('.product-form__submit');
-          if (submitButton) {
-            submitButton.classList.add('is-loading');
-          }
-        });
-      });
-    }
-  }
-
-  // Initialize when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      new EnhancedBuyButtons();
-    });
-  } else {
-    new EnhancedBuyButtons();
-  }
-</script>
