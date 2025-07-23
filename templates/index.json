@@ -214,7 +214,7 @@
           "type": "button",
           "settings": {
             "button_label": "Let Your Dog Chill Out",
-            "button_link": "shopify://products/cooling-pet-mat-soft-washable-summer-pad",
+            "button_link": "shopify://products/wwc-cooling-mat",
             "button_style_secondary": false,
             "button_animation": "glow"
           }
