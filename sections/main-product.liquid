@@ -1274,6 +1274,12 @@
           "label": "t:sections.main-product.blocks.popup.settings.page.label"
         },
         {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Popup Image",
+          "info": "Display this image if page content is empty"
+        },
+        {
           "type": "header",
           "content": "Button Styling"
         },
@@ -1409,6 +1415,160 @@
           "default": false,
           "label": "Icon Only Button",
           "info": "Hide button text and show only icon"
+        },
+        {
+          "type": "header",
+          "content": "Modal Settings"
+        },
+        {
+          "type": "select",
+          "id": "modal_size",
+          "options": [
+            {
+              "value": "small",
+              "label": "Small"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "large",
+              "label": "Large"
+            },
+            {
+              "value": "full",
+              "label": "Full Width"
+            }
+          ],
+          "default": "medium",
+          "label": "Modal Size"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_close_button",
+          "default": true,
+          "label": "Show Close Button"
+        },
+        {
+          "type": "checkbox",
+          "id": "close_on_backdrop_click",
+          "default": true,
+          "label": "Close on Backdrop Click"
+        },
+        {
+          "type": "checkbox",
+          "id": "close_on_escape",
+          "default": true,
+          "label": "Close on Escape Key"
+        },
+        {
+          "type": "header",
+          "content": "Content Settings"
+        },
+        {
+          "type": "select",
+          "id": "content_alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left",
+          "label": "Content Alignment"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_title",
+          "default": true,
+          "label": "Show Modal Title"
+        },
+        {
+          "type": "select",
+          "id": "title_size",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            }
+          ],
+          "default": "h2",
+          "label": "Title Size"
+        },
+        {
+          "type": "header",
+          "content": "Animation Settings"
+        },
+        {
+          "type": "select",
+          "id": "modal_animation",
+          "options": [
+            {
+              "value": "fade",
+              "label": "Fade"
+            },
+            {
+              "value": "slide",
+              "label": "Slide"
+            },
+            {
+              "value": "scale",
+              "label": "Scale"
+            },
+            {
+              "value": "none",
+              "label": "None"
+            }
+          ],
+          "default": "fade",
+          "label": "Modal Animation"
+        },
+        {
+          "type": "range",
+          "id": "animation_duration",
+          "min": 200,
+          "max": 1000,
+          "step": 50,
+          "default": 300,
+          "unit": "ms",
+          "label": "Animation Duration"
+        },
+        {
+          "type": "header",
+          "content": "Advanced Settings"
+        },
+        {
+          "type": "text",
+          "id": "custom_css_class",
+          "label": "Custom CSS Class",
+          "info": "Add custom CSS class for advanced styling"
+        },
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "Custom Liquid",
+          "info": "Add custom liquid code to the popup content"
         }
       ]
     },

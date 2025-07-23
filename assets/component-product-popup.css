@@ -411,3 +411,139 @@
   background-color: rgba(var(--color-button), 0.1);
   opacity: 0.8;
 }
+
+/* Popup Modal Image Styles */
+.product-popup-modal__image {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.product-popup-modal__image-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.8rem;
+  box-shadow: 0 0.4rem 1.2rem rgba(var(--color-foreground), 0.1);
+}
+
+@media screen and (max-width: 749px) {
+  .product-popup-modal__image {
+    margin-top: 1.5rem;
+  }
+
+  .product-popup-modal__image-img {
+    border-radius: 0.6rem;
+  }
+}
+
+/* Modal Size Variations */
+.product-popup-modal--small .product-popup-modal__content {
+  max-width: 40rem;
+  width: 90vw;
+}
+
+.product-popup-modal--medium .product-popup-modal__content {
+  max-width: 60rem;
+  width: 90vw;
+}
+
+.product-popup-modal--large .product-popup-modal__content {
+  max-width: 80rem;
+  width: 95vw;
+}
+
+.product-popup-modal--full .product-popup-modal__content {
+  max-width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  border-radius: 0;
+}
+
+/* Content Alignment */
+.product-popup-modal__content--left .product-popup-modal__content-info {
+  text-align: left;
+}
+
+.product-popup-modal__content--center .product-popup-modal__content-info {
+  text-align: center;
+}
+
+.product-popup-modal__content--right .product-popup-modal__content-info {
+  text-align: right;
+}
+
+/* Title Styles */
+.product-popup-modal__title {
+  margin-bottom: 2rem;
+  color: rgb(var(--color-foreground));
+}
+
+.product-popup-modal__title.h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+
+.product-popup-modal__title.h2 {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
+.product-popup-modal__title.h3 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.product-popup-modal__title.h4 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Custom Liquid Container */
+.product-popup-modal__custom-liquid {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(var(--color-foreground), 0.1);
+}
+
+/* Animation Classes */
+.product-popup-modal[data-animation='fade'] {
+  transition: opacity var(--duration-short) ease;
+}
+
+.product-popup-modal[data-animation='slide'] {
+  transition: transform var(--duration-short) ease;
+}
+
+.product-popup-modal[data-animation='scale'] {
+  transition: transform var(--duration-short) ease;
+}
+
+.product-popup-modal[data-animation='none'] {
+  transition: none;
+}
+
+/* Responsive adjustments for modal sizes */
+@media screen and (max-width: 749px) {
+  .product-popup-modal--small .product-popup-modal__content,
+  .product-popup-modal--medium .product-popup-modal__content,
+  .product-popup-modal--large .product-popup-modal__content {
+    max-width: 95vw;
+    width: 95vw;
+  }
+
+  .product-popup-modal__title.h1 {
+    font-size: 2.4rem;
+  }
+
+  .product-popup-modal__title.h2 {
+    font-size: 2rem;
+  }
+
+  .product-popup-modal__title.h3 {
+    font-size: 1.8rem;
+  }
+
+  .product-popup-modal__title.h4 {
+    font-size: 1.6rem;
+  }
+}
