@@ -42,7 +42,13 @@
           "type": "popup",
           "settings": {
             "text": "Size guide",
-            "page": ""
+            "page": "",
+            "button_style": "product-popup-modal__button default",
+            "button_size": "",
+            "show_icon": true,
+            "button_icon": "size_rule",
+            "icon_position": "left",
+            "icon_only": false
           }
         },
         "buy_buttons_enhanced_gLd3zm": {
