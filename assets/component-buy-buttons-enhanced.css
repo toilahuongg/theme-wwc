@@ -19,7 +19,7 @@
 /* Main Row - Quantity and Add to Cart */
 .product-form__main-row {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 1rem;
   width: 100%;
 }
@@ -29,21 +29,59 @@
     gap: 0.75rem;
   }
 }
+
 .product-form__buttons--enhanced .product-form__submit {
   margin-bottom: 0;
+  flex: 1;
+}
+
+/* Quantity Form Container */
+.product-form__quantity {
+  flex-shrink: 0;
+  min-width: 140px;
+}
+
+/* Quantity Label */
+.quantity__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+.quantity__rules-cart {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 1.2rem;
+  color: rgba(var(--color-foreground), 0.6);
+}
+
+.quantity__rules-cart .loading__spinner {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 /* Quantity Selector */
 .quantity-selector--enhanced {
-  flex-shrink: 0;
+  width: 100%;
 }
 
 .quantity-selector--enhanced .quantity {
-  width: 120px;
+  width: 100%;
+  min-width: 120px;
 }
 
 .quantity-selector--enhanced .quantity__button {
   width: calc(4.5rem / var(--font-body-scale));
+}
+
+/* Enhanced Quantity Input */
+.quantity-selector--enhanced .quantity__input {
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-align: center;
 }
 
 /* Button Icon Styling */
@@ -179,6 +217,21 @@
     gap: 0.75rem;
   }
 
+  .product-form__main-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .product-form__quantity {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .quantity-selector--enhanced .quantity {
+    width: 100%;
+    min-width: auto;
+  }
+
   .product-form__submit .button__icon {
     width: 1.25rem;
     height: 1.25rem;
@@ -199,12 +252,31 @@
     left: 1rem;
     padding: 0.875rem 1.25rem;
   }
+
+  .quantity__label {
+    font-size: 1.3rem;
+  }
+}
+
+/* Tablet Layout */
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .product-form__main-row {
+    gap: 0.875rem;
+  }
+
+  .product-form__quantity {
+    min-width: 130px;
+  }
 }
 
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
   .product-form__submit {
     transition: none;
+  }
+
+  .product-form__success-message {
+    animation: none;
   }
 }
 
@@ -214,9 +286,72 @@
   outline-offset: 2px;
 }
 
+.quantity__button:focus-visible,
+.quantity__input:focus-visible {
+  outline: 2px solid rgb(var(--color-foreground));
+  outline-offset: 2px;
+}
+
 /* Print Styles */
 @media print {
   .buy-buttons-enhanced {
     display: none;
   }
+}
+
+/* Enhanced Quantity Rules */
+.quantity__rules {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  color: rgba(var(--color-foreground), 0.6);
+}
+
+.quantity__rules .caption {
+  display: inline-block;
+  margin: 0;
+}
+
+.quantity__rules .divider + .divider::before {
+  content: '\2022';
+  margin: 0 0.5rem;
+}
+
+/* Loading State for Quantity Rules */
+.quantity__rules-cart .loading__spinner:not(.hidden) ~ * {
+  visibility: hidden;
+}
+
+/* Enhanced Form Layout */
+.form--enhanced {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Error Message Styling */
+.product-form__error-message-wrapper {
+  background: rgb(var(--color-error));
+  color: rgb(var(--color-background));
+  padding: 1rem;
+  border-radius: var(--button-border-radius);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.product-form__error-message-wrapper .svg-wrapper {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+.product-form__error-message-wrapper .svg-wrapper svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}
+
+.product-form__error-message {
+  font-weight: 500;
 }
