@@ -164,6 +164,7 @@
         "image-with-text-1"
       ],
       "settings": {
+        "image": "shopify://shop_images/ezgif-2bad637ac48ffd.gif",
         "height": "adapt",
         "desktop_image_width": "small",
         "layout": "text_first",
