@@ -241,10 +241,20 @@
     opacity: 1;
   }
 
-  .icon-block:hover {
+  .icon-block:hover,
+  .icon-block.hover-active {
     transform: translateY(-8px);
     box-shadow: 0 12px 40px rgba(var(--color-button), 0.15);
     border-color: rgba(var(--color-button), 0.2);
+  }
+
+  /* Disable hover effects on mobile */
+  @media screen and (max-width: 749px) {
+    .icon-block:hover {
+      transform: none;
+      box-shadow: none;
+      border-color: rgba(var(--color-accent-1), 0.08);
+    }
   }
 
   .icon-block__content {
@@ -284,9 +294,18 @@
     left: 100%;
   }
 
-  .icon-block:hover .icon-block__icon {
+  .icon-block:hover .icon-block__icon,
+  .icon-block.hover-active .icon-block__icon {
     transform: scale(1.1) rotate(5deg);
     box-shadow: 0 8px 24px rgba(var(--color-button), 0.3);
+  }
+
+  /* Disable icon hover effects on mobile */
+  @media screen and (max-width: 749px) {
+    .icon-block:hover .icon-block__icon {
+      transform: none;
+      box-shadow: none;
+    }
   }
 
   /* Icon Size Variations */
@@ -410,6 +429,13 @@
     transform: translateX(4px);
   }
 
+  /* Disable link hover effects on mobile */
+  @media screen and (max-width: 749px) {
+    .icon-block__link:hover {
+      transform: none;
+    }
+  }
+
   .icon-block__link::after {
     content: '→';
     transition: transform 0.3s ease;
@@ -449,6 +475,23 @@
 
   .icon-block--pulse {
     animation: pulse 2s infinite;
+  }
+
+  /* Mobile-specific animation fixes */
+  @media screen and (max-width: 749px) {
+    .icon-block--fade-in {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    .icon-block--bounce {
+      animation: none;
+    }
+
+    .icon-block--pulse {
+      animation: none;
+    }
   }
 
   @keyframes fadeInUp {
@@ -559,13 +602,46 @@
       transition: none;
     }
   }
+
+  /* Android-specific fixes */
+  @supports (-webkit-touch-callout: none) {
+    /* iOS Safari */
+    .icon-block {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+  }
+
+  /* Android WebView and Chrome fixes */
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .icon-block {
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-perspective: 1000;
+      perspective: 1000;
+    }
+  }
 {%- endstyle -%}
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // Animate blocks on scroll
+    // Check if device is mobile/Android
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const isAndroid = /Android/i.test(navigator.userAgent);
+
     const blocks = document.querySelectorAll('.icon-block');
 
+    // For mobile devices, show blocks immediately without animation
+    if (isMobile) {
+      blocks.forEach((block) => {
+        block.style.opacity = '1';
+        block.style.transform = 'none';
+        block.classList.remove('icon-block--fade-in', 'icon-block--bounce', 'icon-block--pulse');
+      });
+      return; // Exit early for mobile devices
+    }
+
+    // Desktop animation with Intersection Observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry, index) => {
@@ -584,17 +660,15 @@
 
     blocks.forEach((block) => observer.observe(block));
 
-    // Add hover effects for mobile
-    if ('ontouchstart' in window) {
+    // Add hover effects for desktop only
+    if (!isMobile) {
       blocks.forEach((block) => {
-        block.addEventListener('touchstart', function () {
-          this.classList.add('touch-active');
+        block.addEventListener('mouseenter', function () {
+          this.classList.add('hover-active');
         });
 
-        block.addEventListener('touchend', function () {
-          setTimeout(() => {
-            this.classList.remove('touch-active');
-          }, 300);
+        block.addEventListener('mouseleave', function () {
+          this.classList.remove('hover-active');
         });
       });
     }
