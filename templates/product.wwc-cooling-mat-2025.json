@@ -163,6 +163,7 @@
         "image-with-text-0",
         "image-with-text-1"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/ezgif-2bad637ac48ffd.gif",
         "height": "adapt",
@@ -185,7 +186,7 @@
         "heading_W48L9R": {
           "type": "heading",
           "settings": {
-            "heading": "Enhanced Image with Text",
+            "heading": "This is the nation's favourite cooling mat",
             "heading_size": "h1"
           }
         },
@@ -228,14 +229,14 @@
         "heading_jWnNna": {
           "type": "heading",
           "settings": {
-            "heading": "Enhanced Image with Text",
+            "heading": "This is the nation's favourite cooling mat",
             "heading_size": "h1"
           }
         },
         "text_ey7Mja": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Did you know that 4 out of 5 dogs suffer from the heat during the summer months?</strong> It's no surprise that they seek refuge on cold tiles. With their inability to sweat like humans and their thick fur, the heat can become unbearable for them. </p><p>As devoted dog parents ourselves, we know how overwhelming it is to find something that actually helps your pup feel cool and comfortable. The market is flooded with copycat products that promise relief but rarely deliver. </p><p> That’s why we created the <strong>WWC Cooling Mat</strong>: a science-backed, gel-free solution trusted by over <strong>20,000+ pet owners</strong>. It’s not just another mat, it’s the upgrade your dog’s summer naps have been waiting for.</p><p><strong>✓ Triple-layered for optimal cooling<br/></strong>The self-cooling 3-layer premium material ensures optimal cooling.</p><p><strong>✓ Multi-purpose<br/></strong>The WWC Cooling Mat<strong> </strong>can be placed on any surface and are easy to take along wherever you go.</p><p><strong>✓ Eco-friendly & machine washable<br/></strong>Hassle-free cleaning thanks to the durable, machine washable materials.</p>",
+            "text": "<p><strong>Did you know that a dog's normal temperature ranges between 100 -102 °F? </strong>When it rises above 104 °F, your dog's health is at risk. </p><p><strong>Overheating</strong> can result in a <strong>faster heart rate</strong>, <strong>increased panting</strong> and <strong>drooling</strong>, and <strong>sweating</strong> through the paw pads. </p><p>By placing your dog on the Pelsbarn Cooling Mat, <strong>your dog can cool down 3 - 7 °F degrees within a few minutes</strong>. This makes it safe to use as your dog's body temperature will gradually drop.</p>",
             "text_style": "body"
           }
         }
@@ -248,7 +249,7 @@
       "settings": {
         "image": "shopify://shop_images/Group_16.png",
         "height": "adapt",
-        "desktop_image_width": "small",
+        "desktop_image_width": "medium",
         "layout": "image_first",
         "image_behavior": "none",
         "image_shape": "default",
