@@ -147,14 +147,14 @@
         "image-with-text-0": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
-            "heading_size": "h1"
+            "heading": "This is the nation's favourite cooling mat",
+            "heading_size": "h2"
           }
         },
         "image-with-text-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "<p><strong>Did you know that 4 out of 5 dogs suffer from the heat during the summer months?</strong> It's no surprise that they seek refuge on cold tiles. With their inability to sweat like humans and their thick fur, the heat can become unbearable for them. </p><p>As devoted dog parents ourselves, we know how overwhelming it is to find something that actually helps your pup feel cool and comfortable. The market is flooded with copycat products that promise relief but rarely deliver. </p><p> That’s why we created the <strong>WWC Cooling Mat</strong>: a science-backed, gel-free solution trusted by over <strong>20,000+ pet owners</strong>. It’s not just another mat, it’s the upgrade your dog’s summer naps have been waiting for.</p>",
             "text_style": "body"
           }
         }
@@ -164,15 +164,15 @@
         "image-with-text-1"
       ],
       "settings": {
-        "height": "small",
-        "desktop_image_width": "medium",
+        "height": "adapt",
+        "desktop_image_width": "small",
         "layout": "text_first",
         "image_behavior": "none",
         "content_layout": "no-overlap",
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "",
+        "section_color_scheme": "scheme-6",
         "color_scheme": "scheme-2",
         "padding_top": 36,
         "padding_bottom": 36
