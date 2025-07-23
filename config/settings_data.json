@@ -143,6 +143,11 @@
         "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {}
+      },
+      "16605207545338212596": {
+        "type": "shopify://apps/aov-bundle-upsell/blocks/aov-offer/0335d423-143c-4ad7-b224-99a1db74a9ee",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
