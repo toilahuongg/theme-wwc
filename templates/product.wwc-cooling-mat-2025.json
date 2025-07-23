@@ -141,45 +141,6 @@
         "padding_bottom": 12
       }
     },
-    "image-with-text": {
-      "type": "image-with-text",
-      "blocks": {
-        "image-with-text-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "This is the nation's favourite cooling mat",
-            "heading_size": "h2"
-          }
-        },
-        "image-with-text-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p><strong>Did you know that 4 out of 5 dogs suffer from the heat during the summer months?</strong> It's no surprise that they seek refuge on cold tiles. With their inability to sweat like humans and their thick fur, the heat can become unbearable for them. </p><p>As devoted dog parents ourselves, we know how overwhelming it is to find something that actually helps your pup feel cool and comfortable. The market is flooded with copycat products that promise relief but rarely deliver. </p><p> That’s why we created the <strong>WWC Cooling Mat</strong>: a science-backed, gel-free solution trusted by over <strong>20,000+ pet owners</strong>. It’s not just another mat, it’s the upgrade your dog’s summer naps have been waiting for.</p><p><strong>✓ Triple-layered for optimal cooling<br/></strong>The self-cooling 3-layer premium material ensures optimal cooling.</p><p><strong>✓ Multi-purpose<br/></strong>The WWC Cooling Mat<strong> </strong>can be placed on any surface and are easy to take along wherever you go.</p><p><strong>✓ Eco-friendly & machine washable<br/></strong>Hassle-free cleaning thanks to the durable, machine washable materials.</p>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "image-with-text-0",
-        "image-with-text-1"
-      ],
-      "disabled": true,
-      "settings": {
-        "image": "shopify://shop_images/ezgif-2bad637ac48ffd.gif",
-        "height": "adapt",
-        "desktop_image_width": "small",
-        "layout": "text_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-1",
-        "color_scheme": "scheme-2",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "image_with_text_enhanced_gVBQBQ": {
       "type": "image-with-text-enhanced",
       "blocks": {
@@ -266,6 +227,49 @@
         "padding_bottom": 36
       }
     },
+    "image_with_text_enhanced_3Trz74": {
+      "type": "image-with-text-enhanced",
+      "blocks": {
+        "heading_gwGVYB": {
+          "type": "heading",
+          "settings": {
+            "heading": "Protect your furry friend",
+            "heading_size": "h1"
+          }
+        },
+        "text_UWbBJg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We understand how stressful it is to see your faithful furry friend panting from the heat, and the last thing we want is for them to suffer unnecessarily.  </p><p>The Pelsbarn Cooling Dog Mat is designed to prevent overheating and heat stress, naturally providing cool relief (no dangerous toxic gels involved).</p><p><br/><strong>Treat your dog to cool comfort and safe, relaxed snoozes!</strong></p><p></p><p></p><p></p><p></p><p></p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_gwGVYB",
+        "text_UWbBJg"
+      ],
+      "name": "Enhanced Image with Text",
+      "settings": {
+        "image": "shopify://shop_images/Group_15.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_shape": "default",
+        "image_effect": "none",
+        "image_badge": "",
+        "content_layout": "overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "show_floating_elements": true,
+        "section_color_scheme": "scheme-6",
+        "color_scheme": "scheme-6",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -287,9 +291,9 @@
   },
   "order": [
     "main",
-    "image-with-text",
     "image_with_text_enhanced_gVBQBQ",
     "image_with_text_enhanced_qkbUGH",
+    "image_with_text_enhanced_3Trz74",
     "related-products"
   ]
 }
