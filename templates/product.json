@@ -34,6 +34,13 @@
             "swatch_shape": "circle"
           }
         },
+        "popup_zeAPeD": {
+          "type": "popup",
+          "settings": {
+            "text": "Pop-up link text",
+            "page": ""
+          }
+        },
         "buy_buttons_enhanced_gLd3zm": {
           "type": "buy_buttons_enhanced",
           "settings": {
@@ -95,6 +102,7 @@
         "caption",
         "price",
         "variant_picker",
+        "popup_zeAPeD",
         "buy_buttons_enhanced_gLd3zm",
         "description",
         "collapsible-row-0",
