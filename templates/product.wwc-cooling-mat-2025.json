@@ -270,6 +270,61 @@
         "padding_bottom": 36
       }
     },
+    "multicolumn_LrycL3": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_bwwPLx": {
+          "type": "column",
+          "settings": {
+            "title": "❄️ Instant cooling",
+            "text": "<p>Although the cooling effect of the mat may not be immediately noticeable to humans, dogs experience a temperature decrease of 2 to 4 degrees within minutes. This is crucial for preventing overheating in dogs during the hot summer months.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_6Gt6Ry": {
+          "type": "column",
+          "settings": {
+            "title": "🌿 100% safe, natural and non-toxic material",
+            "text": "<p>Made from innovative high-quality cooling silk and breathable material, the mat is not only comfortable and soft, but also safe and non-irritating for your pet.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_wVJk7w": {
+          "type": "column",
+          "settings": {
+            "title": "🏖 Portable and foldable",
+            "text": "<p>The mat is lightweight and foldable, making it ideal for hiking trips or beach outings, as it has proven effective both indoors and outdoors!</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_bwwPLx",
+        "column_6Gt6Ry",
+        "column_wVJk7w"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "button_animation": "none",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -294,6 +349,7 @@
     "image_with_text_enhanced_gVBQBQ",
     "image_with_text_enhanced_qkbUGH",
     "image_with_text_enhanced_3Trz74",
+    "multicolumn_LrycL3",
     "related-products"
   ]
 }
