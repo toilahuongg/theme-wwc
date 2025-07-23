@@ -145,7 +145,8 @@
           "text": "#000000",
           "button": "#2563eb",
           "button_label": "#ffffff",
-          "secondary_button_label": "#2563eb",
+          "secondary_button": "#000000",
+          "secondary_button_label": "#ffffff",
           "shadow": "#1e3a8a"
         }
       },
@@ -156,6 +157,7 @@
           "text": "#1e3a8a",
           "button": "#2563eb",
           "button_label": "#ffffff",
+          "secondary_button": "#121212",
           "secondary_button_label": "#2563eb",
           "shadow": "#1e3a8a"
         }
@@ -167,6 +169,7 @@
           "text": "#ffffff",
           "button": "#60a5fa",
           "button_label": "#1e3a8a",
+          "secondary_button": "#121212",
           "secondary_button_label": "#ffffff",
           "shadow": "#1e3a8a"
         }
@@ -178,6 +181,7 @@
           "text": "#ffffff",
           "button": "#2563eb",
           "button_label": "#ffffff",
+          "secondary_button": "#121212",
           "secondary_button_label": "#2563eb",
           "shadow": "#1e3a8a"
         }
@@ -189,6 +193,7 @@
           "text": "#ffffff",
           "button": "#ffffff",
           "button_label": "#2563eb",
+          "secondary_button": "#121212",
           "secondary_button_label": "#ffffff",
           "shadow": "#1e3a8a"
         }
@@ -200,6 +205,7 @@
           "text": "#0c4a6e",
           "button": "#0284c7",
           "button_label": "#ffffff",
+          "secondary_button": "#121212",
           "secondary_button_label": "#0284c7",
           "shadow": "#0c4a6e"
         }
@@ -211,6 +217,7 @@
           "text": "#92400e",
           "button": "#f59e0b",
           "button_label": "#ffffff",
+          "secondary_button": "#121212",
           "secondary_button_label": "#f59e0b",
           "shadow": "#92400e"
         }
@@ -222,6 +229,7 @@
           "text": "#581c87",
           "button": "#9333ea",
           "button_label": "#ffffff",
+          "secondary_button": "#121212",
           "secondary_button_label": "#9333ea",
           "shadow": "#581c87"
         }
@@ -233,6 +241,7 @@
           "text": "#1e3a8a",
           "button": "#2563eb",
           "button_label": "#ffffff",
+          "secondary_button": "#121212",
           "secondary_button_label": "#2563eb",
           "shadow": "#1e3a8a"
         }

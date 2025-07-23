@@ -41,10 +41,6 @@
             "swatch_shape": "circle"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
         "buy_buttons_enhanced_gLd3zm": {
           "type": "buy_buttons_enhanced",
           "settings": {
@@ -107,7 +103,6 @@
         "caption",
         "price",
         "variant_picker",
-        "quantity_selector",
         "buy_buttons_enhanced_gLd3zm",
         "description",
         "collapsible-row-0",
