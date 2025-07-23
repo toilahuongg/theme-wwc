@@ -71,6 +71,14 @@
           "type": "shopify://apps/aov-bundle-upsell/blocks/offer-volume/0335d423-143c-4ad7-b224-99a1db74a9ee",
           "settings": {}
         },
+        "buy_buttons_7pMmN4": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true,
+            "button_animation": "none"
+          }
+        },
         "buy_buttons_enhanced_gLd3zm": {
           "type": "buy_buttons_enhanced",
           "disabled": true,
@@ -130,6 +138,7 @@
         "variant_picker",
         "popup_zeAPeD",
         "aov_bundle_upsell_offer_volume_wcjCwF",
+        "buy_buttons_7pMmN4",
         "buy_buttons_enhanced_gLd3zm",
         "collapsible-row-0",
         "collapsible-row-1",
