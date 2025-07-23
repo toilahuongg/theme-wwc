@@ -27,6 +27,10 @@
           "type": "price",
           "settings": {}
         },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -37,7 +41,7 @@
         "popup_zeAPeD": {
           "type": "popup",
           "settings": {
-            "text": "Pop-up link text",
+            "text": "Size guide",
             "page": ""
           }
         },
@@ -49,10 +53,6 @@
             "show_quantity_selector": true,
             "button_animation": "float"
           }
-        },
-        "description": {
-          "type": "description",
-          "settings": {}
         },
         "collapsible-row-0": {
           "type": "collapsible_tab",
@@ -101,10 +101,10 @@
         "title",
         "caption",
         "price",
+        "description",
         "variant_picker",
         "popup_zeAPeD",
         "buy_buttons_enhanced_gLd3zm",
-        "description",
         "collapsible-row-0",
         "collapsible-row-1",
         "collapsible-row-2",
