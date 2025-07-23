@@ -70,6 +70,12 @@
             "label": "t:settings_schema.colors.settings.button_label.label",
             "default": "#FFFFFF"
           },
+                    {
+            "type": "color",
+            "id": "secondary_button",
+            "label": "t:settings_schema.colors.settings.secondary_button_background.label",
+            "default": "#121212"
+          },
           {
             "type": "color",
             "id": "secondary_button_label",
