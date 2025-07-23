@@ -43,12 +43,24 @@
           "settings": {
             "text": "Size guide",
             "page": "",
+            "image": "{{ product.metafields.custom.size_guide.value }}",
             "button_style": "product-popup-modal__button default",
             "button_size": "",
             "show_icon": true,
             "button_icon": "size_rule",
             "icon_position": "left",
-            "icon_only": false
+            "icon_only": false,
+            "modal_size": "medium",
+            "show_close_button": true,
+            "close_on_backdrop_click": true,
+            "close_on_escape": true,
+            "content_alignment": "left",
+            "show_title": true,
+            "title_size": "h2",
+            "modal_animation": "fade",
+            "animation_duration": 300,
+            "custom_css_class": "",
+            "custom_liquid": ""
           }
         },
         "buy_buttons_enhanced_gLd3zm": {
