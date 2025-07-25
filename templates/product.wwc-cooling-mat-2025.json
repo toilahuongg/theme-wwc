@@ -69,8 +69,24 @@
           }
         },
         "aov_bundle_upsell_offer_volume_wcjCwF": {
-          "type": "shopify://apps/aov-bundle-upsell/blocks/offer-volume/0335d423-143c-4ad7-b224-99a1db74a9ee",
+          "type": "shopify://apps/aov-ai-bundle-upsell/blocks/offer-volume/0335d423-143c-4ad7-b224-99a1db74a9ee",
           "settings": {}
+        },
+        "low_quantity_wxCWmf": {
+          "type": "low_quantity",
+          "settings": {
+            "label": "Only",
+            "remaining_text": "left in stock",
+            "icon": "fire",
+            "style": "style-minimal",
+            "animation": "animation-none",
+            "show_icon": true,
+            "show_warning": true,
+            "show_progress": false,
+            "min_quantity": 3,
+            "max_quantity": 25,
+            "show_actual_inventory": true
+          }
         },
         "buy_buttons_7pMmN4": {
           "type": "buy_buttons",
@@ -139,6 +155,7 @@
         "variant_picker",
         "popup_zeAPeD",
         "aov_bundle_upsell_offer_volume_wcjCwF",
+        "low_quantity_wxCWmf",
         "buy_buttons_7pMmN4",
         "buy_buttons_enhanced_gLd3zm",
         "collapsible-row-0",
