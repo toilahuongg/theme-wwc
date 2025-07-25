@@ -479,5 +479,10 @@
         }
       }
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      ".Avada-Bundle-Volume.-mobile, .Avada-Bundle-Volume.-desktop {padding: 0; border: none;}"
+    ]
   }
 }
