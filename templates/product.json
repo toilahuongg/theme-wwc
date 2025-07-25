@@ -63,6 +63,22 @@
             "custom_liquid": ""
           }
         },
+        "low_quantity_RGDicz": {
+          "type": "low_quantity",
+          "settings": {
+            "label": "Only",
+            "remaining_text": "left in stock",
+            "icon": "fire",
+            "style": "style-minimal",
+            "animation": "animation-none",
+            "show_icon": true,
+            "show_warning": true,
+            "show_progress": false,
+            "min_quantity": 3,
+            "max_quantity": 25,
+            "show_actual_inventory": true
+          }
+        },
         "buy_buttons_enhanced_gLd3zm": {
           "type": "buy_buttons_enhanced",
           "settings": {
@@ -125,6 +141,7 @@
         "description",
         "variant_picker",
         "popup_zeAPeD",
+        "low_quantity_RGDicz",
         "buy_buttons_enhanced_gLd3zm",
         "collapsible-row-0",
         "collapsible-row-1",
