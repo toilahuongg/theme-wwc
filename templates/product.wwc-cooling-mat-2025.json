@@ -48,10 +48,10 @@
           "settings": {
             "label": "Currently viewing",
             "icon": "eye",
-            "style": "style-default",
-            "animation": "animation-pulse",
+            "style": "style-highlight",
+            "animation": "animation-none",
             "show_icon": true,
-            "show_subtitle": true,
+            "show_subtitle": false,
             "morning_text": "Peak shopping time!",
             "lunch_text": "Lunch break shopping",
             "afternoon_text": "Afternoon rush",
