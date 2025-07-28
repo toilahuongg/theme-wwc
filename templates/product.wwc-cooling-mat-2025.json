@@ -43,6 +43,27 @@
             "swatch_shape": "circle"
           }
         },
+        "online_visitors_Ez6Dnp": {
+          "type": "online_visitors",
+          "settings": {
+            "label": "Currently viewing",
+            "icon": "eye",
+            "style": "style-default",
+            "animation": "animation-pulse",
+            "show_icon": true,
+            "show_subtitle": true,
+            "morning_text": "Peak shopping time!",
+            "lunch_text": "Lunch break shopping",
+            "afternoon_text": "Afternoon rush",
+            "evening_text": "Evening shopping spree",
+            "late_night_text": "Late night browsing",
+            "early_morning_text": "Early bird shoppers",
+            "regular_text": "Active shoppers online",
+            "update_interval": 3000,
+            "max_change": 15,
+            "smooth_animation": true
+          }
+        },
         "popup_zeAPeD": {
           "type": "popup",
           "settings": {
@@ -74,6 +95,7 @@
         },
         "low_quantity_wxCWmf": {
           "type": "low_quantity",
+          "disabled": true,
           "settings": {
             "label": "Only",
             "remaining_text": "left in stock",
@@ -153,6 +175,7 @@
         "price",
         "description",
         "variant_picker",
+        "online_visitors_Ez6Dnp",
         "popup_zeAPeD",
         "aov_bundle_upsell_offer_volume_wcjCwF",
         "low_quantity_wxCWmf",
