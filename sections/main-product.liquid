@@ -37,6 +37,29 @@
         padding-bottom: {{ section.settings.padding_bottom }}px;
       }
     }
+
+    .product-media-container-{{ section.id }} {
+      border-radius: {{ section.settings.media_border_radius }}px;
+      overflow: hidden;
+    }
+
+    .product__media-{{ section.id }} {
+      border-radius: {{ section.settings.media_border_radius }}px;
+    }
+
+    .thumbnail-slider-{{ section.id }} .thumbnail {
+      border-radius: {{ section.settings.media_border_radius }}px;
+      overflow: hidden;
+    }
+
+    .thumbnail-slider-{{ section.id }} .thumbnail img {
+      border-radius: {{ section.settings.media_border_radius }}px;
+    }
+
+    .product-media-modal-{{ section.id }} .product-media-modal__dialog {
+      border-radius: {{ section.settings.media_border_radius }}px;
+      overflow: hidden;
+    }
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
@@ -455,7 +478,20 @@
                   {%- endif -%}
                 </div>
               {%- when 'popup' -%}
-                {% render 'product-popup', block: block, section_id: section.id %}
+                <modal-opener
+                  class="product-popup-modal__opener quick-add-hidden"
+                  data-modal="#PopupModal-{{ block.id }}"
+                  {{ block.shopify_attributes }}
+                >
+                  <button
+                    id="ProductPopup-{{ block.id }}"
+                    class="product-popup-modal__button link"
+                    type="button"
+                    aria-haspopup="dialog"
+                  >
+                    {{ block.settings.text | default: block.settings.page.title | escape }}
+                  </button>
+                </modal-opener>
               {%- when 'share' -%}
                 {% liquid
                   assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
@@ -471,15 +507,6 @@
                   product_form_id: product_form_id,
                   section_id: section.id,
                   show_pickup_availability: true
-                -%}
-              {%- when 'buy_buttons_enhanced' -%}
-                {%- render 'buy-buttons-enhanced',
-                  block: block,
-                  product: product,
-                  product_form_id: product_form_id,
-                  section_id: section.id,
-                  show_pickup_availability: true,
-                  show_quantity_selector: block.settings.show_quantity_selector
                 -%}
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
@@ -670,500 +697,6 @@
                 </product-recommendations>
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
-              {%- when 'online_visitors' -%}
-                <div class="online-visitors-block" {{ block.shopify_attributes }}>
-                  {%- liquid
-                    assign current_hour = 'now' | date: '%H' | plus: 0
-                    assign current_minute = 'now' | date: '%M' | plus: 0
-                    assign current_time = current_hour | times: 60 | plus: current_minute
-
-                    assign base_visitors = 150
-                    assign peak_multiplier = 1.0
-
-                    comment
-                      US Shopping Peak Hours (EST/EDT):
-                      - Morning: 9-11 AM (9:00-11:00)
-                      - Lunch: 12-2 PM (12:00-14:00)
-                      - Afternoon: 2-5 PM (14:00-17:00)
-                      - Evening: 7-10 PM (19:00-22:00)
-                      - Late Night: 10 PM-12 AM (22:00-24:00)
-                    endcomment
-
-                    if current_time >= 540 and current_time <= 660
-                      assign peak_multiplier = 2.2
-                      assign time_period = 'morning'
-                    elsif current_time >= 720 and current_time <= 840
-                      assign peak_multiplier = 2.5
-                      assign time_period = 'lunch'
-                    elsif current_time >= 840 and current_time <= 1020
-                      assign peak_multiplier = 2.8
-                      assign time_period = 'afternoon'
-                    elsif current_time >= 1140 and current_time <= 1320
-                      assign peak_multiplier = 3.2
-                      assign time_period = 'evening'
-                    elsif current_time >= 1320 and current_time <= 1440
-                      assign peak_multiplier = 2.0
-                      assign time_period = 'late_night'
-                    elsif current_time >= 0 and current_time <= 180
-                      assign peak_multiplier = 1.5
-                      assign time_period = 'early_morning'
-                    else
-                      assign peak_multiplier = 1.8
-                      assign time_period = 'regular'
-                    endif
-
-                    assign random_factor = 0.8 | plus: 0.4 | times: 1.0
-                    assign calculated_visitors = base_visitors | times: peak_multiplier | times: random_factor | round
-
-                    if calculated_visitors < 120
-                      assign calculated_visitors = 120
-                    elsif calculated_visitors > 450
-                      assign calculated_visitors = 450
-                    endif
-
-                    assign visitors_text = calculated_visitors | append: ' people'
-                    if calculated_visitors == 1
-                      assign visitors_text = '1 person'
-                    endif
-                  -%}
-
-                  <div
-                    class="online-visitors {{ block.settings.style }} {{ block.settings.animation }}"
-                    data-base-visitors="{{ calculated_visitors }}"
-                    data-time-period="{{ time_period }}"
-                    data-update-interval="{{ block.settings.update_interval | default: 3000 }}"
-                    data-max-change="{{ block.settings.max_change | default: 15 }}"
-                    data-smooth-animation="{{ block.settings.smooth_animation | default: true }}"
-                  >
-                    <div class="online-visitors__icon">
-                      {%- if block.settings.icon == 'eye' -%}
-                        {{- 'icon-eye.svg' | inline_asset_content -}}
-                      {%- elsif block.settings.icon == 'users' -%}
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M10 9C11.6569 9 13 7.65685 13 6C13 4.34315 11.6569 3 10 3C8.34315 3 7 4.34315 7 6C7 7.65685 8.34315 9 10 9Z" fill="currentColor"/>
-                          <path d="M3 17C3 13.6863 6.13401 11 10 11C13.866 11 17 13.6863 17 17V20H3V17Z" fill="currentColor"/>
-                          <path d="M15 8C16.1046 8 17 7.10457 17 6C17 4.89543 16.1046 4 15 4C13.8954 4 13 4.89543 13 6C13 7.10457 13.8954 8 15 8Z" fill="currentColor"/>
-                          <path d="M5 8C6.10457 8 7 7.10457 7 6C7 4.89543 6.10457 4 5 4C3.89543 4 3 4.89543 3 6C3 7.10457 3.89543 8 5 8Z" fill="currentColor"/>
-                        </svg>
-                      {%- elsif block.settings.icon == 'fire' -%}
-                        {{- 'icon-fire.svg' | inline_asset_content -}}
-                      {%- elsif block.settings.icon == 'star' -%}
-                        {{- 'icon-star.svg' | inline_asset_content -}}
-                      {%- else -%}
-                        {{- 'icon-eye.svg' | inline_asset_content -}}
-                      {%- endif -%}
-                    </div>
-
-                    <div class="online-visitors__content">
-                      <div class="online-visitors__text">
-                        {%- if block.settings.show_icon -%}
-                          <span class="online-visitors__pulse"></span>
-                        {%- endif -%}
-                        <span class="online-visitors__label">
-                          {{- block.settings.label | default: 'Currently viewing' -}}
-                        </span>
-                        <span class="online-visitors__count" data-current-count="{{ calculated_visitors }}">
-                          {{- visitors_text -}}
-                        </span>
-                      </div>
-
-                      {%- if block.settings.show_subtitle -%}
-                        <div class="online-visitors__subtitle">
-                          {%- case time_period -%}
-                            {%- when 'morning' -%}
-                              {{ block.settings.morning_text | default: 'Peak shopping time!' }}
-                            {%- when 'lunch' -%}
-                              {{ block.settings.lunch_text | default: 'Lunch break shopping' }}
-                            {%- when 'afternoon' -%}
-                              {{ block.settings.afternoon_text | default: 'Afternoon rush' }}
-                            {%- when 'evening' -%}
-                              {{ block.settings.evening_text | default: 'Evening shopping spree' }}
-                            {%- when 'late_night' -%}
-                              {{ block.settings.late_night_text | default: 'Late night browsing' }}
-                            {%- when 'early_morning' -%}
-                              {{ block.settings.early_morning_text | default: 'Early bird shoppers' }}
-                            {%- else -%}
-                              {{ block.settings.regular_text | default: 'Active shoppers online' }}
-                          {%- endcase -%}
-                        </div>
-                      {%- endif -%}
-                    </div>
-                  </div>
-                </div>
-
-                <script>
-                  (function () {
-                    'use strict';
-
-                    class OnlineVisitorsCounter {
-                      constructor(element) {
-                        this.element = element;
-                        this.countElement = element.querySelector('.online-visitors__count');
-                        this.currentCount = parseInt(this.countElement.dataset.currentCount);
-                        this.baseVisitors = parseInt(element.dataset.baseVisitors);
-                        this.timePeriod = element.dataset.timePeriod;
-                        this.updateInterval = Math.min(parseInt(element.dataset.updateInterval) || 3000, 9000);
-                        this.maxChange = parseInt(element.dataset.maxChange) || 15;
-                        this.smoothAnimation = element.dataset.smoothAnimation === 'true';
-
-                        this.minCount = 120;
-                        this.maxCount = 450;
-                        this.isAnimating = false;
-
-                        this.init();
-                      }
-
-                      init() {
-                        if (this.countElement) {
-                          this.startUpdates();
-                        }
-                      }
-
-                      getTimeMultiplier() {
-                        const now = new Date();
-                        const hour = now.getHours();
-                        const minute = now.getMinutes();
-                        const currentTime = hour * 60 + minute;
-
-                        // Time-based multipliers (same as Liquid logic)
-                        if (currentTime >= 540 && currentTime <= 660) return 2.2; // Morning
-                        if (currentTime >= 720 && currentTime <= 840) return 2.5; // Lunch
-                        if (currentTime >= 840 && currentTime <= 1020) return 2.8; // Afternoon
-                        if (currentTime >= 1140 && currentTime <= 1320) return 3.2; // Evening
-                        if (currentTime >= 1320 && currentTime <= 1440) return 2.0; // Late Night
-                        if (currentTime >= 0 && currentTime <= 180) return 1.5; // Early Morning
-                        return 1.8; // Regular
-                      }
-
-                      generateNewCount() {
-                        const timeMultiplier = this.getTimeMultiplier();
-                        const baseCount = 150;
-                        const randomFactor = 0.8 + Math.random() * 0.4;
-
-                        let newCount = Math.round(baseCount * timeMultiplier * randomFactor);
-
-                        // Add realistic fluctuation
-                        const fluctuation = (Math.random() - 0.5) * this.maxChange * 2;
-                        newCount += Math.round(fluctuation);
-
-                        // Ensure within bounds
-                        newCount = Math.max(this.minCount, Math.min(this.maxCount, newCount));
-
-                        return newCount;
-                      }
-
-                      updateCount(newCount) {
-                        if (this.isAnimating) return;
-
-                        if (this.smoothAnimation) {
-                          this.isAnimating = true;
-
-                          const oldCount = this.currentCount;
-                          const difference = newCount - oldCount;
-                          const steps = 10;
-                          const stepValue = difference / steps;
-                          let currentStep = 0;
-
-                          const animate = () => {
-                            currentStep++;
-                            const currentValue = Math.round(oldCount + stepValue * currentStep);
-
-                            this.updateDisplay(currentValue);
-
-                            if (currentStep < steps) {
-                              requestAnimationFrame(animate);
-                            } else {
-                              this.currentCount = newCount;
-                              this.isAnimating = false;
-                            }
-                          };
-
-                          requestAnimationFrame(animate);
-                        } else {
-                          this.currentCount = newCount;
-                          this.updateDisplay(newCount);
-                        }
-                      }
-
-                      updateDisplay(count) {
-                        const text = count === 1 ? '1 person' : `${count} people`;
-                        this.countElement.textContent = text;
-                        this.countElement.dataset.currentCount = count;
-                      }
-
-                      addUpdateEffect(isIncrease) {
-                        this.countElement.classList.remove('increasing', 'decreasing', 'updating');
-                        this.countElement.classList.add('updating');
-
-                        setTimeout(() => {
-                          this.countElement.classList.remove('updating');
-                          this.countElement.classList.add(isIncrease ? 'increasing' : 'decreasing');
-
-                          setTimeout(() => {
-                            this.countElement.classList.remove('increasing', 'decreasing');
-                          }, 500);
-                        }, 100);
-                      }
-
-                      startUpdates() {
-                        setInterval(() => {
-                          const newCount = this.generateNewCount();
-                          if (Math.abs(newCount - this.currentCount) > 5) {
-                            const isIncrease = newCount > this.currentCount;
-                            this.addUpdateEffect(isIncrease);
-                            this.updateCount(newCount);
-                          }
-                        }, this.updateInterval);
-
-                        // Also update on page visibility change
-                        document.addEventListener('visibilitychange', () => {
-                          if (!document.hidden) {
-                            const newCount = this.generateNewCount();
-                            this.updateCount(newCount);
-                          }
-                        });
-                      }
-                    }
-
-                    // Initialize all online visitors counters
-                    document.addEventListener('DOMContentLoaded', () => {
-                      const onlineVisitorsElements = document.querySelectorAll('.online-visitors');
-                      onlineVisitorsElements.forEach((element) => {
-                        new OnlineVisitorsCounter(element);
-                      });
-                    });
-
-                    // Also initialize for dynamically loaded content
-                    if (document.readyState === 'loading') {
-                      document.addEventListener('DOMContentLoaded', () => {
-                        const onlineVisitorsElements = document.querySelectorAll('.online-visitors');
-                        onlineVisitorsElements.forEach((element) => {
-                          new OnlineVisitorsCounter(element);
-                        });
-                      });
-                    } else {
-                      const onlineVisitorsElements = document.querySelectorAll('.online-visitors');
-                      onlineVisitorsElements.forEach((element) => {
-                        new OnlineVisitorsCounter(element);
-                      });
-                    }
-                  })();
-                </script>
-              {%- when 'low_quantity' -%}
-                <div class="low-quantity-block" {{ block.shopify_attributes }}>
-                  {%- liquid
-                    comment
-                      Get actual inventory quantity for the selected variant
-                      If inventory tracking is enabled, show actual quantity
-                      If not, show a fixed low quantity for urgency
-                    endcomment
-
-                    assign variant = product.selected_or_first_available_variant
-                    assign inventory_quantity = variant.inventory_quantity
-                    assign inventory_policy = variant.inventory_policy
-                    assign inventory_management = variant.inventory_management
-
-                    comment
-                      Determine what quantity to display
-                      - If inventory is tracked and quantity is low (2-5), show actual
-                      - If inventory is tracked but quantity is high, show fixed low number
-                      - If inventory is not tracked, show fixed low number
-                    endcomment
-
-                    assign display_quantity = 3
-                    assign show_actual_inventory = false
-
-                    if inventory_management == 'shopify' and inventory_quantity > 0
-                      if inventory_quantity <= 5 and inventory_quantity >= 2
-                        assign display_quantity = inventory_quantity
-                        assign show_actual_inventory = true
-                      elsif inventory_quantity < 2
-                        assign display_quantity = 2
-                        assign show_actual_inventory = true
-                      else
-                        comment
-                          If inventory is high, show a fixed low number for urgency
-                          but don't show actual inventory to avoid confusion
-                        endcomment
-                        assign display_quantity = 3
-                        assign show_actual_inventory = false
-                      endif
-                    else
-                      comment
-                        If inventory is not tracked, show fixed low number
-                      endcomment
-                      assign display_quantity = 3
-                      assign show_actual_inventory = false
-                    endif
-
-                    assign quantity_text = display_quantity | append: ' items'
-                    if display_quantity == 1
-                      assign quantity_text = '1 item'
-                    endif
-
-                    assign show_warning = false
-                    if display_quantity <= 2
-                      assign show_warning = true
-                      assign warning_text = 'Almost gone!'
-                    elsif display_quantity <= 3
-                      assign show_warning = true
-                      assign warning_text = 'Very low stock!'
-                    elsif display_quantity <= 5
-                      assign show_warning = true
-                      assign warning_text = 'Low stock!'
-                    endif
-                  -%}
-
-                  <div
-                    class="low-quantity {{ block.settings.style }} {{ block.settings.animation }}"
-                    data-display-quantity="{{ display_quantity }}"
-                    data-show-actual-inventory="{{ show_actual_inventory }}"
-                    data-variant-id="{{ variant.id }}"
-                  >
-                    <div class="low-quantity__icon">
-                      {%- if block.settings.icon == 'fire' -%}
-                        {{- 'icon-fire.svg' | inline_asset_content -}}
-                      {%- elsif block.settings.icon == 'clock' -%}
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
-                          <path d="M10 6V10L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                      {%- elsif block.settings.icon == 'warning' -%}
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M10 1L19 18H1L10 1Z" stroke="currentColor" stroke-width="2" fill="none"/>
-                          <path d="M10 7V11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                          <circle cx="10" cy="14" r="1" fill="currentColor"/>
-                        </svg>
-                      {%- elsif block.settings.icon == 'box' -%}
-                        {{- 'icon-box.svg' | inline_asset_content -}}
-                      {%- else -%}
-                        {{- 'icon-fire.svg' | inline_asset_content -}}
-                      {%- endif -%}
-                    </div>
-
-                    <div class="low-quantity__content">
-                      <div class="low-quantity__text">
-                        {%- if block.settings.show_icon -%}
-                          <span class="low-quantity__pulse"></span>
-                        {%- endif -%}
-                        <span class="low-quantity__label">{{ block.settings.label | default: 'Only' }}</span>
-                        <span class="low-quantity__count" data-current-count="{{ display_quantity }}">
-                          {{- quantity_text -}}
-                        </span>
-                        <span class="low-quantity__remaining">
-                          {{- block.settings.remaining_text | default: 'left in stock' -}}
-                        </span>
-                      </div>
-
-                      {%- if show_warning and block.settings.show_warning -%}
-                        <div class="low-quantity__warning">
-                          <span class="low-quantity__warning-text">{{ warning_text }}</span>
-                        </div>
-                      {%- endif -%}
-
-                      {%- if block.settings.show_progress -%}
-                        <div class="low-quantity__progress">
-                          <div class="low-quantity__progress-bar">
-                            <div
-                              class="low-quantity__progress-fill"
-                              style="width: {{ display_quantity | times: 4 }}%"
-                            ></div>
-                          </div>
-                          <span class="low-quantity__progress-text">{{ display_quantity }} of 25 remaining</span>
-                        </div>
-                      {%- endif -%}
-                    </div>
-                  </div>
-                </div>
-
-                <script>
-                  (function () {
-                    'use strict';
-
-                    class LowQuantityDisplay {
-                      constructor(element) {
-                        this.element = element;
-                        this.countElement = element.querySelector('.low-quantity__count');
-                        this.displayQuantity = parseInt(element.dataset.displayQuantity);
-                        this.showActualInventory = element.dataset.showActualInventory === 'true';
-                        this.variantId = element.dataset.variantId;
-
-                        this.init();
-                      }
-
-                      init() {
-                        if (this.countElement) {
-                          this.updateWarning();
-                          this.updateProgress();
-                        }
-                      }
-
-                      updateWarning() {
-                        const warningElement = this.element.querySelector('.low-quantity__warning');
-                        const warningText = this.element.querySelector('.low-quantity__warning-text');
-
-                        if (warningElement && warningText) {
-                          let warningMessage = '';
-                          let warningClass = '';
-
-                          if (this.displayQuantity <= 2) {
-                            warningMessage = 'Almost gone!';
-                            warningClass = 'critical';
-                          } else if (this.displayQuantity <= 3) {
-                            warningMessage = 'Very low stock!';
-                            warningClass = 'urgent';
-                          } else if (this.displayQuantity <= 5) {
-                            warningMessage = 'Low stock!';
-                            warningClass = 'warning';
-                          } else {
-                            warningElement.style.display = 'none';
-                            return;
-                          }
-
-                          warningText.textContent = warningMessage;
-                          warningElement.className = `low-quantity__warning ${warningClass}`;
-                          warningElement.style.display = 'block';
-                        }
-                      }
-
-                      updateProgress() {
-                        const progressFill = this.element.querySelector('.low-quantity__progress-fill');
-                        const progressText = this.element.querySelector('.low-quantity__progress-text');
-
-                        if (progressFill) {
-                          progressFill.style.width = `${this.displayQuantity * 4}%`;
-                        }
-
-                        if (progressText) {
-                          progressText.textContent = `${this.displayQuantity} of 25 remaining`;
-                        }
-                      }
-                    }
-
-                    // Initialize all low quantity displays
-                    document.addEventListener('DOMContentLoaded', () => {
-                      const lowQuantityElements = document.querySelectorAll('.low-quantity');
-                      lowQuantityElements.forEach((element) => {
-                        new LowQuantityDisplay(element);
-                      });
-                    });
-
-                    // Also initialize for dynamically loaded content
-                    if (document.readyState === 'loading') {
-                      document.addEventListener('DOMContentLoaded', () => {
-                        const lowQuantityElements = document.querySelectorAll('.low-quantity');
-                        lowQuantityElements.forEach((element) => {
-                          new LowQuantityDisplay(element);
-                        });
-                      });
-                    } else {
-                      const lowQuantityElements = document.querySelectorAll('.low-quantity');
-                      lowQuantityElements.forEach((element) => {
-                        new LowQuantityDisplay(element);
-                      });
-                    }
-                  })();
-                </script>
             {%- endcase -%}
           {%- endfor -%}
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
@@ -1175,6 +708,32 @@
     </div>
 
     {% render 'product-media-modal', variant_images: variant_images %}
+
+    {% assign popups = section.blocks | where: 'type', 'popup' %}
+    {%- for block in popups -%}
+      <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
+        <div
+          role="dialog"
+          aria-label="{{ block.settings.text }}"
+          aria-modal="true"
+          class="product-popup-modal__content"
+          tabindex="-1"
+        >
+          <button
+            id="ModalClose-{{ block.id }}"
+            type="button"
+            class="product-popup-modal__toggle"
+            aria-label="{{ 'accessibility.close' | t }}"
+          >
+            {{- 'icon-close.svg' | inline_asset_content -}}
+          </button>
+          <div class="product-popup-modal__content-info">
+            <h1 class="h2">{{ block.settings.page.title | escape }}</h1>
+            {{ block.settings.page.content }}
+          </div>
+        </div>
+      </modal-dialog>
+    {%- endfor -%}
 
     {%- if product.media.size > 0 -%}
       <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
@@ -1389,130 +948,6 @@
           "default": true,
           "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
-        },
-        {
-          "type": "select",
-          "id": "button_animation",
-          "options": [
-            {
-              "value": "none",
-              "label": "No Animation"
-            },
-            {
-              "value": "pulse",
-              "label": "Pulse Effect"
-            },
-            {
-              "value": "bounce",
-              "label": "Bounce Effect"
-            },
-            {
-              "value": "scale",
-              "label": "Scale Effect"
-            },
-            {
-              "value": "magnetic",
-              "label": "Magnetic Effect"
-            },
-            {
-              "value": "slide",
-              "label": "Slide Effect"
-            },
-            {
-              "value": "ripple",
-              "label": "Ripple Effect"
-            },
-            {
-              "value": "shadow",
-              "label": "Shadow Effect"
-            },
-            {
-              "value": "glow",
-              "label": "Glow Effect"
-            },
-            {
-              "value": "float",
-              "label": "Float Effect"
-            }
-          ],
-          "default": "none",
-          "label": "Button Animation"
-        }
-      ]
-    },
-    {
-      "type": "buy_buttons_enhanced",
-      "name": "Buy Buttons Enhanced",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "show_dynamic_checkout",
-          "default": true,
-          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.label",
-          "info": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.info"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_gift_card_recipient",
-          "default": true,
-          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
-          "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_quantity_selector",
-          "default": true,
-          "label": "Show quantity selector",
-          "info": "Display quantity input field before add to cart button"
-        },
-        {
-          "type": "select",
-          "id": "button_animation",
-          "options": [
-            {
-              "value": "none",
-              "label": "No Animation"
-            },
-            {
-              "value": "pulse",
-              "label": "Pulse Effect"
-            },
-            {
-              "value": "bounce",
-              "label": "Bounce Effect"
-            },
-            {
-              "value": "scale",
-              "label": "Scale Effect"
-            },
-            {
-              "value": "magnetic",
-              "label": "Magnetic Effect"
-            },
-            {
-              "value": "slide",
-              "label": "Slide Effect"
-            },
-            {
-              "value": "ripple",
-              "label": "Ripple Effect"
-            },
-            {
-              "value": "shadow",
-              "label": "Shadow Effect"
-            },
-            {
-              "value": "glow",
-              "label": "Glow Effect"
-            },
-            {
-              "value": "float",
-              "label": "Float Effect"
-            }
-          ],
-          "default": "none",
-          "label": "Button Animation"
         }
       ]
     },
@@ -1766,303 +1201,6 @@
           "id": "page",
           "type": "page",
           "label": "t:sections.main-product.blocks.popup.settings.page.label"
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Popup Image",
-          "info": "Display this image if page content is empty"
-        },
-        {
-          "type": "header",
-          "content": "Button Styling"
-        },
-        {
-          "type": "select",
-          "id": "button_style",
-          "options": [
-            {
-              "value": "product-popup-modal__button default",
-              "label": "Default Link"
-            },
-            {
-              "value": "product-popup-modal__button button--primary",
-              "label": "Primary Button"
-            },
-            {
-              "value": "product-popup-modal__button button--secondary",
-              "label": "Secondary Button"
-            },
-            {
-              "value": "product-popup-modal__button button--tertiary",
-              "label": "Tertiary Button"
-            },
-            {
-              "value": "product-popup-modal__button button--outline",
-              "label": "Outline Button"
-            }
-          ],
-          "default": "product-popup-modal__button default",
-          "label": "Button Style"
-        },
-        {
-          "type": "select",
-          "id": "button_size",
-          "options": [
-            {
-              "value": "",
-              "label": "Default"
-            },
-            {
-              "value": "button--small",
-              "label": "Small"
-            },
-            {
-              "value": "button--large",
-              "label": "Large"
-            }
-          ],
-          "default": "",
-          "label": "Button Size"
-        },
-        {
-          "type": "header",
-          "content": "Icon Settings"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_icon",
-          "default": false,
-          "label": "Show Icon"
-        },
-        {
-          "type": "select",
-          "id": "button_icon",
-          "options": [
-            {
-              "value": "arrow",
-              "label": "Arrow"
-            },
-            {
-              "value": "plus",
-              "label": "Plus"
-            },
-            {
-              "value": "info",
-              "label": "Information"
-            },
-            {
-              "value": "question",
-              "label": "Question Mark"
-            },
-            {
-              "value": "chat",
-              "label": "Chat Bubble"
-            },
-            {
-              "value": "star",
-              "label": "Star"
-            },
-            {
-              "value": "heart",
-              "label": "Heart"
-            },
-            {
-              "value": "truck",
-              "label": "Truck (Shipping)"
-            },
-            {
-              "value": "return",
-              "label": "Return"
-            },
-            {
-              "value": "lock",
-              "label": "Lock (Security)"
-            },
-            {
-              "value": "size_rule",
-              "label": "Size Rule"
-            }
-          ],
-          "default": "arrow",
-          "label": "Icon Type"
-        },
-        {
-          "type": "select",
-          "id": "icon_position",
-          "options": [
-            {
-              "value": "left",
-              "label": "Left"
-            },
-            {
-              "value": "right",
-              "label": "Right"
-            }
-          ],
-          "default": "left",
-          "label": "Icon Position"
-        },
-        {
-          "type": "checkbox",
-          "id": "icon_only",
-          "default": false,
-          "label": "Icon Only Button",
-          "info": "Hide button text and show only icon"
-        },
-        {
-          "type": "header",
-          "content": "Modal Settings"
-        },
-        {
-          "type": "select",
-          "id": "modal_size",
-          "options": [
-            {
-              "value": "small",
-              "label": "Small"
-            },
-            {
-              "value": "medium",
-              "label": "Medium"
-            },
-            {
-              "value": "large",
-              "label": "Large"
-            },
-            {
-              "value": "full",
-              "label": "Full Width"
-            }
-          ],
-          "default": "medium",
-          "label": "Modal Size"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_close_button",
-          "default": true,
-          "label": "Show Close Button"
-        },
-        {
-          "type": "checkbox",
-          "id": "close_on_backdrop_click",
-          "default": true,
-          "label": "Close on Backdrop Click"
-        },
-        {
-          "type": "checkbox",
-          "id": "close_on_escape",
-          "default": true,
-          "label": "Close on Escape Key"
-        },
-        {
-          "type": "header",
-          "content": "Content Settings"
-        },
-        {
-          "type": "select",
-          "id": "content_alignment",
-          "options": [
-            {
-              "value": "left",
-              "label": "Left"
-            },
-            {
-              "value": "center",
-              "label": "Center"
-            },
-            {
-              "value": "right",
-              "label": "Right"
-            }
-          ],
-          "default": "left",
-          "label": "Content Alignment"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_title",
-          "default": true,
-          "label": "Show Modal Title"
-        },
-        {
-          "type": "select",
-          "id": "title_size",
-          "options": [
-            {
-              "value": "h1",
-              "label": "H1"
-            },
-            {
-              "value": "h2",
-              "label": "H2"
-            },
-            {
-              "value": "h3",
-              "label": "H3"
-            },
-            {
-              "value": "h4",
-              "label": "H4"
-            }
-          ],
-          "default": "h2",
-          "label": "Title Size"
-        },
-        {
-          "type": "header",
-          "content": "Animation Settings"
-        },
-        {
-          "type": "select",
-          "id": "modal_animation",
-          "options": [
-            {
-              "value": "fade",
-              "label": "Fade"
-            },
-            {
-              "value": "slide",
-              "label": "Slide"
-            },
-            {
-              "value": "scale",
-              "label": "Scale"
-            },
-            {
-              "value": "none",
-              "label": "None"
-            }
-          ],
-          "default": "fade",
-          "label": "Modal Animation"
-        },
-        {
-          "type": "range",
-          "id": "animation_duration",
-          "min": 200,
-          "max": 1000,
-          "step": 50,
-          "default": 300,
-          "unit": "ms",
-          "label": "Animation Duration"
-        },
-        {
-          "type": "header",
-          "content": "Advanced Settings"
-        },
-        {
-          "type": "text",
-          "id": "custom_css_class",
-          "label": "Custom CSS Class",
-          "info": "Add custom CSS class for advanced styling"
-        },
-        {
-          "type": "liquid",
-          "id": "custom_liquid",
-          "label": "Custom Liquid",
-          "info": "Add custom liquid code to the popup content"
         }
       ]
     },
@@ -2971,328 +2109,6 @@
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
         }
       ]
-    },
-    {
-      "type": "online_visitors",
-      "name": "Online Visitors",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "label",
-          "label": "Label Text",
-          "default": "Currently viewing",
-          "info": "Text to display before the visitor count"
-        },
-        {
-          "type": "select",
-          "id": "icon",
-          "options": [
-            {
-              "value": "eye",
-              "label": "Eye Icon"
-            },
-            {
-              "value": "users",
-              "label": "Users Icon"
-            },
-            {
-              "value": "fire",
-              "label": "Fire Icon"
-            },
-            {
-              "value": "star",
-              "label": "Star Icon"
-            }
-          ],
-          "default": "eye",
-          "label": "Icon"
-        },
-        {
-          "type": "select",
-          "id": "style",
-          "options": [
-            {
-              "value": "style-default",
-              "label": "Default"
-            },
-            {
-              "value": "style-compact",
-              "label": "Compact"
-            },
-            {
-              "value": "style-highlight",
-              "label": "Highlight"
-            },
-            {
-              "value": "style-minimal",
-              "label": "Minimal"
-            }
-          ],
-          "default": "style-default",
-          "label": "Style"
-        },
-        {
-          "type": "select",
-          "id": "animation",
-          "options": [
-            {
-              "value": "animation-none",
-              "label": "No Animation"
-            },
-            {
-              "value": "animation-pulse",
-              "label": "Pulse"
-            },
-            {
-              "value": "animation-fade",
-              "label": "Fade In"
-            },
-            {
-              "value": "animation-slide",
-              "label": "Slide In"
-            }
-          ],
-          "default": "animation-pulse",
-          "label": "Animation"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_icon",
-          "default": true,
-          "label": "Show pulse icon"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_subtitle",
-          "default": true,
-          "label": "Show time-based subtitle"
-        },
-        {
-          "type": "header",
-          "content": "Time-based Messages"
-        },
-        {
-          "type": "text",
-          "id": "morning_text",
-          "label": "Morning (9-11 AM)",
-          "default": "Peak shopping time!"
-        },
-        {
-          "type": "text",
-          "id": "lunch_text",
-          "label": "Lunch (12-2 PM)",
-          "default": "Lunch break shopping"
-        },
-        {
-          "type": "text",
-          "id": "afternoon_text",
-          "label": "Afternoon (2-5 PM)",
-          "default": "Afternoon rush"
-        },
-        {
-          "type": "text",
-          "id": "evening_text",
-          "label": "Evening (7-10 PM)",
-          "default": "Evening shopping spree"
-        },
-        {
-          "type": "text",
-          "id": "late_night_text",
-          "label": "Late Night (10 PM-12 AM)",
-          "default": "Late night browsing"
-        },
-        {
-          "type": "text",
-          "id": "early_morning_text",
-          "label": "Early Morning (12-3 AM)",
-          "default": "Early bird shoppers"
-        },
-        {
-          "type": "text",
-          "id": "regular_text",
-          "label": "Regular Hours",
-          "default": "Active shoppers online"
-        },
-        {
-          "type": "header",
-          "content": "Real-time Updates"
-        },
-        {
-          "type": "range",
-          "id": "update_interval",
-          "min": 1000,
-          "max": 9000,
-          "step": 1000,
-          "default": 3000,
-          "unit": "ms",
-          "label": "Update Interval",
-          "info": "How often the count updates (1-9 seconds)"
-        },
-        {
-          "type": "range",
-          "id": "max_change",
-          "min": 1,
-          "max": 30,
-          "step": 1,
-          "default": 15,
-          "label": "Maximum Change",
-          "info": "Maximum change in visitors per update"
-        },
-        {
-          "type": "checkbox",
-          "id": "smooth_animation",
-          "default": true,
-          "label": "Smooth Count Animation",
-          "info": "Animate count changes smoothly"
-        }
-      ]
-    },
-    {
-      "type": "low_quantity",
-      "name": "Low Quantity Alert",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "label",
-          "label": "Label Text",
-          "default": "Only",
-          "info": "Text before the quantity count"
-        },
-        {
-          "type": "text",
-          "id": "remaining_text",
-          "label": "Remaining Text",
-          "default": "left in stock",
-          "info": "Text after the quantity count"
-        },
-        {
-          "type": "select",
-          "id": "icon",
-          "options": [
-            {
-              "value": "fire",
-              "label": "Fire Icon"
-            },
-            {
-              "value": "clock",
-              "label": "Clock Icon"
-            },
-            {
-              "value": "warning",
-              "label": "Warning Icon"
-            },
-            {
-              "value": "box",
-              "label": "Box Icon"
-            }
-          ],
-          "default": "fire",
-          "label": "Icon"
-        },
-        {
-          "type": "select",
-          "id": "style",
-          "options": [
-            {
-              "value": "style-default",
-              "label": "Default"
-            },
-            {
-              "value": "style-urgent",
-              "label": "Urgent"
-            },
-            {
-              "value": "style-compact",
-              "label": "Compact"
-            },
-            {
-              "value": "style-minimal",
-              "label": "Minimal"
-            }
-          ],
-          "default": "style-urgent",
-          "label": "Style"
-        },
-        {
-          "type": "select",
-          "id": "animation",
-          "options": [
-            {
-              "value": "animation-none",
-              "label": "No Animation"
-            },
-            {
-              "value": "animation-pulse",
-              "label": "Pulse"
-            },
-            {
-              "value": "animation-flash",
-              "label": "Flash"
-            },
-            {
-              "value": "animation-bounce",
-              "label": "Bounce"
-            }
-          ],
-          "default": "animation-pulse",
-          "label": "Animation"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_icon",
-          "default": true,
-          "label": "Show pulse icon"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_warning",
-          "default": true,
-          "label": "Show warning messages"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_progress",
-          "default": false,
-          "label": "Show progress bar"
-        },
-        {
-          "type": "header",
-          "content": "Quantity Settings"
-        },
-        {
-          "type": "range",
-          "id": "min_quantity",
-          "min": 1,
-          "max": 10,
-          "step": 1,
-          "default": 3,
-          "label": "Minimum Quantity",
-          "info": "Lowest quantity to display"
-        },
-        {
-          "type": "range",
-          "id": "max_quantity",
-          "min": 15,
-          "max": 50,
-          "step": 5,
-          "default": 25,
-          "label": "Maximum Quantity",
-          "info": "Highest quantity to display"
-        },
-        {
-          "type": "header",
-          "content": "Display Settings"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_actual_inventory",
-          "default": true,
-          "label": "Show actual inventory when low",
-          "info": "Display real inventory quantity when 2-5 items remain"
-        }
-      ]
     }
   ],
   "settings": [
@@ -3355,6 +2171,17 @@
       "label": "t:sections.main-product.settings.media_fit.label"
     },
     {
+      "type": "range",
+      "id": "media_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Media border radius",
+      "default": 0,
+      "info": "Add rounded corners to product media"
+    },
+    {
       "type": "select",
       "id": "gallery_layout",
       "options": [
@@ -3398,6 +2225,7 @@
       "default": "hide",
       "label": "t:sections.main-product.settings.mobile_thumbnails.label"
     },
+
     {
       "type": "select",
       "id": "media_position",

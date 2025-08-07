@@ -92,7 +92,7 @@
                       {% else %}
                         href="{{ block.settings.button_link }}"
                       {% endif %}
-                      class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}{% if block.settings.button_animation != 'none' %} button--{{ block.settings.button_animation }}{% endif %}"
+                      class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
                       {{ block.shopify_attributes }}
                     >
                       {{ block.settings.button_label | escape }}
@@ -463,54 +463,6 @@
           "id": "button_style_secondary",
           "default": false,
           "label": "t:sections.image-with-text.blocks.button.settings.outline_button.label"
-        },
-        {
-          "type": "select",
-          "id": "button_animation",
-          "options": [
-            {
-              "value": "none",
-              "label": "No Animation"
-            },
-            {
-              "value": "pulse",
-              "label": "Pulse Effect"
-            },
-            {
-              "value": "bounce",
-              "label": "Bounce Effect"
-            },
-            {
-              "value": "scale",
-              "label": "Scale Effect"
-            },
-            {
-              "value": "magnetic",
-              "label": "Magnetic Effect"
-            },
-            {
-              "value": "slide",
-              "label": "Slide Effect"
-            },
-            {
-              "value": "ripple",
-              "label": "Ripple Effect"
-            },
-            {
-              "value": "shadow",
-              "label": "Shadow Effect"
-            },
-            {
-              "value": "glow",
-              "label": "Glow Effect"
-            },
-            {
-              "value": "float",
-              "label": "Float Effect"
-            }
-          ],
-          "default": "none",
-          "label": "Button Animation"
         }
       ]
     }

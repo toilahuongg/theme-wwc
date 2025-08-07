@@ -18,6 +18,9 @@
     --marquee-speed: {{ section.settings.speed }}s;
     --marquee-direction: {{ section.settings.direction }};
     --marquee-pause-on-hover: {{ section.settings.pause_on_hover }};
+    --marquee-font-size: {{ section.settings.font_size }}px;
+    --marquee-font-weight: {{ section.settings.font_weight }};
+    --marquee-font-style: {{ section.settings.italic }};
   }
 
   {% if section.settings.direction == 'right' %}
@@ -32,7 +35,11 @@
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when 'text' -%}
-          <span class="marquee__item" {{ block.shopify_attributes }}>
+          <span
+            class="marquee__item"
+            {{ block.shopify_attributes }}
+            style="font-size: {{ block.settings.font_size | default: section.settings.font_size }}px; font-weight: {{ block.settings.font_weight | default: section.settings.font_weight }}; font-style: {{ block.settings.italic | default: section.settings.italic }};"
+          >
             {%- if block.settings.icon_svg != blank -%}
               <span class="marquee__item-icon">
                 {{ block.settings.icon_svg }}
@@ -70,7 +77,10 @@
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'text' -%}
-            <span class="marquee__item">
+            <span
+              class="marquee__item"
+              style="font-size: {{ section.settings.font_size }}px; font-weight: {{ section.settings.font_weight }}; font-style: {{ section.settings.italic }};"
+            >
               {%- if block.settings.icon_svg != blank -%}
                 <span class="marquee__item-icon">
                   {{ block.settings.icon_svg }}
@@ -159,6 +169,88 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 12,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "font_weight",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "bold",
+          "label": "Bold"
+        },
+        {
+          "value": "100",
+          "label": "Thin (100)"
+        },
+        {
+          "value": "200",
+          "label": "Extra Light (200)"
+        },
+        {
+          "value": "300",
+          "label": "Light (300)"
+        },
+        {
+          "value": "400",
+          "label": "Regular (400)"
+        },
+        {
+          "value": "500",
+          "label": "Medium (500)"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold (600)"
+        },
+        {
+          "value": "700",
+          "label": "Bold (700)"
+        },
+        {
+          "value": "800",
+          "label": "Extra Bold (800)"
+        },
+        {
+          "value": "900",
+          "label": "Black (900)"
+        }
+      ],
+      "default": "normal",
+      "label": "Font weight"
+    },
+    {
+      "type": "select",
+      "id": "italic",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "italic",
+          "label": "Italic"
+        }
+      ],
+      "default": "normal",
+      "label": "Font style"
     },
     {
       "type": "header",

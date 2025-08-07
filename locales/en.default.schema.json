@@ -380,6 +380,20 @@
     }
   },
   "sections": {
+    "divider": {
+      "name": "Divider",
+      "settings": {
+        "wave_color": {
+          "label": "Wave color"
+        },
+        "flip_waves": {
+          "label": "Flip waves"
+        }
+      },
+      "presets": {
+        "name": "Divider"
+      }
+    },
     "all": {
       "animation": {
         "content": "Animations",

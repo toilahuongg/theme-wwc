@@ -2190,3 +2190,144 @@ a.product__text {
     transition: none;
   }
 }
+
+/* Section Divider - Animated Waves */
+.section-divider {
+  position: relative;
+  width: 100%;
+  height: 28px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.section-divider.waves-animated-1 {
+  height: 28px;
+}
+
+.section-divider.waves-animated-1 svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.section-divider .parallax1 > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.section-divider .parallax2 > use {
+  animation: move-forever 15s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.section-divider .parallax3 > use {
+  animation: move-forever 20s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.section-divider .parallax4 > use {
+  animation: move-forever 10s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+/* Section Divider Variants */
+.section-divider--top {
+  margin-bottom: -1px;
+}
+
+.section-divider--bottom {
+  margin-top: -1px;
+}
+
+.section-divider--both {
+  margin: -1px 0;
+}
+
+/* Color Variants */
+.section-divider--primary {
+  color: var(--color-primary);
+}
+
+.section-divider--secondary {
+  color: var(--color-secondary);
+}
+
+.section-divider--accent {
+  color: var(--color-accent);
+}
+
+.section-divider--white {
+  color: #ffffff;
+}
+
+.section-divider--black {
+  color: #000000;
+}
+
+/* Size Variants */
+.section-divider--small {
+  height: 20px;
+}
+
+.section-divider--medium {
+  height: 28px;
+}
+
+.section-divider--large {
+  height: 40px;
+}
+
+.section-divider--xlarge {
+  height: 60px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 749px) {
+  .section-divider {
+    height: 20px;
+  }
+
+  .section-divider--large {
+    height: 30px;
+  }
+
+  .section-divider--xlarge {
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section-divider {
+    height: 16px;
+  }
+
+  .section-divider--large {
+    height: 24px;
+  }
+
+  .section-divider--xlarge {
+    height: 32px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .section-divider .parallax1 > use,
+  .section-divider .parallax2 > use,
+  .section-divider .parallax3 > use,
+  .section-divider .parallax4 > use {
+    animation: none;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (forced-colors: active) {
+  .section-divider {
+    color: CanvasText;
+  }
+}

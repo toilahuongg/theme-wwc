@@ -9,7 +9,10 @@
   {% render 'product-media-modal' %}
 {% endcomment %}
 
-<product-modal id="ProductModal-{{ section.id }}" class="product-media-modal media-modal">
+<product-modal
+  id="ProductModal-{{ section.id }}"
+  class="product-media-modal product-media-modal-{{ section.id }} media-modal"
+>
   <div
     class="product-media-modal__dialog color-{{ section.settings.color_scheme }} gradient"
     role="dialog"
@@ -35,7 +38,7 @@
       {%- liquid
         if product.selected_or_first_available_variant.featured_media != null
           assign media = product.selected_or_first_available_variant.featured_media
-          render 'product-media', media: media, loop: section.settings.enable_video_looping, variant_image: section.settings.hide_variants
+          render 'product-media', media: media, loop: section.settings.enable_video_looping, variant_image: section.settings.hide_variants, border_radius: section.settings.media_border_radius
         endif
       -%}
 
@@ -48,7 +51,7 @@
           endif
 
           unless media.id == product.selected_or_first_available_variant.featured_media.id
-            render 'product-media', media: media, loop: section.settings.enable_video_looping, variant_image: variant_image
+            render 'product-media', media: media, loop: section.settings.enable_video_looping, variant_image: variant_image, border_radius: section.settings.media_border_radius
           endunless
         -%}
       {%- endfor -%}

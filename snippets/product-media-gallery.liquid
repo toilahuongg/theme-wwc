@@ -78,7 +78,8 @@
             media_width: media_width,
             media_fit: section.settings.media_fit,
             constrain_to_viewport: section.settings.constrain_to_viewport,
-            lazy_load: false
+            lazy_load: false,
+            border_radius: section.settings.media_border_radius
           %}
         </li>
       {%- endif -%}
@@ -116,7 +117,8 @@
               media_width: media_width,
               media_fit: section.settings.media_fit,
               constrain_to_viewport: section.settings.constrain_to_viewport,
-              lazy_load: lazy_load
+              lazy_load: lazy_load,
+              border_radius: section.settings.media_border_radius
             %}
           </li>
         {%- endunless -%}
@@ -180,7 +182,7 @@
   -%}
     <slider-component
       id="GalleryThumbnails-{{ section.id }}"
-      class="thumbnail-slider slider-mobile-gutter quick-add-hidden{% unless section.settings.gallery_layout contains 'thumbnail' %} medium-hide large-up-hide{% endunless %}{% if section.settings.mobile_thumbnails != 'show' %} small-hide{% endif %}{% if media_count <= 3 %} thumbnail-slider--no-slide{% endif %}"
+      class="thumbnail-slider thumbnail-slider-{{ section.id }} slider-mobile-gutter quick-add-hidden{% unless section.settings.gallery_layout contains 'thumbnail' %} medium-hide large-up-hide{% endunless %}{% if section.settings.mobile_thumbnails != 'show' %} small-hide{% endif %}{% if media_count <= 3 %} thumbnail-slider--no-slide{% endif %}"
     >
       <button
         type="button"
@@ -233,6 +235,7 @@
               aria-current="true"
               aria-controls="GalleryViewer-{{ section.id }}"
               aria-describedby="{{ thumbnail_id }}"
+              style="border-radius: {{ section.settings.media_border_radius }}px; overflow: hidden;"
             >
               {{
                 featured_media.preview_image
@@ -242,7 +245,10 @@
                   sizes: sizes,
                   widths: '54, 74, 104, 162, 208, 324, 416',
                   id: thumbnail_id,
-                  alt: featured_media.alt
+                  alt: featured_media.alt,
+                  style: 'border-radius: '
+                | append: section.settings.media_border_radius
+                | append: 'px;'
                 | escape
               }}
             </button>
@@ -295,6 +301,7 @@
                 {% endif %}
                 aria-controls="GalleryViewer-{{ section.id }}"
                 aria-describedby="{{ thumbnail_id }}"
+                style="border-radius: {{ section.settings.media_border_radius }}px; overflow: hidden;"
               >
                 {{
                   media.preview_image
@@ -304,7 +311,10 @@
                     sizes: sizes,
                     widths: '54, 74, 104, 162, 208, 324, 416',
                     id: thumbnail_id,
-                    alt: media.alt
+                    alt: media.alt,
+                    style: 'border-radius: '
+                  | append: section.settings.media_border_radius
+                  | append: 'px;'
                   | escape
                 }}
               </button>

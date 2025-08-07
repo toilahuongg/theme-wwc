@@ -48,75 +48,6 @@
         "show_text_below": true
       }
     },
-    "icon_with_text_kXhifw": {
-      "type": "icon-with-text",
-      "blocks": {
-        "icon_block_FNGBJQ": {
-          "type": "icon_block",
-          "settings": {
-            "icon": "star",
-            "icon_size": "medium",
-            "icon_style": "filled",
-            "heading": "Premium Quality – Safe for All Pets",
-            "text": "<p>Made from non-toxic cooling gel and soft, skin-friendly materials. No electricity or refrigeration needed.</p>",
-            "link_text": "Learn more",
-            "link_url": "",
-            "alignment": "center",
-            "animation": "none"
-          }
-        },
-        "icon_block_hEMxx9": {
-          "type": "icon_block",
-          "settings": {
-            "icon": "paw-print",
-            "icon_size": "medium",
-            "icon_style": "filled",
-            "heading": "We Love Pets Like You Do",
-            "text": "<p>We're not just a shop — we're pet lovers who care deeply about your dog’s comfort and happiness.</p>",
-            "link_text": "Learn more",
-            "link_url": "",
-            "alignment": "center",
-            "animation": "none"
-          }
-        },
-        "icon_block_bmAEQm": {
-          "type": "icon_block",
-          "settings": {
-            "icon": "lightning",
-            "icon_size": "medium",
-            "icon_style": "filled",
-            "heading": "Easy to Clean",
-            "text": "<p>Just toss it in the washing machine — no scrubbing, no hassle. Your pet’s mat stays fresh and clean with minimal effort.</p>",
-            "link_text": "Learn more",
-            "link_url": "",
-            "alignment": "center",
-            "animation": "none"
-          }
-        }
-      },
-      "block_order": [
-        "icon_block_FNGBJQ",
-        "icon_block_hEMxx9",
-        "icon_block_bmAEQm"
-      ],
-      "name": "Icon with Text",
-      "settings": {
-        "heading": "🐶 Why Pet Lovers Choose Us?",
-        "section_heading_size": "h1",
-        "subheading": "Because your dog deserves the coolest comfort — and the best care.",
-        "heading_alignment": "center",
-        "columns_desktop": 3,
-        "grid_gap": 2,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "background_style": "primary",
-        "color_scheme": "",
-        "heading_size": "medium",
-        "text_size": "medium",
-        "show_box_shadow": true,
-        "block_color_scheme": ""
-      }
-    },
     "marquee_JqcUAt": {
       "type": "marquee",
       "blocks": {
@@ -182,71 +113,6 @@
         "padding_bottom": 10
       }
     },
-    "image_with_text_enhanced_cpgaq8": {
-      "type": "image-with-text-enhanced",
-      "blocks": {
-        "heading_ExBMqE": {
-          "type": "heading",
-          "settings": {
-            "heading": "Keep Your Pooch Cool!  💦",
-            "heading_size": "h1"
-          }
-        },
-        "text_DxxBH8": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Our Dog Cooling Mat is the perfect solution for hot summer days! With pressure-activated cooling relief and lightweight, waterproof design, your furry friend will feel refreshed instantly.</p>",
-            "text_style": "body"
-          }
-        },
-        "stats_wiTtiA": {
-          "type": "stats",
-          "settings": {
-            "stat_1_number": "94%",
-            "stat_1_label": "Instantly cools any resting spot",
-            "stat_2_number": "90%",
-            "stat_2_label": "Stops heat stress before it starts",
-            "stat_3_number": "85%",
-            "stat_3_label": "Relieves joint pain fast"
-          }
-        },
-        "button_z4e9Ng": {
-          "type": "button",
-          "settings": {
-            "button_label": "Let Your Dog Chill Out",
-            "button_link": "shopify://products/wwc-cooling-mat",
-            "button_style_secondary": false,
-            "button_animation": "glow"
-          }
-        }
-      },
-      "block_order": [
-        "heading_ExBMqE",
-        "text_DxxBH8",
-        "stats_wiTtiA",
-        "button_z4e9Ng"
-      ],
-      "name": "Enhanced Image with Text",
-      "settings": {
-        "image": "shopify://shop_images/ezgif-2bad637ac48ffd.gif",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "image_shape": "wave",
-        "image_effect": "none",
-        "image_badge": "",
-        "content_layout": "overlap",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "show_floating_elements": true,
-        "section_color_scheme": "",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "multicolumn_jXhi7c": {
       "type": "multicolumn",
       "blocks": {
@@ -305,70 +171,10 @@
         "padding_bottom": 36
       }
     },
-    "testimonial_kkH6Kb": {
-      "type": "testimonial",
-      "blocks": {
-        "testimonial_pcVtLi": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "<p>This cooling mat is a lifesaver in the summer! I got one for my 4kg Poodle — she lays on it and falls asleep instantly. Plus, it’s machine washable, which is super convenient!</p>",
-            "author_name": "Sarah Johnson",
-            "author_title": "WWC Cooling Mat",
-            "rating": "5",
-            "style": "default"
-          }
-        },
-        "testimonial_pPgQJH": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "<p>My Golden Retriever gets really hot in the summer. I bought the large size and he laid on it right away. Doesn’t want to leave it now!</p>",
-            "author_name": "Mike Chen",
-            "author_title": "WWC Cooling Mat",
-            "rating": "5",
-            "style": "default"
-          }
-        },
-        "testimonial_KCNkLe": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "<p>The fact that it’s machine washable is a huge plus. No more wiping down mats every day. Fast delivery and great packaging too. 10/10 service!</p>",
-            "author_name": "Emily Davis",
-            "author_title": "WWC Cooling Mat",
-            "rating": "5",
-            "style": "default"
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_pcVtLi",
-        "testimonial_pPgQJH",
-        "testimonial_KCNkLe"
-      ],
-      "name": "Testimonial",
-      "settings": {
-        "heading": "What Our Customers Say",
-        "section_heading_size": "h1",
-        "subheading": "Real feedback from satisfied customers about our products and services",
-        "heading_alignment": "center",
-        "columns_desktop": 3,
-        "grid_gap": 2,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "background_style": "primary",
-        "color_scheme": "scheme-5",
-        "heading_size": "medium",
-        "text_size": "medium",
-        "show_box_shadow": true,
-        "block_color_scheme": ""
-      }
-    }
   },
   "order": [
     "image_banner_XrnTxA",
-    "icon_with_text_kXhifw",
     "marquee_JqcUAt",
-    "image_with_text_enhanced_cpgaq8",
     "multicolumn_jXhi7c",
-    "testimonial_kkH6Kb"
   ]
 }

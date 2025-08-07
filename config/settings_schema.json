@@ -2,8 +2,8 @@
   {
     "name": "theme_info",
     "theme_name": "Dawn",
-    "theme_version": "15.3.0",
-    "theme_author": "WWC",
+    "theme_version": "15.4.0",
+    "theme_author": "Shopify",
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
     "theme_support_url": "https://support.shopify.com/"
   },
@@ -69,12 +69,6 @@
             "id": "button_label",
             "label": "t:settings_schema.colors.settings.button_label.label",
             "default": "#FFFFFF"
-          },
-                    {
-            "type": "color",
-            "id": "secondary_button",
-            "label": "t:settings_schema.colors.settings.secondary_button_background.label",
-            "default": "#121212"
           },
           {
             "type": "color",
