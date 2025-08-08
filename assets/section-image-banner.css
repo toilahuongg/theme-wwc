@@ -291,6 +291,11 @@
     padding: 5rem;
   }
 
+  .banner--adapt,
+  .banner--adapt_image.banner--mobile-bottom .banner__media:not(.placeholder) {
+    height: 30rem;
+  }
+
   .banner__content--top-left {
     align-items: flex-start;
     justify-content: flex-start;
@@ -334,6 +339,13 @@
   .banner__content--bottom-right {
     align-items: flex-end;
     justify-content: flex-end;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .banner--adapt,
+  .banner--adapt_image.banner--mobile-bottom .banner__media:not(.placeholder) {
+    height: 40rem;
   }
 }
 
