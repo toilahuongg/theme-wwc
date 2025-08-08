@@ -3,10 +3,10 @@ product-info {
   padding: 1.5rem;
 }
 .product-wrapper {
-  border-radius: 1rem;
+  border-radius: 2rem;
   background-color: #fff;
   padding: 10px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
 }
 
 .product {
