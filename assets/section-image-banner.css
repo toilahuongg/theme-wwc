@@ -352,7 +352,7 @@
 @media screen and (min-width: 1024px) {
   .banner--adapt,
   .banner--adapt_image.banner--mobile-bottom .banner__media:not(.placeholder) {
-    height: 40rem;
+    height: 50rem;
   }
 }
 
