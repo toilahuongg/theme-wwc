@@ -11,6 +11,7 @@
   "current": {
     "type_header_font": "barlow_n7",
     "type_body_font": "barlow_n4",
+    "card_style": "card",
     "content_for_index": [],
     "blocks": {
       "3074145603538236224": {
