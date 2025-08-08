@@ -33,6 +33,8 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
+        "background_color": "linear-gradient(89deg, rgba(120, 120, 120, 1), rgba(0, 0, 0, 1) 100%)",
+        "image": "shopify://shop_images/Untitled_Design_2800x1000_c085c27e-037e-428c-9486-c31d30244cc3.png",
         "image_overlay_opacity": 30,
         "image_height": "medium",
         "image_behavior": "none",
