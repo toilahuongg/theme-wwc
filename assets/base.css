@@ -1177,17 +1177,13 @@ deferred-media {
 
 .button--secondary,
 .button--tertiary {
-  --color-button: var(--color-secondary-button-text);
+  --color-button: var(--color-secondary-button);
   --color-button-text: var(--color-secondary-button-text);
 }
 
 .button--tertiary {
   --alpha-button-background: 0;
   --alpha-button-border: 0.2;
-}
-
-.button.button--secondary {
-  background-color: rgba(var(--color-button), 0);
 }
 
 .button,
@@ -1210,7 +1206,11 @@ button.shopify-payment-button__button--unbranded {
 .customer button,
 button.shopify-payment-button__button--unbranded {
   min-width: calc(12rem + var(--buttons-border-width) * 2);
-  min-height: calc(4.5rem + var(--buttons-border-width) * 2);
+  min-height: calc(6rem + var(--buttons-border-width) * 2);
+  font-family: var(--font-heading-family);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
 .button,
@@ -1220,10 +1220,13 @@ button.shopify-payment-button__button--unbranded {
   justify-content: center;
   align-items: center;
   border: 0;
-  padding: 0 3rem;
+  padding: 0 4rem;
   cursor: pointer;
   font: inherit;
+  font-family: var(--font-heading-family);
   font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0;
   text-decoration: none;
   color: rgb(var(--color-button-text));
   transition: transform var(--duration-short) ease;
@@ -1272,8 +1275,9 @@ button.shopify-payment-button__button--unbranded {
 .button:not([disabled]).article:hover,
 .shopify-challenge__button.article:hover,
 .customer button.article:hover,
-.shopify-payment-button__button--unbranded.article:hover {
-  transform: scale(1.1);
+.shopify-payment-button__button--unbranded.article:hover,
+.shopify-payment-button__button--unbranded:hover {
+  background-color: rgba(var(--color-button), 0.8);
 }
 
 /* .button--secondary:after {
@@ -2455,7 +2459,7 @@ input[type='checkbox'] {
 
 .header__heading-link .h2 {
   line-height: 1;
-  color: rgba(var(--color-foreground), 0.75);
+  font-weight: 900;
 }
 
 .header__heading-logo {
@@ -2806,21 +2810,13 @@ details[open] > .header__submenu {
 
 .header__menu-item {
   padding: 1.2rem;
+  font-weight: 600;
   text-decoration: none;
-  color: rgba(var(--color-foreground), 0.75);
-}
-
-.header__menu-item:hover {
   color: rgb(var(--color-foreground));
 }
 
-.header__menu-item span {
-  transition: text-decoration var(--duration-short) ease;
-}
-
-.header__menu-item:hover span {
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
+.header__menu-item:hover {
+  color: rgba(var(--color-foreground), 0.75);
 }
 
 details[open] > .header__menu-item {
@@ -2836,14 +2832,7 @@ details[open] > .header__menu-item .icon-caret {
 }
 
 .header__active-menu-item {
-  transition: text-decoration-thickness var(--duration-short) ease;
-  color: rgb(var(--color-foreground));
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
-}
-
-.header__menu-item:hover .header__active-menu-item {
-  text-decoration-thickness: 0.2rem;
+  color: rgba(var(--color-foreground), 0.75);
 }
 
 .header__submenu {

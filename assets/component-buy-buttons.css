@@ -30,10 +30,6 @@
   fill: currentColor;
 }
 
-.product-form__submit .button__text {
-  font-weight: 500;
-}
-
 /* Loading state - hide icon and text */
 .product-form__submit.is-loading .button__content {
   opacity: 0;

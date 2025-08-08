@@ -38,6 +38,7 @@
 
 .card--card {
   height: 100%;
+  background-color: #fff;
 }
 
 .card--card,
@@ -125,7 +126,7 @@
 .card__content {
   display: grid;
   grid-template-rows: minmax(0, 1fr) max-content minmax(0, 1fr);
-  padding: 1rem;
+  padding: 2rem;
   width: 100%;
   flex-grow: 1;
 }
@@ -137,6 +138,18 @@
 .card__information {
   grid-row-start: 2;
   /* padding: 1.3rem 1rem; */
+}
+
+.card__heading-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.card__heading-group .rating {
+  flex: 0 0 50px;
+  margin-right: -2rem;
+  line-height: 1;
 }
 
 .card:not(.ratio) > .card__content {
@@ -338,7 +351,7 @@
   margin-top: calc(0rem - var(--image-padding));
 }
 
-.card--standard.card--text a::after,
+/* .card--standard.card--text a::after,
 .card--card .card__heading a::after {
   bottom: calc(var(--border-width) * -1);
   left: calc(var(--border-width) * -1);
@@ -354,11 +367,11 @@
   right: 0;
   top: 0;
   z-index: 1;
-}
+} */
 
-.card__heading a:after {
+/* .card__heading a:after {
   outline-offset: 0.3rem;
-}
+} */
 
 .card__heading a:focus:after {
   box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);

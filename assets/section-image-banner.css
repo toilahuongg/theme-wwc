@@ -1,13 +1,20 @@
+.banner-wrapper {
+  padding: 50px;
+}
 .banner {
   display: flex;
   position: relative;
   flex-direction: column;
   z-index: auto;
   isolation: isolate;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .banner__box {
   text-align: center;
+  background: transparent;
 }
 
 /* Needed for gradient continuity with or without animation, the transform scopes the gradient to its container which happens already when animation are turned on */
@@ -22,6 +29,9 @@
 
   .banner--content-align-mobile-left .banner__box {
     text-align: left;
+  }
+  .banner-wrapper {
+    padding: 20px;
   }
 }
 

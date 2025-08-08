@@ -85,6 +85,7 @@
             "text": "#121212",
             "button": "#121212",
             "button_label": "#FFFFFF",
+            "secondary_button_background": "#FFFFFF",
             "secondary_button_label": "#121212",
             "shadow": "#121212"
           }
@@ -96,6 +97,7 @@
             "text": "#121212",
             "button": "#121212",
             "button_label": "#F3F3F3",
+            "secondary_button_background": "#FFFFFF",
             "secondary_button_label": "#121212",
             "shadow": "#121212"
           }
@@ -107,6 +109,7 @@
             "text": "#FFFFFF",
             "button": "#FFFFFF",
             "button_label": "#000000",
+            "secondary_button_background": "#FFFFFF",
             "secondary_button_label": "#FFFFFF",
             "shadow": "#121212"
           }
@@ -118,6 +121,7 @@
             "text": "#FFFFFF",
             "button": "#FFFFFF",
             "button_label": "#121212",
+            "secondary_button_background": "#FFFFFF",
             "secondary_button_label": "#FFFFFF",
             "shadow": "#121212"
           }
@@ -129,16 +133,17 @@
             "text": "#FFFFFF",
             "button": "#FFFFFF",
             "button_label": "#334FB4",
+            "secondary_button_background": "#FFFFFF",
             "secondary_button_label": "#FFFFFF",
             "shadow": "#121212"
           }
         }
       },
-      "type_header_font": "inter_n7",
+      "type_header_font": "barlow_n7",
       "heading_scale": 100,
-      "type_body_font": "inter_n4",
+      "type_body_font": "barlow_n4",
       "body_scale": 100,
-      "page_width": 1200,
+      "page_width": 1400,
       "spacing_sections": 0,
       "spacing_grid_horizontal": 8,
       "spacing_grid_vertical": 8,
@@ -163,17 +168,17 @@
       "inputs_shadow_horizontal_offset": 0,
       "inputs_shadow_vertical_offset": 4,
       "inputs_shadow_blur": 5,
-      "card_style": "standard",
+      "card_style": "card",
       "card_image_padding": 0,
       "card_text_alignment": "left",
       "card_color_scheme": "scheme-2",
       "card_border_thickness": 0,
       "card_border_opacity": 10,
-      "card_corner_radius": 0,
-      "card_shadow_opacity": 0,
+      "card_corner_radius": 10,
+      "card_shadow_opacity": 10,
       "card_shadow_horizontal_offset": 0,
-      "card_shadow_vertical_offset": 4,
-      "card_shadow_blur": 5,
+      "card_shadow_vertical_offset": 0,
+      "card_shadow_blur": 20,
       "collection_card_style": "standard",
       "collection_card_image_padding": 0,
       "collection_card_text_alignment": "left",

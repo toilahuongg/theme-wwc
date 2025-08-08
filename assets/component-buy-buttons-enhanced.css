@@ -14,10 +14,6 @@
   flex: auto;
 }
 
-.product-form__submit .button__text {
-  font-weight: 700;
-}
-
 @media screen and (max-width: 375px) {
   .product-form__submit .button__icon,
   .product-form__submit .button__icon svg {

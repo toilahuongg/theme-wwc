@@ -147,7 +147,7 @@
           "label": "Solid secondary button background"
         },
         "secondary_button_label": {
-          "label": "Outline button"
+          "label": "Solid secondary button label"
         },
         "shadow": {
           "label": "Shadow"
