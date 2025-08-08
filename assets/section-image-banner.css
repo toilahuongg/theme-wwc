@@ -225,7 +225,14 @@
 
 .banner--adapt,
 .banner--adapt_image.banner--mobile-bottom .banner__media:not(.placeholder) {
-  height: 20rem;
+  height: 18rem;
+}
+
+@media screen and (min-width: 375px) {
+  .banner--adapt,
+  .banner--adapt_image.banner--mobile-bottom .banner__media:not(.placeholder) {
+    height: 20rem;
+  }
 }
 
 @media screen and (max-width: 749px) {
