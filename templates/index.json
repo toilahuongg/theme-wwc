@@ -11,32 +11,12 @@
   "sections": {
     "image_banner_XrnTxA": {
       "type": "image-banner",
-      "blocks": {
-        "heading_wawL8Q": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image banner",
-            "heading_size": "h1"
-          }
-        },
-        "text_QUQPq3": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "heading_wawL8Q",
-        "text_QUQPq3"
-      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "background_color": "linear-gradient(89deg, rgba(120, 120, 120, 1), rgba(0, 0, 0, 1) 100%)",
-        "image": "shopify://shop_images/Untitled_Design_2800x1000_c085c27e-037e-428c-9486-c31d30244cc3.png",
+        "image": "shopify://shop_images/Over_5000_2400x1254_872c2779-1ffd-4a82-bd0d-94d96be7d870.png",
         "image_overlay_opacity": 30,
-        "image_height": "adapt",
+        "image_height": "medium",
         "image_behavior": "none",
         "desktop_content_position": "middle-left",
         "desktop_content_alignment": "left",
