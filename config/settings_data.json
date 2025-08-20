@@ -23,7 +23,7 @@
       },
       "5846654113244447633": {
         "type": "shopify://apps/xo-scroll-to-top/blocks/xo-scrolltop/ea52da47-6aa9-474c-8ff9-df181b3784b4",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
       }
     },
