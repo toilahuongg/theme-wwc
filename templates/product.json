@@ -71,7 +71,7 @@
         "color_scheme": "scheme-1",
         "media_size": "large",
         "constrain_to_viewport": true,
-        "media_fit": "cover",
+        "media_fit": "contain",
         "media_border_radius": 10,
         "gallery_layout": "thumbnail_slider",
         "mobile_thumbnails": "show",
