@@ -183,24 +183,6 @@
         "padding_bottom": 36
       }
     },
-    "related-products": {
-      "type": "related-products",
-      "settings": {
-        "heading": "You may also like",
-        "heading_size": "h2",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "padding_top": 36,
-        "padding_bottom": 28
-      }
-    },
     "175464434686e5edcb": {
       "type": "apps",
       "blocks": {
@@ -220,13 +202,31 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
     }
   },
   "order": [
     "main",
     "image_with_text_DbBPiK",
     "image_with_text_djngjM",
-    "related-products",
-    "175464434686e5edcb"
+    "175464434686e5edcb",
+    "related-products"
   ]
 }
