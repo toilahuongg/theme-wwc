@@ -63,7 +63,10 @@
             "icon_2": "star",
             "heading_2": "High quality",
             "icon_3": "truck",
-            "heading_3": "Fast shipping"
+            "heading_3": "Fast shipping",
+            "font_size": 16,
+            "font_weight": "heading",
+            "icon_size": 30
           }
         }
       },
