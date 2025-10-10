@@ -513,6 +513,11 @@
                 {%- endif -%}
               {%- when 'richtext' -%}
                 {%- if block.settings.richtext != blank -%}
+                  {% stylesheet %}
+                    .product__richtext p {
+                      margin-bottom: 0.5em;
+                    }
+                  {% endstylesheet %}
                   <div class="product__richtext rte" {{ block.shopify_attributes }}>
                     {{ block.settings.richtext }}
                   </div>
