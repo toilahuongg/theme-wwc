@@ -54,10 +54,16 @@
           "type": "description",
           "settings": {}
         },
-        "share": {
-          "type": "share",
+        "icon_with_text_VbwEcP": {
+          "type": "icon-with-text",
           "settings": {
-            "share_label": "Share"
+            "layout": "horizontal",
+            "icon_1": "heart",
+            "heading_1": "Happy Care +",
+            "icon_2": "star",
+            "heading_2": "High quality",
+            "icon_3": "truck",
+            "heading_3": "Fast shipping"
           }
         }
       },
@@ -70,7 +76,7 @@
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share"
+        "icon_with_text_VbwEcP"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -130,7 +136,7 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-2",
+        "section_color_scheme": "scheme-f5ed0aac-f533-48d7-9421-0c80f124f146",
         "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 36
