@@ -32,11 +32,9 @@
           "type": "price",
           "settings": {}
         },
-        "richtext_Jx87ER": {
-          "type": "richtext",
-          "settings": {
-            "richtext": "<p>★ Add your rich text content here.</p><p>★ Add your rich text content here.</p><p>★ Add your rich text content here.</p>"
-          }
+        "description": {
+          "type": "description",
+          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -63,10 +61,6 @@
             "show_gift_card_recipient": true
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
         "icon_with_text_VbwEcP": {
           "type": "icon-with-text",
           "settings": {
@@ -90,12 +84,11 @@
         "title",
         "air_product_reviews_app_summary_block_x8jQJY",
         "price",
-        "richtext_Jx87ER",
+        "description",
         "variant_picker",
         "size_chart_PKrbWp",
         "quantity_selector",
         "buy_buttons",
-        "description",
         "icon_with_text_VbwEcP"
       ],
       "settings": {
