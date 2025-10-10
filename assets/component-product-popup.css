@@ -514,7 +514,7 @@
 }
 
 .size-chart-image .product-popup-modal__toggle {
-  background: rgba(var(--color-foreground), 1);
+  background: rgba(var(--color-background), 1);
 }
 
 .size-chart-image img {
