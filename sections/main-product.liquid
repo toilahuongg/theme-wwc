@@ -767,7 +767,11 @@
     {% assign size_chart_blocks = section.blocks | where: 'type', 'size_chart' %}
     {%- for block in size_chart_blocks -%}
       {%- if block.settings.size_chart_image != blank -%}
-        <modal-dialog id="SizeChartModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
+        <modal-dialog
+          id="SizeChartModal-{{ block.id }}"
+          class="product-popup-modal product-popup-modal--large"
+          {{ block.shopify_attributes }}
+        >
           <div
             role="dialog"
             aria-label="{{ block.settings.button_text }}"
