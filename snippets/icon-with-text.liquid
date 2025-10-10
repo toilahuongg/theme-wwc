@@ -56,8 +56,30 @@
     width: {{ block.settings.icon_size }}px;
     height: {{ block.settings.icon_size }}px;
   }
+
+  .icon-with-text-{{ block.id }} {
+    text-align: {{ block.settings.text_align }};
+  }
+
+  .icon-with-text-{{ block.id }} .icon-with-text__item {
+    margin-bottom: {{ block.settings.item_spacing }}px;
+  }
+
+  .icon-with-text-{{ block.id }} .icon-with-text__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .icon-with-text-{{ block.id }}.icon-with-text--horizontal .icon-with-text__item {
+    margin-right: {{ block.settings.item_spacing }}px;
+    margin-bottom: 0;
+  }
+
+  .icon-with-text-{{ block.id }}.icon-with-text--horizontal .icon-with-text__item:last-child {
+    margin-right: 0;
+  }
+
   .inline-richtext {
-    color: color: rgba(var(--color-foreground), 1);
+    color: rgba(var(--color-foreground), 1);
   }
 {%- endstyle -%}
 

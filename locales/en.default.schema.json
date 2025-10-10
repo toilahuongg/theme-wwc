@@ -2372,6 +2372,21 @@
             },
             "icon_size": {
               "label": "Icon size"
+            },
+            "text_align": {
+              "label": "Text alignment",
+              "options__1": {
+                "label": "Left"
+              },
+              "options__2": {
+                "label": "Center"
+              },
+              "options__3": {
+                "label": "Right"
+              }
+            },
+            "item_spacing": {
+              "label": "Item spacing"
             }
           }
         }
