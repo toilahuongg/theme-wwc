@@ -787,17 +787,15 @@
             >
               {{- 'icon-close.svg' | inline_asset_content -}}
             </button>
-            <div class="product-popup-modal__content-info">
-              <h1 class="h2">{{ block.settings.button_text | escape }}</h1>
-              <div class="size-chart-image">
-                <img
-                  src="{{ block.settings.size_chart_image | image_url: width: 800 }}"
-                  alt="{{ block.settings.button_text | escape }}"
-                  width="{{ block.settings.size_chart_image.width }}"
-                  height="{{ block.settings.size_chart_image.height }}"
-                  loading="lazy"
-                >
-              </div>
+            <h1 class="h2">{{ block.settings.button_text | escape }}</h1>
+            <div class="size-chart-image">
+              <img
+                src="{{ block.settings.size_chart_image | image_url: width: 800 }}"
+                alt="{{ block.settings.button_text | escape }}"
+                width="{{ block.settings.size_chart_image.width }}"
+                height="{{ block.settings.size_chart_image.height }}"
+                loading="lazy"
+              >
             </div>
           </div>
         </modal-dialog>
