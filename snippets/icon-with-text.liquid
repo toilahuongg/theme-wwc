@@ -36,8 +36,30 @@
     assign text_only_all_items = false
   endif
 -%}
+
+{%- style -%}
+  .icon-with-text-{{ block.id }} .icon-with-text__item span {
+    {% if block.settings.font_weight == 'heading' %}
+      font-family: var(--font-heading-family);
+      font-weight: var(--font-heading-weight);
+      font-style: var(--font-heading-style);
+    {% else %}
+      font-family: var(--font-body-family);
+      font-weight: var(--font-body-weight);
+      font-style: var(--font-body-style);
+    {% endif %}
+    font-size: {{ block.settings.font_size }}px;
+  }
+
+  .icon-with-text-{{ block.id }} .icon-with-text__item svg,
+  .icon-with-text-{{ block.id }} .icon-with-text__item img {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+  }
+{%- endstyle -%}
+
 <ul
-  class="icon-with-text icon-with-text--{{ block.settings.layout }} list-unstyled{% if text_only_all_items %} icon-with-text--text-only{% endif %}"
+  class="icon-with-text icon-with-text-{{ block.id }} icon-with-text--{{ block.settings.layout }} list-unstyled{% if text_only_all_items %} icon-with-text--text-only{% endif %}"
   {{ block.shopify_attributes }}
 >
   {%- unless heading_1_empty -%}
@@ -57,7 +79,7 @@
           loading="lazy"
         >
       {%- endif -%}
-      <span class="h4 inline-richtext">
+      <span class="inline-richtext">
         {{- block.settings.heading_1 -}}
       </span>
     </li>
@@ -79,7 +101,7 @@
           loading="lazy"
         >
       {%- endif -%}
-      <span class="h4 inline-richtext">
+      <span class="inline-richtext">
         {{- block.settings.heading_2 -}}
       </span>
     </li>
@@ -101,7 +123,7 @@
           loading="lazy"
         >
       {%- endif -%}
-      <span class="h4 inline-richtext">
+      <span class="inline-richtext">
         {{- block.settings.heading_3 -}}
       </span>
     </li>
