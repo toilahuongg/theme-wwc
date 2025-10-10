@@ -2354,6 +2354,24 @@
             "heading_3": {
               "label": "Heading",
               "default": "Heading"
+            },
+            "styling": {
+              "label": "Styling"
+            },
+            "font_size": {
+              "label": "Font size"
+            },
+            "font_weight": {
+              "label": "Font family",
+              "options__1": {
+                "label": "Body font"
+              },
+              "options__2": {
+                "label": "Heading font"
+              }
+            },
+            "icon_size": {
+              "label": "Icon size"
             }
           }
         }
