@@ -511,11 +511,17 @@
   position: relative;
   text-align: center;
   margin-top: 2rem;
-  max-width: 500px;
+  max-width: 1080px;
 }
 
 .size-chart-image .product-popup-modal__toggle {
   background: rgba(var(--color-background), 1);
+  top: unset !important;
+  right: unset !important;
+  bottom: -2.5rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  box-shadow: 0 4px 12px rgba(var(--color-foreground), 0.1);
 }
 
 .size-chart-image img {
