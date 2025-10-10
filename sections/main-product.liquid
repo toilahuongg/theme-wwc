@@ -15,6 +15,7 @@
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+  {{ 'component-product-popup.css' | asset_url | stylesheet_tag }}
 
   {% unless product.has_only_default_variant %}
     {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
@@ -492,6 +493,30 @@
                     {{ block.settings.text | default: block.settings.page.title | escape }}
                   </button>
                 </modal-opener>
+              {%- when 'size_chart' -%}
+                {%- if block.settings.size_chart_image != blank -%}
+                  <modal-opener
+                    class="product-popup-modal__opener quick-add-hidden"
+                    data-modal="#SizeChartModal-{{ block.id }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    <button
+                      id="SizeChartButton-{{ block.id }}"
+                      class="product-popup-modal__button link"
+                      type="button"
+                      aria-haspopup="dialog"
+                    >
+                      {{- 'icon-ruler.svg' | inline_asset_content -}}
+                      {{ block.settings.button_text | escape }}
+                    </button>
+                  </modal-opener>
+                {%- endif -%}
+              {%- when 'richtext' -%}
+                {%- if block.settings.richtext != blank -%}
+                  <div class="product__richtext rte" {{ block.shopify_attributes }}>
+                    {{ block.settings.richtext }}
+                  </div>
+                {%- endif -%}
               {%- when 'share' -%}
                 {% liquid
                   assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
@@ -732,6 +757,42 @@
           </div>
         </div>
       </modal-dialog>
+    {%- endfor -%}
+
+    {% assign size_chart_blocks = section.blocks | where: 'type', 'size_chart' %}
+    {%- for block in size_chart_blocks -%}
+      {%- if block.settings.size_chart_image != blank -%}
+        <modal-dialog id="SizeChartModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
+          <div
+            role="dialog"
+            aria-label="{{ block.settings.button_text }}"
+            aria-modal="true"
+            class="product-popup-modal__content"
+            tabindex="-1"
+          >
+            <button
+              id="ModalClose-{{ block.id }}"
+              type="button"
+              class="product-popup-modal__toggle"
+              aria-label="{{ 'accessibility.close' | t }}"
+            >
+              {{- 'icon-close.svg' | inline_asset_content -}}
+            </button>
+            <div class="product-popup-modal__content-info">
+              <h1 class="h2">{{ block.settings.button_text | escape }}</h1>
+              <div class="size-chart-image">
+                <img
+                  src="{{ block.settings.size_chart_image | image_url: width: 800 }}"
+                  alt="{{ block.settings.button_text | escape }}"
+                  width="{{ block.settings.size_chart_image.width }}"
+                  height="{{ block.settings.size_chart_image.height }}"
+                  loading="lazy"
+                >
+              </div>
+            </div>
+          </div>
+        </modal-dialog>
+      {%- endif -%}
     {%- endfor -%}
 
     {%- if product.media.size > 0 -%}
@@ -1200,6 +1261,36 @@
           "id": "page",
           "type": "page",
           "label": "t:sections.main-product.blocks.popup.settings.page.label"
+        }
+      ]
+    },
+    {
+      "type": "size_chart",
+      "name": "Size Chart",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_text",
+          "default": "Size Chart",
+          "label": "Button Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "size_chart_image",
+          "label": "Size Chart Image"
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "name": "Rich Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "richtext",
+          "label": "Rich Text Content",
+          "default": "<p>Add your rich text content here.</p>"
         }
       ]
     },

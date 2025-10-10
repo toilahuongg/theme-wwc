@@ -506,6 +506,67 @@
   }
 }
 
+/* ===== SIZE CHART SPECIFIC STYLES ===== */
+.size-chart-image {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.size-chart-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.8rem;
+  box-shadow: 0 4px 16px rgba(var(--color-foreground), 0.1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.size-chart-image img:hover {
+  transform: scale(1.02);
+}
+
+/* Size chart button specific styles */
+.product-popup-modal__button[id^="SizeChartButton"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: rgb(var(--color-foreground));
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+  text-decoration-thickness: 0.1rem;
+  padding: 0.8rem 0;
+  font-weight: 500;
+}
+
+.product-popup-modal__button[id^="SizeChartButton"]:hover {
+  text-decoration-thickness: 0.2rem;
+  opacity: 0.7;
+}
+
+.product-popup-modal__button[id^="SizeChartButton"] svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: currentColor;
+}
+
+/* Size chart modal content adjustments */
+#SizeChartModal-* .product-popup-modal__content {
+  max-width: 80rem;
+}
+
+@media screen and (max-width: 749px) {
+  .size-chart-image {
+    margin-top: 1.5rem;
+  }
+  
+  .size-chart-image img {
+    border-radius: 0.6rem;
+  }
+  
+  #SizeChartModal-* .product-popup-modal__content {
+    max-width: 95vw;
+  }
+}
+
 /* ===== DARK MODE SUPPORT ===== */
 @media (prefers-color-scheme: dark) {
   .product-popup-modal {
