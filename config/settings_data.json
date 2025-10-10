@@ -9,8 +9,8 @@
  */
 {
   "current": {
-    "type_header_font": "barlow_n7",
-    "type_body_font": "barlow_n4",
+    "type_header_font": "archivo_black_n4",
+    "type_body_font": "archivo_n4",
     "card_style": "card",
     "card_corner_radius": 10,
     "media_radius": 20,
