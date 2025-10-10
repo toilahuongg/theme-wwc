@@ -32,11 +32,24 @@
           "type": "price",
           "settings": {}
         },
+        "richtext_Jx87ER": {
+          "type": "richtext",
+          "settings": {
+            "richtext": "<p>★ Add your rich text content here.</p><p>★ Add your rich text content here.</p><p>★ Add your rich text content here.</p>"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle"
+          }
+        },
+        "size_chart_PKrbWp": {
+          "type": "size_chart",
+          "settings": {
+            "button_text": "Size Chart",
+            "size_chart_image": "shopify://shop_images/Untitled_Design_2800x1000_c085c27e-037e-428c-9486-c31d30244cc3.png"
           }
         },
         "quantity_selector": {
@@ -77,7 +90,9 @@
         "title",
         "air_product_reviews_app_summary_block_x8jQJY",
         "price",
+        "richtext_Jx87ER",
         "variant_picker",
+        "size_chart_PKrbWp",
         "quantity_selector",
         "buy_buttons",
         "description",
