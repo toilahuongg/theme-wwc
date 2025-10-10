@@ -46,7 +46,7 @@
         border-radius: 5px;
   }
   .product-form__input input[type='radio'] + label.color-swatch{
-    border:1px rgb(214,214,214) solid;
+    border:2px rgb(214,214,214) solid;
     width: {{swatchSize}}px;
     height: {{swatchSize}}px;
     background-repeat: no-repeat;
@@ -61,7 +61,7 @@
     left: -1px;
     width: calc(100% + 2px);
     height: calc(100% + 2px);
-    border: 1px rgb(214,214,214) solid;
+    border: 2px rgb(214,214,214) solid;
     z-index: 0;
   }
   .product-form__input input[type='radio'] + label.color-swatch:after{
@@ -79,7 +79,7 @@
     {%- endif -%}
   }
   .product-form__input input[type='radio'] + label.color-swatch:hover:before{
-    border: 1px rgb(125 124 124) solid;
+    border: 2px rgb(125 124 124) solid;
   }
   .product-form__input input[type='radio']:checked + label.color-swatch:before{
   {%- if settings.dark -%}
