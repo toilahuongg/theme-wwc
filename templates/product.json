@@ -90,9 +90,9 @@
         "collapsible_tab_NCcUTc": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "content": "",
+            "heading": "FAQs",
+            "icon": "question_mark",
+            "content": "{{ product.metafields.custom.faqs | metafield_tag }}",
             "page": ""
           }
         }
