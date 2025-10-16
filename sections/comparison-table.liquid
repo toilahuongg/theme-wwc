@@ -1,0 +1,516 @@
+{{ 'section-comparison-table.css' | asset_url | stylesheet_tag }}
+{{ 'component-rte.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  {% if section.settings.color_scheme == 'custom' %}
+    .color-scheme-{{ section.id }}.color-custom {
+      --color-background: {{ section.settings.custom_bg_color.red }}, {{ section.settings.custom_bg_color.green }}, {{ section.settings.custom_bg_color.blue }};
+      --gradient-background: {{ section.settings.custom_bg_color }};
+      --color-foreground: {{ section.settings.custom_text_color.red }}, {{ section.settings.custom_text_color.green }}, {{ section.settings.custom_text_color.blue }};
+      --color-button: {{ section.settings.custom_button_color.red }}, {{ section.settings.custom_button_color.green }}, {{ section.settings.custom_button_color.blue }};
+      --color-button-text: {{ section.settings.custom_button_text_color.red }}, {{ section.settings.custom_button_text_color.green }}, {{ section.settings.custom_button_text_color.blue }};
+      --color-base-outline-button-labels: {{ section.settings.custom_button_color.red }}, {{ section.settings.custom_button_color.green }}, {{ section.settings.custom_button_color.blue }};
+    }
+  {% endif %}
+{%- endstyle -%}
+
+<div class="content-for-grouping color-scheme-{{ section.id }} {% if section.settings.color_scheme == 'custom' %}color-custom{% else %}color-{{ section.settings.color_scheme }}{% endif %} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="content-and-comparison-table">
+      <div class="content-container {{ section.settings.content_alignment }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {%- if section.settings.title != blank -%}
+          <h2 class="title {{ section.settings.heading_size }}">
+            {{ section.settings.title }}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.description != blank -%}
+          <h5 class="comparison-table__text rte">
+            {{ section.settings.description }}
+          </h5>
+        {%- endif -%}
+      </div>
+
+      <div class="comparison-table-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th
+                align="center"
+                class="comparison-table__logo"
+                style="--mobile-logo-width: {{ section.settings.logo_width_mobile }}px; --font-size: {{ section.settings.brand_font_size }}rem;"
+              >
+                {%- if section.settings.brand_logo != blank -%}
+                  <img
+                    src="{{ section.settings.brand_logo | image_url: width: 200 }}"
+                    alt="{{ section.settings.brand_name }}"
+                    width="{{ section.settings.logo_width }}"
+                    height="auto"
+                    loading="lazy"
+                  >
+                {%- else -%}
+                  <h4>{{ section.settings.brand_name }}</h4>
+                {%- endif -%}
+              </th>
+              <th
+                class="comparison-table__others"
+                align="center"
+                style="--font-size: {{ section.settings.others_font_size }}rem; --mobile-logo-width: {{ section.settings.logo_width_mobile }}px;"
+              >
+                <h4>{{ section.settings.others_label }}</h4>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when 'comparison_row' -%}
+                  <tr {{ block.shopify_attributes }}>
+                    <td align="center" class="comparison-table__row-name color-{{ block.settings.row_color_scheme }}">
+                      <h3>{{ block.settings.feature_name }}</h3>
+                    </td>
+                    <td align="center" class="color-{{ block.settings.cell_color_scheme }}">
+                      {%- if block.settings.brand_has_feature -%}
+                        <svg
+                          class="comparison-table__checkmark"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 25.45 25.43"
+                        >
+                          <defs><style>.cls-1{fill:{{ block.settings.checkmark_color }};}</style></defs>
+                          <polygon class="cls-1" points="25.45 0 24.06 0 9.5 15.27 2.12 10.24 0 12.55 9.28 25.43 25.45 2.48 25.45 0"></polygon>
+                        </svg>
+                      {%- else -%}
+                        <div class="comparison-table__x"><span></span><span></span></div>
+                      {%- endif -%}
+                    </td>
+                    <td align="center" class="color-{{ block.settings.cell_color_scheme }}">
+                      {%- if block.settings.others_have_feature -%}
+                        <svg
+                          class="comparison-table__checkmark"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 25.45 25.43"
+                        >
+                          <defs><style>.cls-1{fill:{{ block.settings.checkmark_color }};}</style></defs>
+                          <polygon class="cls-1" points="25.45 0 24.06 0 9.5 15.27 2.12 10.24 0 12.55 9.28 25.43 25.45 2.48 25.45 0"></polygon>
+                        </svg>
+                      {%- else -%}
+                        <div class="comparison-table__x"><span></span><span></span></div>
+                      {%- endif -%}
+                    </td>
+                  </tr>
+              {%- endcase -%}
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Comparison Table",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Why Choose Us?",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Small"
+        },
+        {
+          "value": "h1",
+          "label": "Medium"
+        },
+        {
+          "value": "h0",
+          "label": "Large"
+        },
+        {
+          "value": "hxl",
+          "label": "Extra Large"
+        },
+        {
+          "value": "hxxl",
+          "label": "XX Large"
+        }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "default": "<p>Better Posture For a Better You...</p>",
+      "label": "Description"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "label": "Content alignment"
+    },
+    {
+      "type": "header",
+      "content": "Brand Column"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo",
+      "label": "Brand Logo",
+      "info": "Leave empty to show text instead"
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "default": "Our Brand",
+      "label": "Brand Name",
+      "info": "Shown if no logo is uploaded"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo Width (Desktop)",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "logo_width_mobile",
+      "min": 40,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Logo Width (Mobile)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "brand_font_size",
+      "min": 1,
+      "max": 3,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Brand Font Size",
+      "default": 1.8
+    },
+    {
+      "type": "header",
+      "content": "Others Column"
+    },
+    {
+      "type": "text",
+      "id": "others_label",
+      "default": "Others",
+      "label": "Others Label"
+    },
+    {
+      "type": "range",
+      "id": "others_font_size",
+      "min": 1,
+      "max": 3,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Others Font Size",
+      "default": 1.8
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "scheme-1",
+          "label": "Scheme 1"
+        },
+        {
+          "value": "scheme-2",
+          "label": "Scheme 2"
+        },
+        {
+          "value": "scheme-3",
+          "label": "Scheme 3"
+        },
+        {
+          "value": "scheme-4",
+          "label": "Scheme 4"
+        },
+        {
+          "value": "scheme-5",
+          "label": "Scheme 5"
+        },
+        {
+          "value": "background-1",
+          "label": "Background 1"
+        },
+        {
+          "value": "background-2",
+          "label": "Background 2"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "background-1",
+      "label": "Color scheme"
+    },
+    {
+      "type": "color",
+      "id": "custom_bg_color",
+      "default": "#ffffff",
+      "label": "Custom Background Color",
+      "info": "Only applies when Color scheme is set to Custom"
+    },
+    {
+      "type": "color",
+      "id": "custom_text_color",
+      "default": "#2e2a39",
+      "label": "Custom Text Color",
+      "info": "Only applies when Color scheme is set to Custom"
+    },
+    {
+      "type": "color",
+      "id": "custom_button_color",
+      "default": "#dd1d1d",
+      "label": "Custom Button Color",
+      "info": "Only applies when Color scheme is set to Custom"
+    },
+    {
+      "type": "color",
+      "id": "custom_button_text_color",
+      "default": "#ffffff",
+      "label": "Custom Button Text Color",
+      "info": "Only applies when Color scheme is set to Custom"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "comparison_row",
+      "name": "Comparison Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_name",
+          "default": "Feature Name",
+          "label": "Feature Name"
+        },
+        {
+          "type": "checkbox",
+          "id": "brand_has_feature",
+          "default": true,
+          "label": "Your Brand Has This Feature"
+        },
+        {
+          "type": "checkbox",
+          "id": "others_have_feature",
+          "default": false,
+          "label": "Others Have This Feature"
+        },
+        {
+          "type": "color",
+          "id": "checkmark_color",
+          "default": "#53af01",
+          "label": "Checkmark Color"
+        },
+        {
+          "type": "select",
+          "id": "row_color_scheme",
+          "options": [
+            {
+              "value": "scheme-1",
+              "label": "Scheme 1"
+            },
+            {
+              "value": "scheme-2",
+              "label": "Scheme 2"
+            },
+            {
+              "value": "scheme-3",
+              "label": "Scheme 3"
+            },
+            {
+              "value": "scheme-4",
+              "label": "Scheme 4"
+            },
+            {
+              "value": "scheme-5",
+              "label": "Scheme 5"
+            },
+            {
+              "value": "background-1",
+              "label": "Background 1"
+            },
+            {
+              "value": "background-2",
+              "label": "Background 2"
+            },
+            {
+              "value": "accent-1",
+              "label": "Accent 1"
+            },
+            {
+              "value": "accent-2",
+              "label": "Accent 2"
+            }
+          ],
+          "default": "accent-1",
+          "label": "Feature Name Background"
+        },
+        {
+          "type": "select",
+          "id": "cell_color_scheme",
+          "options": [
+            {
+              "value": "scheme-1",
+              "label": "Scheme 1"
+            },
+            {
+              "value": "scheme-2",
+              "label": "Scheme 2"
+            },
+            {
+              "value": "scheme-3",
+              "label": "Scheme 3"
+            },
+            {
+              "value": "scheme-4",
+              "label": "Scheme 4"
+            },
+            {
+              "value": "scheme-5",
+              "label": "Scheme 5"
+            },
+            {
+              "value": "background-1",
+              "label": "Background 1"
+            },
+            {
+              "value": "background-2",
+              "label": "Background 2"
+            },
+            {
+              "value": "accent-1",
+              "label": "Accent 1"
+            },
+            {
+              "value": "accent-2",
+              "label": "Accent 2"
+            }
+          ],
+          "default": "background-1",
+          "label": "Cell Background"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison Table",
+      "blocks": [
+        {
+          "type": "comparison_row",
+          "settings": {
+            "feature_name": "4 in 1 Therapy",
+            "brand_has_feature": true,
+            "others_have_feature": false
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "feature_name": "Improves Posture in 10 Minutes Per Day",
+            "brand_has_feature": true,
+            "others_have_feature": false
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "feature_name": "Lasting Alignment & Confidence",
+            "brand_has_feature": true,
+            "others_have_feature": false
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "feature_name": "90-Day Money-Back Guarantee",
+            "brand_has_feature": true,
+            "others_have_feature": false
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
