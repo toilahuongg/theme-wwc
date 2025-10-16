@@ -134,21 +134,21 @@
         "heading_BjN3nQ": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "Your Posture Could Be Silently Damaging You",
             "heading_size": "h1"
           }
         },
         "text_fWzJwG": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "<p>Every hour you slouch adds strain to your spine, shoulders, and nerves.<br/><br/>Left unchecked, it can lead to chronic pain, migraines, and long-term damage. Bad posture is more than just looks — it’s your health at risk.</p><p>✔️ AlignPose gently trains your spine to stay upright<br/><br/>✔️ Reduces stress on muscles and joints instantly<br/><br/>✔️ Wear it daily — avoid future doctor visits and expensive therapy</p>",
             "text_style": "body"
           }
         },
         "button_iNgpC6": {
           "type": "button",
           "settings": {
-            "button_label": "Button label",
+            "button_label": "",
             "button_link": "",
             "button_style_secondary": false
           }
@@ -161,6 +161,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "image": "shopify://shop_images/IMG_0041.webp",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
