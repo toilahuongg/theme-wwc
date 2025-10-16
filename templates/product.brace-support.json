@@ -141,23 +141,14 @@
         "text_fWzJwG": {
           "type": "text",
           "settings": {
-            "text": "<p>Every hour you slouch adds strain to your spine, shoulders, and nerves.<br/><br/>Left unchecked, it can lead to chronic pain, migraines, and long-term damage. Bad posture is more than just looks — it’s your health at risk.</p><p>✔️ AlignPose gently trains your spine to stay upright<br/><br/>✔️ Reduces stress on muscles and joints instantly<br/><br/>✔️ Wear it daily — avoid future doctor visits and expensive therapy</p>",
+            "text": "<p>Every hour you slouch adds strain to your spine, shoulders, and nerves.<br/><br/>Left unchecked, it can lead to chronic pain, migraines, and long-term damage. Bad posture is more than just looks — it’s your health at risk.</p><p>✔️ <strong>BackBrace Pro</strong> gently trains your spine to stay upright<br/><br/>✔️ Reduces stress on muscles and joints instantly<br/><br/>✔️ Wear it daily — avoid future doctor visits and expensive therapy</p>",
             "text_style": "body"
-          }
-        },
-        "button_iNgpC6": {
-          "type": "button",
-          "settings": {
-            "button_label": "",
-            "button_link": "",
-            "button_style_secondary": false
           }
         }
       },
       "block_order": [
         "heading_BjN3nQ",
-        "text_fWzJwG",
-        "button_iNgpC6"
+        "text_fWzJwG"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
@@ -182,40 +173,32 @@
         "heading_ECpy4E": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "Instant Improvement, Lasting Transformation",
             "heading_size": "h1"
           }
         },
         "text_8akW4m": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "<p>With Corecare brace, you'll get<strong> immediate support </strong>and alignment for a healthier stance from day one.</p><p>It <strong>retrains muscles over time</strong> for a naturally aligned posture, so you can feel confident and comfortable anywhere.</p>",
             "text_style": "body"
-          }
-        },
-        "button_KCK9EK": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
           }
         }
       },
       "block_order": [
         "heading_ECpy4E",
-        "text_8akW4m",
-        "button_KCK9EK"
+        "text_8akW4m"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "image": "shopify://shop_images/coral_f366251f-fab1-4081-91e2-b975f08f3bd1.webp",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
         "image_behavior": "ambient",
         "content_layout": "no-overlap",
         "desktop_content_position": "top",
-        "desktop_content_alignment": "center",
+        "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
         "section_color_scheme": "",
         "color_scheme": "",
