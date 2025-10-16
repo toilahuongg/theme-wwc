@@ -1,0 +1,105 @@
+.rte {
+  color: rgb(var(--color-foreground));
+}
+
+.rte > * {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.rte > * + * {
+  margin-top: 1rem;
+}
+
+.rte p,
+.rte li {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.rte a {
+  color: rgb(var(--accent-color));
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+.rte a:hover {
+  text-decoration-thickness: 0.2rem;
+}
+
+.rte ul,
+.rte ol {
+  padding-left: 2rem;
+}
+
+.rte ul {
+  list-style: disc;
+}
+
+.rte ol {
+  list-style: decimal;
+}
+
+.rte strong {
+  font-weight: 600;
+}
+
+.rte em {
+  font-style: italic;
+}
+
+.rte h1,
+.rte h2,
+.rte h3,
+.rte h4,
+.rte h5,
+.rte h6 {
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.rte h1 {
+  font-size: 2.5rem;
+}
+
+.rte h2 {
+  font-size: 2rem;
+}
+
+.rte h3 {
+  font-size: 1.75rem;
+}
+
+.rte h4 {
+  font-size: 1.5rem;
+}
+
+.rte h5 {
+  font-size: 1.25rem;
+}
+
+.rte h6 {
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 749px) {
+  .rte h1 {
+    font-size: 2rem;
+  }
+
+  .rte h2 {
+    font-size: 1.75rem;
+  }
+
+  .rte h3 {
+    font-size: 1.5rem;
+  }
+
+  .rte h4 {
+    font-size: 1.25rem;
+  }
+
+  .rte h5 {
+    font-size: 1.125rem;
+  }
+}
