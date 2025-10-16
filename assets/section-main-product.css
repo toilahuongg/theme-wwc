@@ -320,6 +320,10 @@ a.product__text {
   font-weight: 600;
 }
 
+.product__description p {
+  margin: 0 0 1rem 0;
+}
+
 .product--no-media .product__title,
 .product--no-media .product__text,
 .product--no-media .product__tax,
