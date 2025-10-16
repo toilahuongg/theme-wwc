@@ -1,0 +1,271 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "air_product_reviews_app_summary_block_x8jQJY": {
+          "type": "shopify://apps/air-product-reviews/blocks/app-summary-block/c4e1e9ca-4d46-4e76-bc39-7e42417cb327",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "size_chart_PKrbWp": {
+          "type": "size_chart",
+          "settings": {
+            "button_text": "Size Chart",
+            "size_chart_image": "{{ product.metafields.custom.size_chart.value }}"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "icon_with_text_VbwEcP": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "heart",
+            "heading_1": "Happy Care +",
+            "icon_2": "star",
+            "heading_2": "High quality",
+            "icon_3": "truck",
+            "heading_3": "Fast shipping",
+            "font_size": 16,
+            "font_weight": "heading",
+            "icon_size": 30,
+            "text_align": "center",
+            "item_spacing": 16
+          }
+        },
+        "collapsible_tab_czNgbK": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & Delivery",
+            "icon": "truck",
+            "content": "<p>We process orders within <strong>1-2 business days</strong>. After dispatch, the estimated delivery time is <strong>4-8 business days</strong>.</p><p>Once your order has been shipped, you will receive a <strong>tracking number</strong> via email. You can conveniently track your order <strong>directly on our website</strong> to stay updated on its journey. 🚚</p><p>For any questions or assistance, feel free to contact our support team at help@corecareshop.com. We’re here to help!\"</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_NCcUTc": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "FAQs",
+            "icon": "question_mark",
+            "content": "{{ product.metafields.custom.faqs | metafield_tag }}",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "air_product_reviews_app_summary_block_x8jQJY",
+        "price",
+        "description",
+        "variant_picker",
+        "size_chart_PKrbWp",
+        "quantity_selector",
+        "buy_buttons",
+        "icon_with_text_VbwEcP",
+        "collapsible_tab_czNgbK",
+        "collapsible_tab_NCcUTc"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_border_radius": 10,
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "image_with_text_DbBPiK": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_BjN3nQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "h1"
+          }
+        },
+        "text_fWzJwG": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_iNgpC6": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_BjN3nQ",
+        "text_fWzJwG",
+        "button_iNgpC6"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-f5ed0aac-f533-48d7-9421-0c80f124f146",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_djngjM": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_ECpy4E": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "h1"
+          }
+        },
+        "text_8akW4m": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_KCK9EK": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_ECpy4E",
+        "text_8akW4m",
+        "button_KCK9EK"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "ambient",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "175464434686e5edcb": {
+      "type": "apps",
+      "blocks": {
+        "air_product_reviews_app_block_review_list_tNiRDC": {
+          "type": "shopify://apps/air-product-reviews/blocks/app-block-review-list/c4e1e9ca-4d46-4e76-bc39-7e42417cb327",
+          "settings": {
+            "air_blockreviews_summaryHeading": "Reviews",
+            "air_blockreviews_layout": "list",
+            "air_blockreviews_singleStarColor": "#16a086",
+            "air_blockreviews_primaryColor": "#121212"
+          }
+        }
+      },
+      "block_order": [
+        "air_product_reviews_app_block_review_list_tNiRDC"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_DbBPiK",
+    "image_with_text_djngjM",
+    "175464434686e5edcb",
+    "related-products"
+  ]
+}
