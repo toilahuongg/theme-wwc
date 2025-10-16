@@ -87,6 +87,12 @@
             "page": ""
           }
         },
+        "richtext_rPadRz": {
+          "type": "richtext",
+          "settings": {
+            "richtext": "{{ product.metafields.custom.feature_bullets | metafield_tag }}"
+          }
+        },
         "collapsible_tab_NCcUTc": {
           "type": "collapsible_tab",
           "settings": {
@@ -109,6 +115,7 @@
         "buy_buttons",
         "icon_with_text_VbwEcP",
         "collapsible_tab_czNgbK",
+        "richtext_rPadRz",
         "collapsible_tab_NCcUTc"
       ],
       "settings": {
@@ -243,6 +250,14 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "divider_fRqYUa": {
+      "type": "divider",
+      "name": "t:sections.divider.presets.name",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -250,6 +265,7 @@
     "image_with_text_DbBPiK",
     "image_with_text_djngjM",
     "175464434686e5edcb",
-    "related-products"
+    "related-products",
+    "divider_fRqYUa"
   ]
 }
