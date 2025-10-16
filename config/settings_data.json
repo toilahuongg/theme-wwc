@@ -12,7 +12,7 @@
     "swatchType": "variantImage",
     "swatchStyle": "square-round-corners",
     "swatchSize": 64,
-    "type_header_font": "archivo_black_n4",
+    "type_header_font": "archivo_n8",
     "type_body_font": "archivo_n4",
     "card_style": "card",
     "card_corner_radius": 10,
