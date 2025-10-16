@@ -1,9 +1,17 @@
+.section-divider {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  line-height: 0;
+}
+
 .section-divider__svg {
   --max-height: 150px;
   background: none;
   position: relative;
   overflow: hidden;
   margin: -1px 0;
+  line-height: 0;
 }
 
 .section-divider__svg svg {
@@ -15,6 +23,11 @@
   max-height: var(--max-height);
 }
 
+.always-display {
+  display: block;
+}
+
+/* Animated Waves */
 .waves-animated-1 {
   --max-height: 3rem;
   margin: 0;

@@ -1,105 +1,314 @@
 {{ 'section-divider.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  .section-divider-{{ section.id }} {
+    transform: scaleX({{ section.settings.scale_x }}) scaleY({{ section.settings.scale_y }});
+  }
+
+  .section-{{ section.id }}-top-padding {
+    height: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  }
+
+  .section-{{ section.id }}-bottom-padding {
+    height: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
   @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+    .section-{{ section.id }}-top-padding {
+      height: {{ section.settings.padding_top }}px;
+    }
+
+    .section-{{ section.id }}-bottom-padding {
+      height: {{ section.settings.padding_bottom }}px;
     }
   }
 
-  {% if section.settings.flip_waves %}
-    .section-{{ section.id }} .divider-waves {
-      transform: scaleY(-1) scaleX(-1);
+  {% if section.settings.shape_color_scheme == 'custom' %}
+    .shape-color-{{ section.id }}.color-custom {
+      --color-background: {{ section.settings.shape_custom_color.red }}, {{ section.settings.shape_custom_color.green }}, {{ section.settings.shape_custom_color.blue }};
+    }
+  {% endif %}
+
+  {% if section.settings.bg_color_scheme == 'custom' %}
+    .bg-color-{{ section.id }}.color-custom {
+      --color-background: {{ section.settings.bg_custom_color.red }}, {{ section.settings.bg_custom_color.green }}, {{ section.settings.bg_custom_color.blue }};
     }
   {% endif %}
 {%- endstyle -%}
 
-<div class="section-{{ section.id }} section-divider__svg section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
-  <div class="divider-waves">
-    <svg
-      class="waves-animated-1"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-      viewBox="0 24 150 28"
-      preserveAspectRatio="none"
-    >
-      <defs>
-        <path id="gentle-wave-{{ section.id }}"
-        d="M-160 44c30 0
-          58-18 88-18s
-          58 18 88 18
-          58-18 88-18
-          58 18 88 18
-          v44h-352z" />
-      </defs>
-      <g class="parallax1">
-        <use xlink:href="#gentle-wave-{{ section.id }}" x="50" y="3" fill="currentColor"/>
-      </g>
-      <g class="parallax2">
-        <use xlink:href="#gentle-wave-{{ section.id }}" x="50" y="0" fill="currentColor"/>
-      </g>
-      <g class="parallax3">
-        <use xlink:href="#gentle-wave-{{ section.id }}" x="50" y="9" fill="currentColor"/>
-      </g>
-      <g class="parallax4">
-        <use xlink:href="#gentle-wave-{{ section.id }}" x="50" y="6" fill="currentColor"/>
-      </g>
-    </svg>
+<div class="section-{{ section.id }}-top-padding color-{% if section.settings.bg_color_scheme == 'custom' %}custom{% else %}{{ section.settings.bg_color_scheme }}{% endif %} bg-color-{{ section.id }}{% unless section.settings.always_display %} small-hide medium-hide{% endunless %} always-display">
+  &nbsp;
+</div>
+
+<div class="section-divider section-divider-{{ section.id }} color-{% if section.settings.bg_color_scheme == 'custom' %}custom{% else %}{{ section.settings.bg_color_scheme }}{% endif %} bg-color-{{ section.id }}{% unless section.settings.always_display %} small-hide medium-hide{% endunless %} always-display">
+  <div class="section-divider__svg color-{% if section.settings.shape_color_scheme == 'custom' %}custom{% else %}{{ section.settings.shape_color_scheme }}{% endif %} shape-color-{{ section.id }}">
+    {%- case section.settings.wave_style -%}
+      {%- when 'animated-waves' -%}
+        <svg
+          class="waves-animated-1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 24 150 28"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <path id="gentle-wave-{{ section.id }}" d="M-160 44c30 0
+              58-18 88-18s
+              58 18 88 18
+              58-18 88-18
+              58 18 88 18
+              v44h-352z"></path>
+          </defs>
+          <g class="parallax1">
+            <use xlink:href="#gentle-wave-{{ section.id }}" x="50" y="3" fill="currentColor"></use>
+          </g>
+          <g class="parallax2">
+            <use xlink:href="#gentle-wave-{{ section.id }}" x="50" y="0" fill="currentColor"></use>
+          </g>
+          <g class="parallax3">
+            <use xlink:href="#gentle-wave-{{ section.id }}" x="50" y="9" fill="currentColor"></use>
+          </g>
+          <g class="parallax4">
+            <use xlink:href="#gentle-wave-{{ section.id }}" x="50" y="6" fill="currentColor"></use>
+          </g>
+        </svg>
+      {%- when 'simple-wave' -%}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="currentColor"></path>
+        </svg>
+      {%- when 'triangle' -%}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M1200 0L0 0 598.97 114.72 1200 0z" fill="currentColor"></path>
+        </svg>
+      {%- when 'curve' -%}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="currentColor"></path>
+        </svg>
+      {%- when 'tilt' -%}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="currentColor"></path>
+        </svg>
+    {%- endcase -%}
   </div>
+</div>
+
+<div class="section-{{ section.id }}-bottom-padding color-{% if section.settings.shape_color_scheme == 'custom' %}custom{% else %}{{ section.settings.shape_color_scheme }}{% endif %} shape-color-{{ section.id }}{% unless section.settings.always_display %} small-hide medium-hide{% endunless %} always-display">
+  &nbsp;
 </div>
 
 {% schema %}
 {
-  "name": "t:sections.divider.name",
+  "name": "Divider",
   "tag": "section",
   "class": "section",
   "settings": [
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.divider.settings.wave_color.label",
-      "default": "scheme-1"
-    },
-    {
-      "type": "checkbox",
-      "id": "flip_waves",
-      "label": "t:sections.divider.settings.flip_waves.label",
-      "default": false
+      "type": "select",
+      "id": "wave_style",
+      "options": [
+        {
+          "value": "animated-waves",
+          "label": "Animated Waves"
+        },
+        {
+          "value": "simple-wave",
+          "label": "Simple Wave"
+        },
+        {
+          "value": "triangle",
+          "label": "Triangle"
+        },
+        {
+          "value": "curve",
+          "label": "Curve"
+        },
+        {
+          "value": "tilt",
+          "label": "Tilt"
+        }
+      ],
+      "default": "animated-waves",
+      "label": "Wave Style"
     },
     {
       "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
+      "content": "Shape Transform"
+    },
+    {
+      "type": "range",
+      "id": "scale_x",
+      "min": -2,
+      "max": 2,
+      "step": 0.1,
+      "default": 1,
+      "label": "Horizontal Scale"
+    },
+    {
+      "type": "range",
+      "id": "scale_y",
+      "min": -2,
+      "max": 2,
+      "step": 0.1,
+      "default": 1,
+      "label": "Vertical Scale"
+    },
+    {
+      "type": "header",
+      "content": "Shape Color"
+    },
+    {
+      "type": "select",
+      "id": "shape_color_scheme",
+      "options": [
+        {
+          "value": "scheme-1",
+          "label": "Scheme 1"
+        },
+        {
+          "value": "scheme-2",
+          "label": "Scheme 2"
+        },
+        {
+          "value": "scheme-3",
+          "label": "Scheme 3"
+        },
+        {
+          "value": "scheme-4",
+          "label": "Scheme 4"
+        },
+        {
+          "value": "scheme-5",
+          "label": "Scheme 5"
+        },
+        {
+          "value": "background-1",
+          "label": "Background 1"
+        },
+        {
+          "value": "background-2",
+          "label": "Background 2"
+        },
+        {
+          "value": "accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "accent-2",
+          "label": "Accent 2"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "accent-1",
+      "label": "Shape Color Scheme"
+    },
+    {
+      "type": "color",
+      "id": "shape_custom_color",
+      "default": "#dd1d1d",
+      "label": "Shape Custom Color",
+      "info": "Only applies when Shape Color Scheme is set to Custom"
+    },
+    {
+      "type": "header",
+      "content": "Background Color"
+    },
+    {
+      "type": "select",
+      "id": "bg_color_scheme",
+      "options": [
+        {
+          "value": "scheme-1",
+          "label": "Scheme 1"
+        },
+        {
+          "value": "scheme-2",
+          "label": "Scheme 2"
+        },
+        {
+          "value": "scheme-3",
+          "label": "Scheme 3"
+        },
+        {
+          "value": "scheme-4",
+          "label": "Scheme 4"
+        },
+        {
+          "value": "scheme-5",
+          "label": "Scheme 5"
+        },
+        {
+          "value": "background-1",
+          "label": "Background 1"
+        },
+        {
+          "value": "background-2",
+          "label": "Background 2"
+        },
+        {
+          "value": "accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "accent-2",
+          "label": "Accent 2"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "background-1",
+      "label": "Background Color Scheme"
+    },
+    {
+      "type": "color",
+      "id": "bg_custom_color",
+      "default": "#ffffff",
+      "label": "Background Custom Color",
+      "info": "Only applies when Background Color Scheme is set to Custom"
+    },
+    {
+      "type": "header",
+      "content": "Visibility"
+    },
+    {
+      "type": "checkbox",
+      "id": "always_display",
+      "default": true,
+      "label": "Always Display",
+      "info": "When unchecked, divider will be hidden on mobile devices"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
     },
     {
       "type": "range",
       "id": "padding_top",
       "min": 0,
-      "max": 100,
+      "max": 200,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
+      "label": "Top Padding",
       "default": 0
     },
     {
       "type": "range",
       "id": "padding_bottom",
       "min": 0,
-      "max": 100,
+      "max": 200,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
+      "label": "Bottom Padding",
       "default": 0
     }
   ],
   "presets": [
     {
-      "name": "t:sections.divider.presets.name"
+      "name": "Divider"
     }
   ]
 }

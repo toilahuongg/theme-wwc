@@ -1,5 +1,6 @@
 {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
 {{ 'collapsible-content.css' | asset_url | stylesheet_tag }}
+{{ 'component-rte.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -13,11 +14,27 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  {% if section.settings.color_scheme == 'custom' %}
+    .color-scheme-{{ section.id }}.color-custom {
+      --color-background: {{ section.settings.custom_bg_color.red }}, {{ section.settings.custom_bg_color.green }}, {{ section.settings.custom_bg_color.blue }};
+      --gradient-background: {{ section.settings.custom_bg_color }};
+      --color-foreground: {{ section.settings.custom_text_color.red }}, {{ section.settings.custom_text_color.green }}, {{ section.settings.custom_text_color.blue }};
+    }
+  {% endif %}
+
+  {% if section.settings.container_color_scheme == 'custom' %}
+    .container-color-scheme-{{ section.id }}.color-custom {
+      --color-background: {{ section.settings.container_custom_bg_color.red }}, {{ section.settings.container_custom_bg_color.green }}, {{ section.settings.container_custom_bg_color.blue }};
+      --gradient-background: {{ section.settings.container_custom_bg_color }};
+      --color-foreground: {{ section.settings.container_custom_text_color.red }}, {{ section.settings.container_custom_text_color.green }}, {{ section.settings.container_custom_text_color.blue }};
+    }
+  {% endif %}
 {%- endstyle -%}
 
-<div class="color-{{ section.settings.color_scheme }} gradient">
+<div class=" color-scheme-{{ section.id }} {% if section.settings.color_scheme == 'custom' %}color-custom{% else %}color-{{ section.settings.color_scheme }}{% endif %} gradient ">
   <div class="collapsible-content collapsible-{{ section.settings.layout }}-layout isolate{% if section.settings.layout == 'section' %} page-width{% elsif section.settings.layout == 'none' %} content-container content-container--full-width{% endif %}">
-    <div class="collapsible-content__wrapper section-{{ section.id }}-padding{% if section.settings.layout == 'section' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}">
+    <div class="collapsible-content__wrapper section-{{ section.id }}-padding{% if section.settings.layout == 'section' %} content-container color-{% if section.settings.color_scheme == 'custom' %}custom{% else %}{{ section.settings.color_scheme }}{% endif %} gradient{% endif %}">
       <div class="{% if section.settings.image == blank %}collapsible-content-wrapper-narrow{% else %}page-width{% endif %}">
         <div
           class="collapsible-content__header{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -71,7 +88,7 @@
           <div class="grid__item">
             {%- for block in section.blocks -%}
               <div
-                class="accordion{% if section.settings.layout == 'row' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}"
+                class="accordion{% if section.settings.layout == 'row' %} content-container{% endif %} container-color-scheme-{{ section.id }} {% if section.settings.container_color_scheme == 'custom' %}color-custom{% else %}color-{{ section.settings.container_color_scheme }}{% endif %} gradient"
                 {{ block.shopify_attributes }}
               >
                 <details
@@ -80,12 +97,19 @@
                     open
                   {% endif %}
                 >
-                  <summary id="Summary-{{ block.id }}-{{ section.id }}">
+                  <summary
+                    id="Summary-{{ block.id }}-{{ section.id }}"
+                    role="button"
+                    aria-expanded="{% if section.settings.open_first_collapsible_row and forloop.first %}true{% else %}false{% endif %}"
+                    aria-controls="CollapsibleAccordion-{{ block.id }}-{{ section.id }}"
+                  >
                     {% render 'icon-accordion', icon: block.settings.icon %}
                     <h3 class="accordion__title inline-richtext h4">
-                      {{ block.settings.heading | default: block.settings.page.title | escape }}
+                      {{ block.settings.heading | default: block.settings.page.title }}
                     </h3>
-                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                    <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
+                    </svg>
                   </summary>
                   <div
                     class="accordion__content rte"
@@ -177,7 +201,7 @@
     {
       "type": "header",
       "content": "t:sections.collapsible_content.settings.layout_header.content"
-    },    
+    },
     {
       "type": "select",
       "id": "layout",
@@ -199,16 +223,128 @@
       "default": "none"
     },
     {
-      "type": "color_scheme",
+      "type": "select",
       "id": "container_color_scheme",
-      "label": "t:sections.collapsible_content.settings.container_color_scheme.label",
-      "default": "scheme-2"
-    },    
+      "options": [
+        {
+          "value": "scheme-1",
+          "label": "Scheme 1"
+        },
+        {
+          "value": "scheme-2",
+          "label": "Scheme 2"
+        },
+        {
+          "value": "scheme-3",
+          "label": "Scheme 3"
+        },
+        {
+          "value": "scheme-4",
+          "label": "Scheme 4"
+        },
+        {
+          "value": "scheme-5",
+          "label": "Scheme 5"
+        },
+        {
+          "value": "background-1",
+          "label": "Background 1"
+        },
+        {
+          "value": "background-2",
+          "label": "Background 2"
+        },
+        {
+          "value": "accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "accent-2",
+          "label": "Accent 2"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "background-1",
+      "label": "Container Color Scheme"
+    },
     {
-      "type": "color_scheme",
+      "type": "color",
+      "id": "container_custom_bg_color",
+      "default": "#ffffff",
+      "label": "Container Custom Background",
+      "info": "Only applies when Container Color Scheme is set to Custom"
+    },
+    {
+      "type": "color",
+      "id": "container_custom_text_color",
+      "default": "#2e2a39",
+      "label": "Container Custom Text Color",
+      "info": "Only applies when Container Color Scheme is set to Custom"
+    },
+    {
+      "type": "select",
       "id": "color_scheme",
-      "label": "t:sections.collapsible_content.settings.section_color_scheme.label",
-      "default": "scheme-1"
+      "options": [
+        {
+          "value": "scheme-1",
+          "label": "Scheme 1"
+        },
+        {
+          "value": "scheme-2",
+          "label": "Scheme 2"
+        },
+        {
+          "value": "scheme-3",
+          "label": "Scheme 3"
+        },
+        {
+          "value": "scheme-4",
+          "label": "Scheme 4"
+        },
+        {
+          "value": "scheme-5",
+          "label": "Scheme 5"
+        },
+        {
+          "value": "background-1",
+          "label": "Background 1"
+        },
+        {
+          "value": "background-2",
+          "label": "Background 2"
+        },
+        {
+          "value": "accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "accent-2",
+          "label": "Accent 2"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "accent-1",
+      "label": "Section Color Scheme"
+    },
+    {
+      "type": "color",
+      "id": "custom_bg_color",
+      "default": "#ffffff",
+      "label": "Section Custom Background",
+      "info": "Only applies when Section Color Scheme is set to Custom"
+    },
+    {
+      "type": "color",
+      "id": "custom_text_color",
+      "default": "#2e2a39",
+      "label": "Section Custom Text Color",
+      "info": "Only applies when Section Color Scheme is set to Custom"
     },
     {
       "type": "checkbox",
