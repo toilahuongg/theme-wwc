@@ -2389,6 +2389,9 @@
               "label": "Item spacing"
             }
           }
+        },
+        "feature_bullets": {
+          "name": "Feature Bullets"
         }
       },
       "settings": {
