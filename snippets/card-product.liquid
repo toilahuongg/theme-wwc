@@ -589,11 +589,18 @@
           <div
             class="media media--transparent"
           >
-            {%- if placeholder_image -%}
-              {{ placeholder_image | placeholder_svg_tag: 'placeholder-svg' }}
-            {%- else -%}
-              {{ 'product-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
-            {% endif %}
+            <a
+              href="{{ card_product.url }}"
+              id="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }}"
+              class="full-unstyled-link"
+              aria-labelledby="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }} NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+            >
+              {%- if placeholder_image -%}
+                {{ placeholder_image | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- else -%}
+                {{ 'product-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </a>
           </div>
         </div>
       </div>
