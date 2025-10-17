@@ -2215,13 +2215,9 @@ a.product__text {
   position: relative;
   width: 100%;
   overflow: hidden;
-  height: 50px;
   background: transparent;
 }
 
-.section-divider.waves-animated-1 {
-  height: 50px;
-}
 
 .section-divider.waves-animated-1 svg {
   width: 100%;
