@@ -2369,7 +2369,7 @@ a.product__text {
 
 .product__feature-bullets li {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: 12px;
   margin: 0 0 20px 0;
   color: rgb(var(--color-foreground));
