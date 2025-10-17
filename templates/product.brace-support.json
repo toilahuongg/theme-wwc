@@ -283,6 +283,81 @@
         "padding_bottom": 36
       }
     },
+    "comparison_table_r688kt": {
+      "type": "comparison-table",
+      "blocks": {
+        "comparison_row_fzh3Aw": {
+          "type": "comparison_row",
+          "settings": {
+            "feature_name": "4 in 1 Therapy",
+            "brand_has_feature": true,
+            "others_have_feature": false,
+            "checkmark_color": "#53af01",
+            "row_color_scheme": "accent-1",
+            "cell_color_scheme": "background-1"
+          }
+        },
+        "comparison_row_K7fVtt": {
+          "type": "comparison_row",
+          "settings": {
+            "feature_name": "Improves Posture in 10 Minutes Per Day",
+            "brand_has_feature": true,
+            "others_have_feature": false,
+            "checkmark_color": "#53af01",
+            "row_color_scheme": "accent-1",
+            "cell_color_scheme": "background-1"
+          }
+        },
+        "comparison_row_YWFnWG": {
+          "type": "comparison_row",
+          "settings": {
+            "feature_name": "Lasting Alignment & Confidence",
+            "brand_has_feature": true,
+            "others_have_feature": false,
+            "checkmark_color": "#53af01",
+            "row_color_scheme": "accent-1",
+            "cell_color_scheme": "background-1"
+          }
+        },
+        "comparison_row_eaeYmN": {
+          "type": "comparison_row",
+          "settings": {
+            "feature_name": "90-Day Money-Back Guarantee",
+            "brand_has_feature": true,
+            "others_have_feature": false,
+            "checkmark_color": "#53af01",
+            "row_color_scheme": "accent-1",
+            "cell_color_scheme": "background-1"
+          }
+        }
+      },
+      "block_order": [
+        "comparison_row_fzh3Aw",
+        "comparison_row_K7fVtt",
+        "comparison_row_YWFnWG",
+        "comparison_row_eaeYmN"
+      ],
+      "name": "Comparison Table",
+      "settings": {
+        "title": "Why Choose Us?",
+        "heading_size": "h1",
+        "description": "<p>Better Posture For a Better You...</p>",
+        "content_alignment": "center",
+        "brand_name": "Our Brand",
+        "logo_width": 100,
+        "logo_width_mobile": 60,
+        "brand_font_size": 1.8,
+        "others_label": "Others",
+        "others_font_size": 1.8,
+        "color_scheme": "background-1",
+        "custom_bg_color": "#ffffff",
+        "custom_text_color": "#2e2a39",
+        "custom_button_color": "#dd1d1d",
+        "custom_button_text_color": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "175464434686e5edcb": {
       "type": "apps",
       "blocks": {
@@ -344,6 +419,7 @@
     "image_with_text_djngjM",
     "divider_UzzYyg",
     "results_Aqnj3M",
+    "comparison_table_r688kt",
     "175464434686e5edcb",
     "related-products",
     "divider_fRqYUa"
