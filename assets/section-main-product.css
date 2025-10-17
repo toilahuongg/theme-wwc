@@ -2214,13 +2214,13 @@ a.product__text {
 .section-divider {
   position: relative;
   width: 100%;
-  height: 28px;
   overflow: hidden;
+  height: 50px;
   background: transparent;
 }
 
 .section-divider.waves-animated-1 {
-  height: 28px;
+  height: 50px;
 }
 
 .section-divider.waves-animated-1 svg {
