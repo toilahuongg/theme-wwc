@@ -3604,8 +3604,8 @@ details-disclosure > details {
 
 .size-chart-modal {
   position: relative;
-  padding: 80px;
-  border-radius: 20px;
+  padding: 20px;
+  border-radius: 10px;
 }
 .sizing-chart__title {
   text-align: center;
@@ -3657,10 +3657,5 @@ details-disclosure > details {
   }
   .sizing-chart__modal > * + * {
     margin-top: 1.5rem;
-  }
-
-  .size-chart-modal {
-    padding: 40px;
-    border-radius: 10px;
   }
 }
