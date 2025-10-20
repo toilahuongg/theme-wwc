@@ -539,14 +539,6 @@
 }
 
 @media screen and (max-width: 749px) {
-  .size-chart-image {
-    margin-top: 1.5rem;
-  }
-  
-  .size-chart-image img {
-    border-radius: 0.6rem;
-  }
-  
   #SizeChartModal-* .product-popup-modal__content {
     max-width: 95vw;
   }
