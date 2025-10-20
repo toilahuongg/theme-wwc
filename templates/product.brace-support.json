@@ -53,7 +53,7 @@
           "settings": {
             "button_text": "Size Chart",
             "size_chart_content": "{{ product.metafields.custom.size_chart_2.value }}",
-            "color_scheme": "scheme-4"
+            "color_scheme": "scheme-1"
           }
         },
         "quantity_selector": {
