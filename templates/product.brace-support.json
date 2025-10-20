@@ -52,7 +52,7 @@
           "type": "size_chart",
           "settings": {
             "button_text": "Size Chart",
-            "size_chart_image": "{{ product.metafields.custom.size_chart.value }}"
+            "size_chart_content": "{{ product.metafields.custom.size_chart_2.value }}"
           }
         },
         "quantity_selector": {
