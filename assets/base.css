@@ -3620,3 +3620,40 @@ details-disclosure > details {
 .sizing-chart-table tbody tr:nth-child(2n + 1) td:not(:last-child) {
   border-right: solid 2px rgba(var(--color-foreground), 0.03);
 }
+.sizing-chart__caption {
+  font-size: var(--text-size);
+  color: var(--text-color);
+  line-height: 1.3;
+}
+.sizing-chart-table + .sizing-chart__caption {
+  margin-top: 0.5em;
+}
+.sizing-chart__modal img {
+  width: 100%;
+}
+.sizing-chart__modal {
+  padding: 0;
+}
+.sizing-chart__modal > * + * {
+  margin-top: 2rem;
+}
+.sizing-chart__modal-container {
+  padding: 0.5rem 2rem 2rem;
+}
+@media screen and (max-width: 749px) {
+  .sizing-chart-table {
+    font-size: 1.2rem;
+  }
+  .sizing-chart__caption {
+    font-size: calc(var(--text-size) * 0.75);
+  }
+  .sizing-chart__modal > * + * {
+    margin-top: 1.5rem;
+  }
+  .sizing-chart__modal-container {
+    padding: 0 1.2rem 1.5rem;
+  }
+  .sizing-chart__modal-containe .product-popup-modal__toggle {
+    top: 1.2rem;
+  }
+}
