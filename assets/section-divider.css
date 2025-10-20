@@ -1,19 +1,24 @@
 .section-divider {
   position: relative;
-  overflow: hidden;
-  margin: 0;
-  line-height: 0;
 }
-
+.section-divider::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: calc(100% - 1px);
+  top: -1px;
+  z-index: -1;
+  width: 100%;
+  background: rgb(var(--color-background));
+}
 .section-divider__svg {
   --max-height: 150px;
   background: none;
   position: relative;
   overflow: hidden;
-  margin: -1px 0;
-  line-height: 0;
+  transform: translateY(1px);
 }
-
 .section-divider__svg svg {
   color: rgb(var(--color-background));
   display: block;
@@ -22,36 +27,25 @@
   overflow: hidden;
   max-height: var(--max-height);
 }
-
-.always-display {
-  display: block;
-}
-
-/* Animated Waves */
 .waves-animated-1 {
   --max-height: 3rem;
   margin: 0;
 }
-
 .parallax1 > use {
   animation: move-forever1 10s linear infinite;
 }
-
 .parallax2 > use {
   animation: move-forever2 8s linear infinite;
   opacity: 0.4;
 }
-
 .parallax3 > use {
   animation: move-forever3 6s linear infinite;
   opacity: 0.3;
 }
-
 .parallax4 > use {
   animation: move-forever4 4s linear infinite;
   opacity: 0.2;
 }
-
 @keyframes move-forever1 {
   0% {
     transform: translate(85px, 0%);
@@ -60,7 +54,6 @@
     transform: translate(-90px, 0%);
   }
 }
-
 @keyframes move-forever2 {
   0% {
     transform: translate(-90px, 0%);
@@ -69,7 +62,6 @@
     transform: translate(85px, 0%);
   }
 }
-
 @keyframes move-forever3 {
   0% {
     transform: translate(85px, 0%);
@@ -78,7 +70,6 @@
     transform: translate(-90px, 0%);
   }
 }
-
 @keyframes move-forever4 {
   0% {
     transform: translate(-90px, 0%);
@@ -87,7 +78,6 @@
     transform: translate(85px, 0%);
   }
 }
-
 @media screen and (min-width: 1000px) {
   .waves-animated-1 {
     --max-height: 6rem;
