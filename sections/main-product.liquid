@@ -494,7 +494,7 @@
                   </button>
                 </modal-opener>
               {%- when 'size_chart' -%}
-                {%- if block.settings.size_chart_image != blank -%}
+                {%- if block.settings.size_chart_content != blank -%}
                   <modal-opener
                     class="product-popup-modal__opener quick-add-hidden"
                     data-modal="#SizeChartModal-{{ block.id }}"
@@ -789,7 +789,7 @@
 
     {% assign size_chart_blocks = section.blocks | where: 'type', 'size_chart' %}
     {%- for block in size_chart_blocks -%}
-      {%- if block.settings.size_chart_image != blank -%}
+      {%- if block.settings.size_chart_content != blank -%}
         <modal-dialog
           id="SizeChartModal-{{ block.id }}"
           class="product-popup-modal"
@@ -804,13 +804,7 @@
             >
               {{- 'icon-close.svg' | inline_asset_content -}}
             </button>
-            <img
-              src="{{ block.settings.size_chart_image | image_url: width: 800 }}"
-              alt="{{ block.settings.button_text | escape }}"
-              width="{{ block.settings.size_chart_image.width }}"
-              height="{{ block.settings.size_chart_image.height }}"
-              loading="lazy"
-            >
+            {{ block.settings.size_chart_content.content }}
           </div>
         </modal-dialog>
       {%- endif -%}
