@@ -3602,6 +3602,9 @@ details-disclosure > details {
   list-style: none;
 }
 
+.size-chart-modal {
+  position: relative;
+}
 .sizing-chart-table {
   width: 100%;
   border-spacing: 0;
