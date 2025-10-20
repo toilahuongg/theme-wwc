@@ -792,10 +792,10 @@
       {%- if block.settings.size_chart_content != blank -%}
         <modal-dialog
           id="SizeChartModal-{{ block.id }}"
-          class="product-popup-modal gradient color-{{ section.settings.color_scheme }}"
+          class="product-popup-modal"
           {{ block.shopify_attributes }}
         >
-          <div class="size-chart-image">
+          <div class="size-chart-image gradient color-{{ section.settings.color_scheme }}">
             <button
               id="ModalClose-{{ block.id }}"
               type="button"
