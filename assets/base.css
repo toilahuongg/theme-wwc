@@ -3601,3 +3601,22 @@ details-disclosure > details {
 .list-unstyled {
   list-style: none;
 }
+
+.sizing-chart-table {
+  width: 100%;
+  border-spacing: 0;
+  border: solid 1px rgb(var(--color-foreground));
+}
+.sizing-chart-table th,
+.sizing-chart-table td {
+  padding: 0.4em;
+}
+.sizing-chart-table thead th:not(:last-child) {
+  border-right: solid 2px rgba(var(--color-background), 1);
+}
+.sizing-chart-table tbody tr:nth-child(2n) {
+  background: rgba(var(--color-foreground), 0.03);
+}
+.sizing-chart-table tbody tr:nth-child(2n + 1) td:not(:last-child) {
+  border-right: solid 2px rgba(var(--color-foreground), 0.03);
+}
