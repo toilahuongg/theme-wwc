@@ -3604,8 +3604,8 @@ details-disclosure > details {
 
 .size-chart-modal {
   position: relative;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 2.5rem;
+  border-radius: .75rem;
 }
 .sizing-chart__title {
   text-align: center;
