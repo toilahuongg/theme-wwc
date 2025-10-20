@@ -3604,6 +3604,11 @@ details-disclosure > details {
 
 .size-chart-modal {
   position: relative;
+  padding: 80px;
+  border-radius: 20px;
+}
+.sizing-chart__title {
+  text-align: center;
 }
 .sizing-chart-table {
   width: 100%;
@@ -3653,10 +3658,9 @@ details-disclosure > details {
   .sizing-chart__modal > * + * {
     margin-top: 1.5rem;
   }
-  .sizing-chart__modal-container {
-    padding: 0 1.2rem 1.5rem;
-  }
-  .sizing-chart__modal-containe .product-popup-modal__toggle {
-    top: 1.2rem;
+
+  .size-chart-modal {
+    padding: 40px;
+    border-radius: 10px;
   }
 }
