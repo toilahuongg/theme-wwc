@@ -99,7 +99,7 @@
               {%- if block.settings.image != blank -%}
                 {{
                   block.settings.image
-                  | image_url: width: 50
+                  | image_url: width: block.settings.image_width
                   | image_tag:
                     loading: 'lazy',
                     width: block.settings.image_width,
