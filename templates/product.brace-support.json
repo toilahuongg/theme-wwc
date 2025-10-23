@@ -192,7 +192,7 @@
         "heading_size": "h1",
         "description": "",
         "content_alignment": "center",
-        "color_scheme": "custom",
+        "color_scheme": "scheme-2",
         "custom_bg_color": "#ffffff",
         "custom_text_color": "#2e2a39",
         "custom_accent_color": "#dd1d1d",
