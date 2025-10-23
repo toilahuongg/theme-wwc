@@ -205,7 +205,7 @@
         "autoplay_interval": 8000,
         "pause_on_hover": false,
         "slider_gap": 20,
-        "slider_padding": 20
+        "slider_padding": 0
       }
     },
     "marquee_dTW4wg": {
