@@ -135,6 +135,79 @@
         "padding_bottom": 12
       }
     },
+    "slider_videos_WD4zBR": {
+      "type": "slider-videos",
+      "blocks": {
+        "slider_video_item_UckT3R": {
+          "type": "slider_video_item",
+          "settings": {
+            "video": "shopify://files/videos/bf4793a540c14b2fba877b1ee79ed1fd.HD-1080p-4.8Mbps-40663956.mp4",
+            "title": "",
+            "description": ""
+          }
+        },
+        "slider_video_item_pVG7xD": {
+          "type": "slider_video_item",
+          "settings": {
+            "video": "shopify://files/videos/a62593da5ebd4b4e8682c6ed70ecb005.HD-1080p-2.5Mbps-45352524.mp4",
+            "title": "",
+            "description": ""
+          }
+        },
+        "slider_video_item_RMNxeC": {
+          "type": "slider_video_item",
+          "settings": {
+            "video": "shopify://files/videos/360e13192f274ab38686a33e4e3cb4d6.HD-720p-1.6Mbps-45863173.mp4",
+            "title": "",
+            "description": ""
+          }
+        },
+        "slider_video_item_wQF8BY": {
+          "type": "slider_video_item",
+          "settings": {
+            "video": "shopify://files/videos/9c44232c33ed4cfebf1966dc7afd5b68.HD-1080p-4.8Mbps-40663955.mp4",
+            "title": "",
+            "description": ""
+          }
+        },
+        "slider_video_item_gnLjPz": {
+          "type": "slider_video_item",
+          "settings": {
+            "video": "shopify://files/videos/4c38f14e1ad949ffa6836682dfa4aac0.HD-720p-1.6Mbps-47019657.mp4",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "slider_video_item_UckT3R",
+        "slider_video_item_pVG7xD",
+        "slider_video_item_RMNxeC",
+        "slider_video_item_wQF8BY",
+        "slider_video_item_gnLjPz"
+      ],
+      "name": "Slider Videos",
+      "settings": {
+        "title": "Here's What Over 5,000+ Verified Customers Have To Say...",
+        "heading_size": "h1",
+        "description": "",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "custom_bg_color": "#ffffff",
+        "custom_text_color": "#2e2a39",
+        "custom_accent_color": "#dd1d1d",
+        "custom_button_color": "#dd1d1d",
+        "custom_button_text_color": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "slides_to_show": 3,
+        "autoplay": true,
+        "autoplay_interval": 8000,
+        "pause_on_hover": false,
+        "slider_gap": 20,
+        "slider_padding": 20
+      }
+    },
     "marquee_dTW4wg": {
       "type": "marquee",
       "blocks": {
@@ -482,6 +555,7 @@
   },
   "order": [
     "main",
+    "slider_videos_WD4zBR",
     "marquee_dTW4wg",
     "image_with_text_DbBPiK",
     "image_with_text_djngjM",
