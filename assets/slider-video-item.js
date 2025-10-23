@@ -112,6 +112,11 @@ class SliderVideoItem extends HTMLElement {
             font-size: 1rem;
           }
         }
+        @media screen and (max-width: 480px) {
+          .video-container {
+            height: 150px;
+          }
+        }
       </style>
       <div class="slide">
         <div class="video-container">
