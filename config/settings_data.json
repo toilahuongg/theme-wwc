@@ -28,6 +28,11 @@
         "type": "shopify://apps/xo-scroll-to-top/blocks/xo-scrolltop/ea52da47-6aa9-474c-8ff9-df181b3784b4",
         "disabled": false,
         "settings": {}
+      },
+      "9241046253743163954": {
+        "type": "shopify://apps/sticky-add-to-cart-bar/blocks/app-embed/e98261d9-7a53-483b-8aaa-054afd5be639",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
