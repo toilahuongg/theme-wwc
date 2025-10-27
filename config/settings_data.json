@@ -19,18 +19,8 @@
     "media_radius": 20,
     "content_for_index": [],
     "blocks": {
-      "3074145603538236224": {
-        "type": "shopify://apps/air-reviews-1/blocks/app-embed/c4e1e9ca-4d46-4e76-bc39-7e42417cb327",
-        "disabled": false,
-        "settings": {}
-      },
-      "5846654113244447633": {
-        "type": "shopify://apps/xo-scroll-to-top/blocks/xo-scrolltop/ea52da47-6aa9-474c-8ff9-df181b3784b4",
-        "disabled": false,
-        "settings": {}
-      },
-      "9241046253743163954": {
-        "type": "shopify://apps/sticky-add-to-cart-bar/blocks/app-embed/e98261d9-7a53-483b-8aaa-054afd5be639",
+      "11707204784976305659": {
+        "type": "shopify://apps/sticky-add-to-cart-test/blocks/scripts/019a1734-7077-73d1-9069-641a9ae39ccf",
         "disabled": false,
         "settings": {}
       }
