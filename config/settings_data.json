@@ -21,7 +21,7 @@
     "blocks": {
       "11707204784976305659": {
         "type": "shopify://apps/sticky-add-to-cart-test/blocks/scripts/019a1734-7077-73d1-9069-641a9ae39ccf",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
       }
     },
