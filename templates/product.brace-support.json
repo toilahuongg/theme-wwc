@@ -551,6 +551,16 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "custom_liquid_3T6iDH": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<script>\n    window.__STICKY_ADD_TO_CART__ = {\n      productName: '{{ product.title }}',\n      moneyFormat: '{{ shop.money_format }}',\n      variants: {{ product.variants | json }},\n      options: {{ product.options_with_values | json }},\n      featuredImage: '{{ product.featured_image | image_url }}',\n      shopLocale: '{{ shop.locale }}',\n    };\n</script>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -564,6 +574,7 @@
     "comparison_table_r688kt",
     "175464434686e5edcb",
     "related-products",
-    "divider_fRqYUa"
+    "divider_fRqYUa",
+    "custom_liquid_3T6iDH"
   ]
 }
