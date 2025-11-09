@@ -24,17 +24,15 @@
           "type": "title",
           "settings": {}
         },
-        "air_product_reviews_app_summary_block_x8jQJY": {
-          "type": "shopify://apps/air-product-reviews/blocks/app-summary-block/c4e1e9ca-4d46-4e76-bc39-7e42417cb327",
-          "settings": {}
-        },
         "price": {
           "type": "price",
           "settings": {}
         },
-        "description": {
-          "type": "description",
-          "settings": {}
+        "richtext_Jx87ER": {
+          "type": "richtext",
+          "settings": {
+            "richtext": "<p>★ Add your rich text content here.</p><p>★ Add your rich text content here.</p><p>★ Add your rich text content here.</p>"
+          }
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -47,7 +45,23 @@
           "type": "size_chart",
           "settings": {
             "button_text": "Size Chart",
-            "size_chart_image": "{{ product.metafields.custom.size_chart.value }}"
+            "size_chart_content": "",
+            "color_scheme": ""
+          }
+        },
+        "xb_wishlist_button_wishlist_JaHhwh": {
+          "type": "shopify://apps/xb-wishlist/blocks/button_wishlist/cc07f1e9-907b-431d-99f8-4fce3efa75f1",
+          "settings": {
+            "btn_style": "style3",
+            "btn_width-type": "manual",
+            "btn_width": 440,
+            "btn_bg-color": "transparent",
+            "btn_border-color": "#000",
+            "btn_border-radius": 4,
+            "text_size": 16,
+            "text_color": "#000",
+            "icon_color": "#ff0000",
+            "icon_size": 2
           }
         },
         "quantity_selector": {
@@ -60,6 +74,10 @@
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
           }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
         },
         "icon_with_text_VbwEcP": {
           "type": "icon-with-text",
@@ -77,39 +95,20 @@
             "text_align": "center",
             "item_spacing": 16
           }
-        },
-        "collapsible_tab_czNgbK": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Shipping & Delivery",
-            "icon": "truck",
-            "content": "<p>We process orders within <strong>1-2 business days</strong>. After dispatch, the estimated delivery time is <strong>4-8 business days</strong>.</p><p>Once your order has been shipped, you will receive a <strong>tracking number</strong> via email. You can conveniently track your order <strong>directly on our website</strong> to stay updated on its journey. 🚚</p><p>For any questions or assistance, feel free to contact our support team at help@corecareshop.com. We’re here to help!\"</p>",
-            "page": ""
-          }
-        },
-        "collapsible_tab_NCcUTc": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "FAQs",
-            "icon": "question_mark",
-            "content": "{{ product.metafields.custom.faqs | metafield_tag }}",
-            "page": ""
-          }
         }
       },
       "block_order": [
         "vendor",
         "title",
-        "air_product_reviews_app_summary_block_x8jQJY",
         "price",
-        "description",
+        "richtext_Jx87ER",
         "variant_picker",
         "size_chart_PKrbWp",
+        "xb_wishlist_button_wishlist_JaHhwh",
         "quantity_selector",
         "buy_buttons",
-        "icon_with_text_VbwEcP",
-        "collapsible_tab_czNgbK",
-        "collapsible_tab_NCcUTc"
+        "description",
+        "icon_with_text_VbwEcP"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -224,20 +223,6 @@
     },
     "175464434686e5edcb": {
       "type": "apps",
-      "blocks": {
-        "air_product_reviews_app_block_review_list_tNiRDC": {
-          "type": "shopify://apps/air-product-reviews/blocks/app-block-review-list/c4e1e9ca-4d46-4e76-bc39-7e42417cb327",
-          "settings": {
-            "air_blockreviews_summaryHeading": "Reviews",
-            "air_blockreviews_layout": "list",
-            "air_blockreviews_singleStarColor": "#16a086",
-            "air_blockreviews_primaryColor": "#121212"
-          }
-        }
-      },
-      "block_order": [
-        "air_product_reviews_app_block_review_list_tNiRDC"
-      ],
       "settings": {
         "include_margins": true
       }
