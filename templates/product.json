@@ -34,6 +34,10 @@
             "richtext": "<p>★ Add your rich text content here.</p><p>★ Add your rich text content here.</p><p>★ Add your rich text content here.</p>"
           }
         },
+        "judge_me_reviews_preview_badge_GALmdQ": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -55,11 +59,11 @@
             "btn_style": "style3",
             "btn_width-type": "manual",
             "btn_width": 440,
-            "btn_bg-color": "transparent",
-            "btn_border-color": "#000",
+            "btn_bg-color": "rgba(0,0,0,0)",
+            "btn_border-color": "#000000",
             "btn_border-radius": 4,
             "text_size": 16,
-            "text_color": "#000",
+            "text_color": "#000000",
             "icon_color": "#ff0000",
             "icon_size": 2
           }
@@ -102,6 +106,7 @@
         "title",
         "price",
         "richtext_Jx87ER",
+        "judge_me_reviews_preview_badge_GALmdQ",
         "variant_picker",
         "size_chart_PKrbWp",
         "xb_wishlist_button_wishlist_JaHhwh",
@@ -244,6 +249,12 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "17630291006f316eda": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -251,6 +262,7 @@
     "image_with_text_DbBPiK",
     "image_with_text_djngjM",
     "175464434686e5edcb",
-    "related-products"
+    "related-products",
+    "17630291006f316eda"
   ]
 }
