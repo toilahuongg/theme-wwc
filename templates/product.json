@@ -34,10 +34,6 @@
             "richtext": "<p>★ Add your rich text content here.</p><p>★ Add your rich text content here.</p><p>★ Add your rich text content here.</p>"
           }
         },
-        "judge_me_reviews_preview_badge_GALmdQ": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -51,21 +47,6 @@
             "button_text": "Size Chart",
             "size_chart_content": "",
             "color_scheme": ""
-          }
-        },
-        "xb_wishlist_button_wishlist_JaHhwh": {
-          "type": "shopify://apps/xb-wishlist/blocks/button_wishlist/cc07f1e9-907b-431d-99f8-4fce3efa75f1",
-          "settings": {
-            "btn_style": "style3",
-            "btn_width-type": "manual",
-            "btn_width": 440,
-            "btn_bg-color": "rgba(0,0,0,0)",
-            "btn_border-color": "#000000",
-            "btn_border-radius": 4,
-            "text_size": 16,
-            "text_color": "#000000",
-            "icon_color": "#ff0000",
-            "icon_size": 2
           }
         },
         "quantity_selector": {
@@ -106,10 +87,8 @@
         "title",
         "price",
         "richtext_Jx87ER",
-        "judge_me_reviews_preview_badge_GALmdQ",
         "variant_picker",
         "size_chart_PKrbWp",
-        "xb_wishlist_button_wishlist_JaHhwh",
         "quantity_selector",
         "buy_buttons",
         "description",
@@ -252,19 +231,27 @@
     },
     "17630291006f316eda": {
       "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "17639150678a3201ec": {
+      "type": "apps",
       "blocks": {
-        "judge_me_reviews_review_widget_zy6UjE": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "loox_reviews_loox_dynamic_section_qBVeBa": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-dynamic-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
           "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
+            "only_photos": false,
+            "aggregated": false,
+            "limit": 20,
+            "hide_thumbnails": false,
+            "maxwidth": 1080,
+            "is_sample": false
           }
         }
       },
       "block_order": [
-        "judge_me_reviews_review_widget_zy6UjE"
+        "loox_reviews_loox_dynamic_section_qBVeBa"
       ],
       "settings": {
         "include_margins": true
@@ -277,6 +264,7 @@
     "image_with_text_djngjM",
     "175464434686e5edcb",
     "related-products",
-    "17630291006f316eda"
+    "17630291006f316eda",
+    "17639150678a3201ec"
   ]
 }
