@@ -19,11 +19,6 @@
     "media_radius": 20,
     "content_for_index": [],
     "blocks": {
-      "11707204784976305659": {
-        "type": "shopify://apps/sticky-add-to-cart-test/blocks/scripts/019a1734-7077-73d1-9069-641a9ae39ccf",
-        "disabled": false,
-        "settings": {}
-      },
       "11413113034274116516": {
         "type": "shopify://apps/xb-wishlist/blocks/wishlist_collection/cc07f1e9-907b-431d-99f8-4fce3efa75f1",
         "disabled": false,
@@ -51,8 +46,8 @@
           "custom_open_cart": ""
         }
       },
-      "14060646107696862457": {
-        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+      "6869026922187995723": {
+        "type": "shopify://apps/stickyatc-test/blocks/scripts/019ab10e-58d2-7b55-895c-2ca30e002c55",
         "disabled": false,
         "settings": {}
       }
