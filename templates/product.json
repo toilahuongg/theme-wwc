@@ -53,6 +53,32 @@
           "type": "quantity_selector",
           "settings": {}
         },
+        "wishlist_plus_wishlist_pdp_button_NqnT4i": {
+          "type": "shopify://apps/wishlist-plus/blocks/wishlist-pdp-button/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
+          "settings": {
+            "swym_atw_button_icon": "heart",
+            "swym_atw_icon_thickness": 1.7,
+            "swym_atw_display_btn_text": true,
+            "swym_button_position": "default",
+            "swym_atw_button_vertical_offset": 0,
+            "swym_atw_full_width": true,
+            "swym_atw_button_alignment": "center",
+            "swym_add_to_wishlist_color": "#000000",
+            "swym_added_to_wishlist_color": "#222222",
+            "swym_button_text_color": "#fff",
+            "swym_atw_border_color": "#000",
+            "swym_atw_border_thickness": 0,
+            "swym_atw_button_border_radius": 0,
+            "swym_enable_hover_customization": false,
+            "swym_hover_add_to_wishlist_color": "#000000",
+            "swym_hover_added_to_wishlist_color": "#222222",
+            "swym_hover_button_text_color": "#fff",
+            "swym_hover_atw_border_color": "#000",
+            "swym_hover_atw_border_thickness": 0,
+            "swym_hover_atw_button_border_radius": 0,
+            "swym_custom_css": ""
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -90,6 +116,7 @@
         "variant_picker",
         "size_chart_PKrbWp",
         "quantity_selector",
+        "wishlist_plus_wishlist_pdp_button_NqnT4i",
         "buy_buttons",
         "description",
         "icon_with_text_VbwEcP"
@@ -237,22 +264,6 @@
     },
     "17639150678a3201ec": {
       "type": "apps",
-      "blocks": {
-        "loox_reviews_loox_dynamic_section_qBVeBa": {
-          "type": "shopify://apps/loox-reviews/blocks/loox-dynamic-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-          "settings": {
-            "only_photos": false,
-            "aggregated": false,
-            "limit": 20,
-            "hide_thumbnails": false,
-            "maxwidth": 1080,
-            "is_sample": false
-          }
-        }
-      },
-      "block_order": [
-        "loox_reviews_loox_dynamic_section_qBVeBa"
-      ],
       "settings": {
         "include_margins": true
       }
