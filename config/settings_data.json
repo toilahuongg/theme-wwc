@@ -19,11 +19,6 @@
     "media_radius": 20,
     "content_for_index": [],
     "blocks": {
-      "11707204784976305659": {
-        "type": "shopify://apps/sticky-add-to-cart-test/blocks/scripts/019a1734-7077-73d1-9069-641a9ae39ccf",
-        "disabled": false,
-        "settings": {}
-      },
       "17245200442580925564": {
         "type": "shopify://apps/wishlist/blocks/xo-wishlist/019b35db-185a-7012-9bb3-080d07991ff3",
         "disabled": true,
@@ -71,6 +66,11 @@
           "swym_variant_selector_create_list_placeholder_text": "Enter wishlist name",
           "swym_variant_selector_create_list_title": "Name Your Wishlist"
         }
+      },
+      "11707204784976305659": {
+        "type": "shopify://apps/sticky-add-to-cart-test/blocks/scripts/019a1734-7077-73d1-9069-641a9ae39ccf",
+        "disabled": true,
+        "settings": {}
       }
     },
     "color_schemes": {
