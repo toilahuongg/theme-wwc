@@ -26,14 +26,14 @@
           "selector_collection": ""
         }
       },
-      "5336852973447841014": {
-        "type": "shopify://apps/essential-subscriptions/blocks/app-embed/019d2fcc-fee6-707d-96d6-4dc2fa06f54b",
-        "disabled": false,
-        "settings": {}
-      },
       "2724325275511621162": {
         "type": "shopify://apps/kaching-subscriptions/blocks/app-embed-block/1fa39fd7-f6a3-4bbc-9383-7d91d27b44f5",
         "disabled": false,
+        "settings": {}
+      },
+      "5336852973447841014": {
+        "type": "shopify://apps/essential-subscriptions/blocks/app-embed/019d2fcc-fee6-707d-96d6-4dc2fa06f54b",
+        "disabled": true,
         "settings": {}
       }
     },
