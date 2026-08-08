@@ -12,10 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "essential_subscriptions_app_block_daBwFg": {
-          "type": "shopify://apps/essential-subscriptions/blocks/app-block/019d2fcc-fee6-707d-96d6-4dc2fa06f54b",
-          "settings": {}
-        },
         "vendor": {
           "type": "text",
           "disabled": true,
@@ -87,7 +83,6 @@
         }
       },
       "block_order": [
-        "essential_subscriptions_app_block_daBwFg",
         "vendor",
         "title",
         "price",
